@@ -1,0 +1,358 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>手动安装Apache+PHP+MYSQL及环境配置 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="先准备好软件：
+Apache官方下载地址：apache_2.0.55-win32-x86-no_ssl.msi，更多版本在这里；
+php官方下载地址：php-5.0.5-Win32.zip，更多镜像下载地址，更多版本下载；
+mysql官方下载地址：mysql-4.1.14-win32.zip，更多镜">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/17/手动安装Apache-PHP-MYSQL及环境配置/" title="手动安装Apache+PHP+MYSQL及环境配置" itemprop="url">手动安装Apache+PHP+MYSQL及环境配置</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-09-17T06:41:00.000Z" itemprop="datePublished">2015-09-17</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+		</div>
+		
+		<p>先准备好软件：</p>
+<p>Apache官方下载地址：apache_2.0.55-win32-x86-no_ssl.msi，<a href="http://httpd.apache.org/download.cgi" target="_blank" rel="external">更多版本在这里</a>；</p>
+<p>php官方下载地址：php-5.0.5-Win32.zip，<a href="http://www.php.net/get/php-5.0.5-Win32.zip/from/a/mirror" target="_blank" rel="external">更多镜像下载地址</a>，<a href="http://www.php.net/downloads.php" target="_blank" rel="external">更多版本下载</a>；</p>
+<p>mysql官方下载地址：mysql-4.1.14-win32.zip，<a href="http://dev.mysql.com/get/Downloads/MySQL-4.1/mysql-4.1.14-win32.zip/from/pick#mirrors" target="_blank" rel="external">更多镜像下载地址</a>，<a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">更多版本下载</a>。</p>
+<p>&nbsp;</p>
+<p>一、apache的安装与配制。</p>
+<p>&nbsp;&nbsp;1)安装apache:</p>
+<p>　　如果机子上装有IIS,要先把80端口让出来(即停止网站)，然后开始安装apache，运行下载的Apache软件，自定义安装。</p>
+<p>&nbsp;&nbsp; 　启动IE,在浏览器中软输入”<a href="http://localhost/" target="_blank" rel="external">http://localhost/</a>“ 或者输入”<a href="http://127.0.0.1" target="_blank" rel="external">http://127.0.0.1</a>“</p>
+<p>　　如果可以看到&ldquo;It works!&rdquo;提示，,表示安装成功。</p>
+<p>　　如果你想同时运行IIS和apache，可以修改IIS的端口或修改apache的端口(配制文件：http.conf)。</p>
+<p>&nbsp;&nbsp; 2)配制apache:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 事实上，如果不配置，你的安装目录下的Apache2/htdocs文件夹就是网站的默认根目录，在里面放入文件就可以了。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 现在开始配置Apache服务器，以使它更好的替我们服务，</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 1)查找&ldquo;DocumentRoot&rdquo;（也就是网站根目录）</p>
+<p>　&nbsp;&nbsp;&nbsp;&nbsp; 将DocumentRoot的默认值改成你网站根目录，如：”D:/iphppub/www”（注：文件地址的&ldquo;/&rdquo;在Apache里要改成&ldquo;/&rdquo;）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 2)查找&lt;Directory “＊＊＊/Apache2.2/htdocs”&gt;&rdquo;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将”＊＊＊/Apache2.2/htdocs”改成你网站的根目录，要与DocumentRoot的值相同。&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 3)查找DirectoryIndex，添加默认首页（即目录索引，也就是在仅指定目录的情况下，默认显示的文件名），可以添加很多，系统&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 会根据从左至右的顺序来优先显示，以单个半角空格隔开。网站的首页是index.php，就在其后加上&ldquo;index.php&rdquo;即可。</p>
+<p>二、php的安装与配制。</p>
+<p>　　1)解压下载的php-5.2.3-Win32.zip到指定目录，假设为：D:/php523。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2)现在开始将php以module方式与Apache相结合，使php融入Apache，打开Apache的配置文件，</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 添加如下两行</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第一行&ldquo;LoadModule php5_module D:/php523/php5apache2_2.dll&rdquo;是指以module方式加载php，</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二行&ldquo;PHPIniDir “D:/php523” 是指明php的配置文件php.ini的位置，当然其中的&ldquo;D:/php&rdquo;要</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;改成你先前选择的php解压缩的目录。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3)加入&ldquo;AddType application/x-httpd-php .php&rdquo;、&ldquo;AddType application/x-httpd-php .html&rdquo;两行，</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 你也可以加入更多，实质就是添加可以执行php的文件类型，</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 比如你再加上一行&ldquo;AddType application/x-httpd-php .htm&rdquo;，则.htm文件也可以执行php程序了，</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 你甚至还可以添加上一行&ldquo;AddType application/x-httpd-php .txt&rdquo;，让文本<a href="http://www.qqread.com/keys/file-format/index.html" target="_blank" rel="external">文件格式</a>也能运行php.</p>
+<p>&nbsp;</p>
+<p>　　★测试PHP配置是否成功,打开记事本,输入以下代码<br>&nbsp;　　　　&lt;?php<br>&nbsp;&nbsp;　　　　　phpinfo()<br>&nbsp;　　　　?&gt;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 　　　将代码保存成version.php 然后停止apache服务器,再启动.将version.php拷贝到”D:/iphppub/www”目录下,</p>
+<p>　　　然后IE中输入”<a href="http://localhost/version.php" target="_blank" rel="external">http://localhost/version.php</a>“<br>&nbsp;&nbsp;&nbsp;&nbsp; 　　　如果配制正确,就可以看到大多数的系统配置信息&nbsp;</p>
+<p>&nbsp;</p>
+<p>三、mysql的安装，与php<strong>、</strong>Apache相结合</p>
+<p>　　1)打开下载的mysql安装文件mysql-4.1.14-win32.zip，双击解压缩，运行安装.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2)安装成功，开始与与Apache及php相结合，在php安装目录下找到php.ini-recommended并将其命名为php.ini，</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 打开php.ini 把&ldquo;;extension=php_mysql.dll&rdquo;前的&ldquo;;&rdquo;去掉，加载mysql模块。保存，关闭后，重启apache就可以了。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这里也可以选择其它要加载的模块，去掉前面的&ldquo;;&rdquo;，就表示要加载此模块了，加载的越多，占用的资源也就多一点，不过</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 也多不到哪去。所有的模块文件都放在php解压缩目录的&ldquo;ext&rdquo;之下。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3)搜索extension_dir = “./“ 这行，并将其路径指到你的PHP目录下的extensions目录，</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 比如：extension_dir = “D:/php523/ext”</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4)libmysql.dll考备到系统文件windows文件夹下。</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▲启动PHP对MYSQL的支持模块,在php.ini文件中查找”extension=php_mysql.dll”字符串,去掉前的分号</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 下面通过简单的代码测试MYSQL安装,配制情况(注意:重启一下apache服务)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;?php<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $link=mysql_connect(‘localhost’,’root’,’123456’);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;if(!$link) echo “失败”;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else echo “成功”;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mysql_close();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&gt;</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/09/17/手动安装Apache-PHP-MYSQL及环境配置/" data-title="手动安装Apache+PHP+MYSQL及环境配置 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/18/laravel-去掉index-php伪静态/" title="laravel 去掉index.php伪静态">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  laravel 去掉index.php伪静态</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/05/07/【javascript】ajax-基础/"  title="【javascript】ajax 基础">
+ <strong>NEXT:</strong><br/> 
+ <span>【javascript】ajax 基础
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

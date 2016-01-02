@@ -1,0 +1,619 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>zen-Coding在Notepad++中的使用 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="zen-Coding是一款快速编写HTML,CSS（或其他格式化语言）代码的编辑器插件，这个插件可以用缩写方式完成大量重复的编码工作，是web前端从业者的利器。 zen-Coding插件支持多种编辑器，如UltraEdit，Notepad++等。温馨提示：zen-Coding已经改名Emmet，并且">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/12/zen-Coding在Notepad-中的使用/" title="zen-Coding在Notepad++中的使用" itemprop="url">zen-Coding在Notepad++中的使用</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-03-12T06:23:00.000Z" itemprop="datePublished">2015-03-12</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#Zend_Coding_u8BED_u6CD5"><span class="toc-number">1.</span> <span class="toc-text">Zend Coding语法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#u4E09_u3001Notepad++_u4E2Dzen-coding_u7684_u4F7F_u7528"><span class="toc-number">2.</span> <span class="toc-text">三、Notepad++中zen-coding的使用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zen-coding_u5E38_u7528_u7F29_u5199"><span class="toc-number"></span> <span class="toc-text">zen-coding常用缩写</span></a>
+		</div>
+		
+		<div id="cnblogs_post_body"><br><br>zen-Coding是一款快速编写HTML,CSS（或其他格式化语言）代码的编辑器插件，这个插件可以用缩写方式完成大量重复的编码工作，是web前端从业者的利器。 zen-Coding插件支持多种编辑器，如UltraEdit，Notepad++等。<br><br>温馨提示：zen-Coding已经改名<span style="font-size: 15px; color: #ff0000;"><strong>Emmet</strong>，并且搭建了一个新的网站：docs.emmet.io。</span><br><br>zen-Conding下载地址：<a href="http://code.google.com/p/zen-coding/downloads/list" title="zen-Coding" target="_blank" rel="external">http://code.google.com/p/zen-coding/downloads/list</a> (进入下载页，选择相应的编辑器插件下载)<br><br>Notepad++ 是一款无比轻巧便捷的代码编辑工具。它无可挑剔的启动速度，优秀的语法高亮，干净整齐的代码缩进，便捷的括号高亮匹配赢得了无数人的喜爱。 但，其代码自动补全很&ldquo;鸡肋&rdquo;，或者说Notepad++根本就没有代码补全功能。平时改点源代码很方便，但是想单独的写点源代码就比较麻烦了，难道要一 点点的都敲吗？先上段视频：<br><br><img src="http://s2.homezz.com/201103/1387_o.gif" alt=""><br><br>怎么样？惊呆了吧。Zen Coding&ndash;一款使用仿CSS选择器的语法来快速开发HTML和CSS的插件。它无视了编辑器的自动提示和自动完成，秒杀了你自定义的各种快捷键或者 AHK 的热字符串，以智能简洁高效的缩短输入，带给你超快速地书写各种复杂而枯燥的 HTML 和 CSS 代码的体验。<br><br>1.下载zen-Coding的Notepad++插件;(<a href="http://zen-coding.googlecode.com/files/Zen.Coding-Notepad%2B%2B.v0.7.zip" title="zen-Coding for Notepad++" target="_blank" rel="external">zen-Coding for Notepad++</a>)<br>2.解压后将压缩包中的文件放入Notepad++安装目录下的plugins文件夹中;<br>3.重新启动Notepad++编辑器就能看到菜单栏上增加了一项Zen Coding。如下图所示：<br><br><a href="http://www.bwtx.org/wp-content/uploads/2011/07/zen-coding-face.gif" target="_blank" rel="external"><img src="http://www.bwtx.org/wp-content/uploads/2011/07/zen-coding-face.gif" alt="zen-coding-face" title="zen-coding-face"></a><br><br>##### 二、zen-Coding的使用<br><br>zen-Coding的使用需要掌握CSS和HTML相关知识。其实只要对CSS的选择器比较熟悉，就可以得用简短的类似于CSS选择器的代码高效的编写出HTML代码。打开Notepad++编辑器，输入以下代码：<br><strong><br>div#name</strong><br><br>然后接着按一下快捷键ctrl+E，就会自动生成如下的HTML代码：<br><br><div><br><div id="highlighter_616063" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``div</code> <code>id``=``&quot;name&quot;``&amp;gt;&amp;lt;/``div``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p>接下来看一个更高效的例子</p>
+<p><strong>div#header&gt;div#logo+ul.nav&gt;li.item-$*5&gt;a</strong></p>
+<p>按ctrl+E生成如下代码</p>
+<div><br><div id="highlighter_121480" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div><br><div class="line number3 index2 alt2">3 </div><br><div class="line number4 index3 alt1">4 </div><br><div class="line number5 index4 alt2">5 </div><br><div class="line number6 index5 alt1">6 </div><br><div class="line number7 index6 alt2">7 </div><br><div class="line number8 index7 alt1">8 </div><br><div class="line number9 index8 alt2">9 </div><br><div class="line number10 index9 alt1">10 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``div</code> <code>id``=``&quot;header&quot;``&amp;gt;</code></div><br><div class="line number2 index1 alt1"><code>&amp;lt;``div</code> <code>id``=``&quot;logo&quot;``&amp;gt;&amp;lt;/``div``&amp;gt;</code></div><br><div class="line number3 index2 alt2"><code>&amp;lt;``ul</code> <code>class``=``&quot;nav&quot;``&amp;gt;</code></div><br><div class="line number4 index3 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item-1&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number5 index4 alt2"><code>&amp;lt;``li</code> <code>class``=``&quot;item-2&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number6 index5 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item-3&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number7 index6 alt2"><code>&amp;lt;``li</code> <code>class``=``&quot;item-4&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number8 index7 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item-5&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number9 index8 alt2"><code>&amp;lt;/``ul``&amp;gt;</code></div><br><div class="line number10 index9 alt1"><code>&amp;lt;/``div``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<h5 id="Zend_Coding_u8BED_u6CD5"><a href="#Zend_Coding_u8BED_u6CD5" class="headerlink" title="Zend Coding语法"></a><strong>Zend Coding语法</strong></h5><p><span style="color: #800000;"><strong>1.E | E#name | E.name</strong></span></p>
+<p>这里<strong>E</strong>表示元素，如p,div等。#name和.name分别表示ID和class属性。例：</p>
+<p><strong>div</strong></p>
+<div><br><div id="highlighter_737308" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``div``&amp;gt;&amp;lt;/``div``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><strong>div#main</strong></p>
+<div><br><div id="highlighter_587960" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``div</code> <code>id``=``&quot;main&quot;``&amp;gt;&amp;lt;/``div``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><strong>ul.item</strong></p>
+<div><br><div id="highlighter_417997" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;/``li``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p>如要显示一个id和多个class属性时，可以这样写</p>
+<p><strong>ul#nav.one.two</strong></p>
+<div><br><div id="highlighter_89306" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``ul</code> <code>id``=``&quot;nav&quot;</code> <code>class``=``&quot;one two&quot;``&amp;gt;&amp;lt;/``ul``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><span style="color: #800000;"><strong>2.E&gt;E | E#name&gt;E#name | E.#name&gt;E.name | E.name&gt;E.name</strong></span></p>
+<p>&gt;表示父级嵌套子级。例：</p>
+<p><strong>div&gt;span</strong></p>
+<div><br><div id="highlighter_655270" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``div``&amp;gt;&amp;lt;``span``&amp;gt;&amp;lt;/``span``&amp;gt;&amp;lt;/``div``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><strong>div#nav&gt;ul.main</strong></p>
+<div><br><div id="highlighter_589905" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div><br><div class="line number3 index2 alt2">3 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``div</code> <code>id``=``&quot;nav&quot;``&amp;gt;</code></div><br><div class="line number2 index1 alt1"><code>&amp;lt;``ul</code> <code>class``=``&quot;main&quot;``&amp;gt;&amp;lt;/``ul``&amp;gt;</code></div><br><div class="line number3 index2 alt2"><code>&amp;lt;/``div``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><span style="color: #800000;"><strong>3.E+E | E#name+E#name | E.#name+E.name | E.name+E.name</strong></span></p>
+<p>+号表示兄弟关系。例：</p>
+<p><strong>p+p</strong></p>
+<div><br><div id="highlighter_365693" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``p``&amp;gt;&amp;lt;/``p``&amp;gt;</code></div><br><div class="line number2 index1 alt1"><code>&amp;lt;``p``&amp;gt;&amp;lt;/``p``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><strong>div#header+div#content+div#footer</strong></p>
+<div><br><div id="highlighter_127605" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div><br><div class="line number3 index2 alt2">3 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``div</code> <code>id``=``&quot;header&quot;``&amp;gt;&amp;lt;/``div``&amp;gt;</code></div><br><div class="line number2 index1 alt1"><code>&amp;lt;``div</code> <code>id``=``&quot;content&quot;``&amp;gt;&amp;lt;/``div``&amp;gt;</code></div><br><div class="line number3 index2 alt2"><code>&amp;lt;``div</code> <code>id``=``&quot;footer&quot;``&amp;gt;&amp;lt;/``div``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><span style="color: #800000;"><strong>E+ (+号表示会生成默认的子元素)</strong></span></p>
+<p><strong>table+</strong></p>
+<div><br><div id="highlighter_323527" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div><br><div class="line number3 index2 alt2">3 </div><br><div class="line number4 index3 alt1">4 </div><br><div class="line number5 index4 alt2">5 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``table``&amp;gt;</code></div><br><div class="line number2 index1 alt1"><code>&amp;lt;``tr``&amp;gt;</code></div><br><div class="line number3 index2 alt2"><code>&amp;lt;``td``&amp;gt;&amp;lt;/``td``&amp;gt;</code></div><br><div class="line number4 index3 alt1"><code>&amp;lt;/``tr``&amp;gt;</code></div><br><div class="line number5 index4 alt2"><code>&amp;lt;/``table``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><strong>ul+
+</strong></p>
+<div><br><div id="highlighter_694778" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div><br><div class="line number3 index2 alt2">3 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``ul``&amp;gt;</code></div><br><div class="line number2 index1 alt1"><code>&amp;lt;``li``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number3 index2 alt2"><code>&amp;lt;/``ul``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><strong>dl+</strong></p>
+<div><br><div id="highlighter_179869" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div><br><div class="line number3 index2 alt2">3 </div><br><div class="line number4 index3 alt1">4 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``dl``&amp;gt;</code></div><br><div class="line number2 index1 alt1"><code>&amp;lt;``dt``&amp;gt;&amp;lt;/``dt``&amp;gt;</code></div><br><div class="line number3 index2 alt2"><code>&amp;lt;``dd``&amp;gt;&amp;lt;/``dd``&amp;gt;</code></div><br><div class="line number4 index3 alt1"><code>&amp;lt;/``dl``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><span style="color: #800000;">4.<strong>E*N</strong></span></p>
+<p>N:表示某个元素需要重复的次数。例：</p>
+<p><strong>p*3</strong></p>
+<div><br><div id="highlighter_218778" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div><br><div class="line number3 index2 alt2">3 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``p``&amp;gt;&amp;lt;/``p``&amp;gt;</code></div><br><div class="line number2 index1 alt1"><code>&amp;lt;``p``&amp;gt;&amp;lt;/``p``&amp;gt;</code></div><br><div class="line number3 index2 alt2"><code>&amp;lt;``p``&amp;gt;&amp;lt;/``p``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><strong>ul#nav&gt;li.item*4</strong></p>
+<div><br><div id="highlighter_727652" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div><br><div class="line number3 index2 alt2">3 </div><br><div class="line number4 index3 alt1">4 </div><br><div class="line number5 index4 alt2">5 </div><br><div class="line number6 index5 alt1">6 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``ul</code> <code>id``=``&quot;nav&quot;``&amp;gt;</code></div><br><div class="line number2 index1 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number3 index2 alt2"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number4 index3 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number5 index4 alt2"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number6 index5 alt1"><code>&amp;lt;/``ul``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><span style="color: #800000;"><strong>5.E*N$</strong></span></p>
+<p>$:表示序号。例：</p>
+<p><strong>ul#nav&gt;li.item-$*4</strong></p>
+<div><br><div id="highlighter_849553" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div><br><div class="line number3 index2 alt2">3 </div><br><div class="line number4 index3 alt1">4 </div><br><div class="line number5 index4 alt2">5 </div><br><div class="line number6 index5 alt1">6 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``ul</code> <code>id``=``&quot;nav&quot;``&amp;gt;</code></div><br><div class="line number2 index1 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item-1&quot;``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number3 index2 alt2"><code>&amp;lt;``li</code> <code>class``=``&quot;item-2&quot;``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number4 index3 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item-3&quot;``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number5 index4 alt2"><code>&amp;lt;``li</code> <code>class``=``&quot;item-4&quot;``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number6 index5 alt1"><code>&amp;lt;/``ul``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><span style="color: #800000;"><strong><tt><tt>6.E[attr]</tt></tt></strong></span></p>
+<p>attr:表示元素属性。例:</p>
+<p><strong>a[title]</strong></p>
+<div><br><div id="highlighter_547406" class="syntaxhighlighter  applescript ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``a href``=``&quot;&quot;</code> <code>title``=``&quot;&quot;``&amp;gt;``&amp;lt;``/``a``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><strong><tt><tt>td[colspan=2]</tt></tt></strong></p>
+<div><br><div id="highlighter_581561" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``td</code> <code>colspan``=``&quot;2&quot;``&amp;gt;&amp;lt;/``td``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><span style="color: #800000;"><strong>7.E|filter</strong></span></p>
+<p><strong>E|e</strong></p>
+<p>|e输出转义字符</p>
+<p><strong><code>div#wrap&amp;gt;div.content&amp;gt;p|e</code></strong></p>
+<div><br><div id="highlighter_953122" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div><br><div class="line number3 index2 alt2">3 </div><br><div class="line number4 index3 alt1">4 </div><br><div class="line number5 index4 alt2">5 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;amp;lt;div id=&quot;wrap&quot;&amp;amp;gt;</code></div><br><div class="line number2 index1 alt1"><code>&amp;amp;lt;div class=&quot;content&quot;&amp;amp;gt;</code></div><br><div class="line number3 index2 alt2"><code>&amp;amp;lt;p&amp;amp;gt;&amp;amp;lt;/p&amp;amp;gt;</code></div><br><div class="line number4 index3 alt1"><code>&amp;amp;lt;/div&amp;amp;gt;</code></div><br><div class="line number5 index4 alt2"><code>&amp;amp;lt;/div&amp;amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><span style="color: #800000;"><strong>8.( )控制嵌套分组关系</strong></span></p>
+<p><strong>div#header&gt;<span style="color: #800000;">(h1.logo&gt;a)+ul.nav&gt;li.item*5&gt;a </span></strong></p>
+<div><br><div id="highlighter_736857" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1 highlighted">2 </div><br><div class="line number3 index2 alt2">3 </div><br><div class="line number4 index3 alt1">4 </div><br><div class="line number5 index4 alt2">5 </div><br><div class="line number6 index5 alt1">6 </div><br><div class="line number7 index6 alt2">7 </div><br><div class="line number8 index7 alt1">8 </div><br><div class="line number9 index8 alt2">9 </div><br><div class="line number10 index9 alt1">10 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``div</code> <code>id``=``&quot;header&quot;``&amp;gt;</code></div><br><div class="line number2 index1 alt1 highlighted"><code>&amp;lt;``h1</code> <code>class``=``&quot;logo&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``h1``&amp;gt; /*h1和ul是兄弟关系*/</code></div><br><div class="line number3 index2 alt2"><code>&amp;lt;``ul</code> <code>class``=``&quot;nav&quot;``&amp;gt;</code></div><br><div class="line number4 index3 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number5 index4 alt2"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number6 index5 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number7 index6 alt2"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number8 index7 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number9 index8 alt2"><code>&amp;lt;/``ul``&amp;gt;</code></div><br><div class="line number10 index9 alt1"><code>&amp;lt;/``div``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><strong>div#header&gt;<span style="color: #800000;">h1.logo&gt;a+ul.nav&gt;li.item*5&gt;a</span></strong></p>
+<div><br><div id="highlighter_773094" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1 highlighted">2 </div><br><div class="line number3 index2 alt2">3 </div><br><div class="line number4 index3 alt1 highlighted">4 </div><br><div class="line number5 index4 alt2">5 </div><br><div class="line number6 index5 alt1">6 </div><br><div class="line number7 index6 alt2">7 </div><br><div class="line number8 index7 alt1">8 </div><br><div class="line number9 index8 alt2">9 </div><br><div class="line number10 index9 alt1">10 </div><br><div class="line number11 index10 alt2 highlighted">11 </div><br><div class="line number12 index11 alt1">12 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``div</code> <code>id``=``&quot;header&quot;``&amp;gt;</code></div><br><div class="line number2 index1 alt1 highlighted"><code>&amp;lt;``h1</code> <code>class``=``&quot;logo&quot;``&amp;gt; /*h1和ul是父子关系*/</code></div><br><div class="line number3 index2 alt2"><code>&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;</code></div><br><div class="line number4 index3 alt1 highlighted"><code>&amp;lt;``ul</code> <code>class``=``&quot;nav&quot;``&amp;gt;</code></div><br><div class="line number5 index4 alt2"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number6 index5 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number7 index6 alt2"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number8 index7 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number9 index8 alt2"><code>&amp;lt;``li</code> <code>class``=``&quot;item&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number10 index9 alt1"><code>&amp;lt;/``ul``&amp;gt;</code></div><br><div class="line number11 index10 alt2 highlighted"><code>&amp;lt;/``h1``&amp;gt;</code></div><br><div class="line number12 index11 alt1"><code>&amp;lt;/``div``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p>以上两种写法得到的结构是不一样的。 请大家注意观察。</p>
+<p>练习：将以下代码用zen-coding写出来。</p>
+<div><br><div id="highlighter_259243" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div><br><div class="line number3 index2 alt2">3 </div><br><div class="line number4 index3 alt1">4 </div><br><div class="line number5 index4 alt2">5 </div><br><div class="line number6 index5 alt1">6 </div><br><div class="line number7 index6 alt2">7 </div><br><div class="line number8 index7 alt1">8 </div><br><div class="line number9 index8 alt2">9 </div><br><div class="line number10 index9 alt1">10 </div><br><div class="line number11 index10 alt2">11 </div><br><div class="line number12 index11 alt1">12 </div><br><div class="line number13 index12 alt2">13 </div><br><div class="line number14 index13 alt1">14 </div><br><div class="line number15 index14 alt2">15 </div><br><div class="line number16 index15 alt1">16 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``div</code> <code>id``=``&quot;page&quot;``&amp;gt;</code></div><br><div class="line number2 index1 alt1"><code>&amp;lt;``div</code> <code>id``=``&quot;header&quot;``&amp;gt;</code></div><br><div class="line number3 index2 alt2"><code>&amp;lt;``ul</code> <code>id``=``&quot;nav&quot;``&amp;gt;</code></div><br><div class="line number4 index3 alt1"><code>&amp;lt;``li``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number5 index4 alt2"><code>&amp;lt;``li``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number6 index5 alt1"><code>&amp;lt;``li``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number7 index6 alt2"><code>&amp;lt;``li``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;``&amp;gt;&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number8 index7 alt1"><code>&amp;lt;/``ul``&amp;gt;</code></div><br><div class="line number9 index8 alt2"><code>&amp;lt;/``div``&amp;gt;</code></div><br><div class="line number10 index9 alt1"><code>&amp;lt;``div</code> <code>id``=``&quot;page&quot;``&amp;gt;</code></div><br><div class="line number11 index10 alt2"><code>&amp;lt;``h1``&amp;gt;&amp;lt;``span``&amp;gt;&amp;lt;/``span``&amp;gt;&amp;lt;/``h1``&amp;gt;</code></div><br><div class="line number12 index11 alt1"><code>&amp;lt;``p``&amp;gt;&amp;lt;/``p``&amp;gt;</code></div><br><div class="line number13 index12 alt2"><code>&amp;lt;``p``&amp;gt;&amp;lt;/``p``&amp;gt;</code></div><br><div class="line number14 index13 alt1"><code>&amp;lt;/``div``&amp;gt;</code></div><br><div class="line number15 index14 alt2"><code>&amp;lt;``div</code> <code>id``=``&quot;footer&quot;``&amp;gt;&amp;lt;/``div``&amp;gt;</code></div><br><div class="line number16 index15 alt1"><code>&amp;lt;/``div``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p>答案：(选中下一空行试试)<br><span style="color: #ffffff;">div#page&gt;(div#header&gt;ul#nav&gt;li<em>4&gt;a)+(div#page&gt;(h1&gt;span)+p</em>2)+div#footer</span></p>
+<h5 id="u4E09_u3001Notepad++_u4E2Dzen-coding_u7684_u4F7F_u7528"><a href="#u4E09_u3001Notepad++_u4E2Dzen-coding_u7684_u4F7F_u7528" class="headerlink" title="三、Notepad++中zen-coding的使用"></a>三、Notepad++中zen-coding的使用</h5><p><strong>Expand Abbreviation(Ctrl+E):展开缩写</strong></p>
+<p>用法：输入缩写代码后，在代码末尾直接按快捷键得到完整代码。</p>
+<p><strong>Wrap with Abbreviation(Ctrl+Shift+A):嵌套父级元素</strong></p>
+<p>用法：选中需要嵌套父级元素的标签，按快捷键，在弹出的对话框中输入父级标签回车即可。例：</p>
+<div><br><div id="highlighter_979506" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div><br><div class="line number3 index2 alt2">3 </div><br><div class="line number4 index3 alt1">4 </div><br><div class="line number5 index4 alt2">5 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>list1</code></div><br><div class="line number2 index1 alt1"><code>list2</code></div><br><div class="line number3 index2 alt2"><code>list3</code></div><br><div class="line number4 index3 alt1"><code>list4</code></div><br><div class="line number5 index4 alt2"><code>list5</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p>选中以上内容，然后按【Ctrl+Shift+A】在弹出的对话框中输入<strong>ul.nav&gt;li.item-$*&gt;a[title]</strong>后按【Enter】键，就会生成如下代码</p>
+<div><br><div id="highlighter_999669" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div><br><div class="line number3 index2 alt2">3 </div><br><div class="line number4 index3 alt1">4 </div><br><div class="line number5 index4 alt2">5 </div><br><div class="line number6 index5 alt1">6 </div><br><div class="line number7 index6 alt2">7 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>&amp;lt;``ul</code> <code>class``=``&quot;nav&quot;``&amp;gt;</code></div><br><div class="line number2 index1 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item-1&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;</code> <code>title``=``&quot;&quot;``&amp;gt;list1&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number3 index2 alt2"><code>&amp;lt;``li</code> <code>class``=``&quot;item-2&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;</code> <code>title``=``&quot;&quot;``&amp;gt;list2&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number4 index3 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item-3&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;</code> <code>title``=``&quot;&quot;``&amp;gt;list3&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number5 index4 alt2"><code>&amp;lt;``li</code> <code>class``=``&quot;item-4&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;</code> <code>title``=``&quot;&quot;``&amp;gt;list4&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number6 index5 alt1"><code>&amp;lt;``li</code> <code>class``=``&quot;item-5&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;</code> <code>title``=``&quot;&quot;``&amp;gt;list5&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></div><br><div class="line number7 index6 alt2"><code>&amp;lt;/``ul``&amp;gt;</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p><strong>Balance TagInward/Outward(<strong>Ctrl+Shift+D</strong>):选中代码块</strong></p>
+<p>选中当前光标所在的标记，再次按下可以依次选中其父标签。</p>
+<p><strong>Go to Next/Previous Edit Point( Ctrl+Alt+] / Ctrl+Alt+[ ):转到下一个/上一个编辑点</strong></p>
+<p><strong>Merge Lines(Ctrl+Alt+M):合并行</strong></p>
+<p>将选中的多行代码合并为一行。压缩css、js代码为一行时，这个很方便。Ctrl+A，然后Ctrl+Alt+M，两下即可搞定，免去了动用压缩工具的麻烦。（当然这个只是简单地将代码合并为一行，并不能做更深入的代码压缩）</p>
+<p><strong>Toggle Comment(Alt+/):添加、移除注释</strong></p>
+<p>注释掉光标所在的代码块 （Notepad++ 自带的Ctrl+Shift+Q也可以用来注释代码）</p>
+<p><strong>Split/Join Tag(Ctrl+&rsquo; ):空标签转化</strong></p>
+<p>比如将 <code>&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;</code> 转化为 <code>&amp;lt;div/&amp;gt;</code>， 反向亦可。</p>
+<p><strong>Remove Tag(Ctrl+Shift+&rsquo; ):移除标签</strong></p>
+<p>比如将 <code>&amp;lt;div&amp;gt;hello world&amp;lt;/div&amp;gt;</code> 移除div标签，留下hello world。</p>
+<h4 id="zen-coding_u5E38_u7528_u7F29_u5199"><a href="#zen-coding_u5E38_u7528_u7F29_u5199" class="headerlink" title="zen-coding常用缩写"></a><strong>zen-coding常用缩写</strong></h4><div><br><div id="highlighter_820597" class="syntaxhighlighter  xml ie"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1 </div><br><div class="line number2 index1 alt1">2 </div><br><div class="line number3 index2 alt2">3 </div><br><div class="line number4 index3 alt1">4 </div><br><div class="line number5 index4 alt2">5 </div><br><div class="line number6 index5 alt1">6 </div><br><div class="line number7 index6 alt2">7 </div><br><div class="line number8 index7 alt1">8 </div><br><div class="line number9 index8 alt2">9 </div><br><div class="line number10 index9 alt1">10 </div><br><div class="line number11 index10 alt2">11 </div><br><div class="line number12 index11 alt1">12 </div><br><div class="line number13 index12 alt2">13 </div><br><div class="line number14 index13 alt1">14 </div><br><div class="line number15 index14 alt2">15 </div><br><div class="line number16 index15 alt1">16 </div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>html:4t (HTML 4.01 Transitional)</code></div><br><div class="line number2 index1 alt1"><code>html:4s (HTML 4.01)</code></div><br><div class="line number3 index2 alt2"><code>html:xt (XHTML 1.0)</code></div><br><div class="line number4 index3 alt1"><code>html:xs (XHTML 1.0 Strict)</code></div><br><div class="line number5 index4 alt2"><code>html:xxs (XHTML 1.1)</code></div><br><div class="line number6 index5 alt1"><code>html:5 (HTML5)</code></div><br><div class="line number7 index6 alt2">&nbsp;</div><br><div class="line number8 index7 alt1"><code>meta:utf, meta:compat</code></div><br><div class="line number9 index8 alt2"><code>style, link:css, link:print, link:favicon, link:rss,</code></div><br><div class="line number10 index9 alt1"><code>script, script:src</code></div><br><div class="line number11 index10 alt2">&nbsp;</div><br><div class="line number12 index11 alt1"><code>div, p, a, ul, ol, input:t, input:r</code></div><br><div class="line number13 index12 alt2">&nbsp;</div><br><div class="line number14 index13 alt1"><code>ol+, dl+, table+, tr+, select+, map+, optg+</code></div><br><div class="line number15 index14 alt2">&nbsp;</div><br><div class="line number16 index15 alt1"><code>cc:ie6, cc:ie, cc:noie</code> </div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p>可以打开plugins\NppScripting\includes\Zen Coding.js这个JS文件看一看，熟悉Zen Coding自带的一些缩写规则。</p>
+<p><a href="http://code.google.com/p/zen-coding/downloads/detail?name=ZenCodingCheatSheet.pdf&amp;can=2&amp;q=" target="_blank" rel="external">Zen Coding PDF缩写下载</a></p>
+<p></p></div><p></p>
+<div id="MySignature" style="display: block;">www.songxiaodong.com.cn</div>  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/03/12/zen-Coding在Notepad-中的使用/" data-title="zen-Coding在Notepad++中的使用 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/03/12/Notepad-插件Emmet和Python-Script的安装/" title="Notepad++插件Emmet和Python Script的安装">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  Notepad++插件Emmet和Python Script的安装</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/12/Notepad-快捷键-大全/"  title="Notepad++ 快捷键 大全">
+ <strong>NEXT:</strong><br/> 
+ <span>Notepad++ 快捷键 大全
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#Zend_Coding_u8BED_u6CD5"><span class="toc-number">1.</span> <span class="toc-text">Zend Coding语法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#u4E09_u3001Notepad++_u4E2Dzen-coding_u7684_u4F7F_u7528"><span class="toc-number">2.</span> <span class="toc-text">三、Notepad++中zen-coding的使用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zen-coding_u5E38_u7528_u7F29_u5199"><span class="toc-number"></span> <span class="toc-text">zen-coding常用缩写</span></a>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

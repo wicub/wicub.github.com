@@ -1,0 +1,414 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>运用Xdebug调试和优化PHP程序 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="什么是**Xdebug?Xdebug是一个开放源代码的PHP程序调试器(即一个Debug工具)，可以用来跟踪，调试和分析PHP程序的运行状况。Xdebug现在的最新版本是xdebug 2.0.0beta6，支持PHP4/PHP5。&amp;nbsp;官方站点：www.Xdebug.org&amp;nbsp;如何安装">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/25/运用Xdebug调试和优化PHP程序/" title="运用Xdebug调试和优化PHP程序" itemprop="url">运用Xdebug调试和优化PHP程序</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-09-25T02:41:00.000Z" itemprop="datePublished">2015-09-25</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+		</div>
+		
+		<div><span style="color: #339966;"><strong>什么是**</strong>Xdebug?<strong></strong></span></div><br><div>Xdebug是一个开放源代码的PHP程序调试器(即一个Debug工具)，可以用来跟踪，调试和分析PHP程序的运行状况。Xdebug现在的最新版本是<a href="http://www.xdebug.org/link.php?url=xdebug200b6" target="_blank" rel="external">xdebug 2.0.0beta6</a>，支持PHP4/PHP5。</div><br><div>&nbsp;</div><br><div>官方站点：www.Xdebug.org</div><br><div>&nbsp;</div><br><div><br><div><span style="color: #339966;">如何安装<strong><strong>Xdebug</strong></strong>？**</span></div><br><div>以PHP5.1.4，Windows平台为例（其它PHP版本，其它平台请参看官网文档）：</div><br><div>&nbsp;</div><br></div>
+
+<p>php下搭配使用xdebug是十分好的组合，用于php的调试工作，下面分别介绍之：</p>
+<p>1 WINDOWS下的安装</p>
+<p>&nbsp; 下载站点<a href="http://www.xdebug.org/" target="_blank" rel="external">http://www.xdebug.org/</a><br>要确定使用一个跟你的PHP配合的版本才行，比如xdebug中的5。2系列版本是跟5.2<br>的php搭配的，5.3系列的跟5.3的PHP搭配的。目前的版本是2。1，然后你会发现<br>有相应的线程安全和非安全两个版本<span style="color: #ff0000;">。如何知道下载哪个版本呢，可以将你跑<br>PHPINFO时的显示出来网页的源码，COPY到<br><a href="http://www.xdebug.org/find-binary.php中，然后提交，然后XDEBUG为告诉你" target="_blank" rel="external">http://www.xdebug.org/find-binary.php中，然后提交，然后XDEBUG为告诉你</a><br>应该下载哪个版本了<br></span></p>
+<p>&nbsp;&nbsp; 将下载的文件放到d:\php\ext目录，重命名为php_xdebug.dll。<br>然后修改PHP。INI如下：</p>
+<p>&nbsp;</p>
+<div>2．&nbsp;将下载的php_xdebug-5.1.2-2.0.0beta6.dll放到C:/php5/ext目录，重命名为php_xdebug.dll；</div>
+
+<p>&nbsp;</p>
+<p>[Xdebug]</p>
+<p>extension=php_xdebug.dll&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 或者 不修改直接写链接</p>
+<p>zend_extension=”D:\php\ext\php_xdebug.dll”</p>
+<p>xdebug.profiler_output_dir=”D:\php53\xdebug”</p>
+<p>xdebug.profiler_enable=On</p>
+<p>xdebug.profiler_enable_trigger=1</p>
+<p>xdebug.default_enable=On</p>
+<p>xdebug.show_exception_trace=On</p>
+<p>xdebug.show_local_vars=1</p>
+<p>xdebug.max_nesting_level=50</p>
+<p>xdebug.var_display_max_depth=6</p>
+<p>xdebug.dump_once=On</p>
+<p>xdebug.dump_globals=On</p>
+<p>xdebug.dump_undefined=On</p>
+<p>xdebug.dump.REQUEST=*</p>
+<p>xdebug.dump.SERVER=REQUEST_METHOD,REQUEST_URI,HTTP_USER_AGENT</p>
+<p>xdebug.trace_output_dir=”D:\php53\xdebug”</p>
+<p>注意要建立一个xdebug目录放调试输出的文件。</p>
+<p>4．重新启动apache，</p>
+<p>&nbsp;</p>
+<p>5．在phpinfo中就可以看到有关XDEBUG的部分了</p>
+<p>&nbsp;</p>
+<p><img src="http://images2015.cnblogs.com/blog/431680/201509/431680-20150925111301287-815874102.png" alt=""></p>
+<p>&nbsp;</p>
+<p>2 LINUX下的安装</p>
+<p>&nbsp; tar -xzf xdebug-2.0.0RC3.gz</p>
+<p>cd xdebug-2.0.0RC3</p>
+<p>/usr/local/php/bin/phpize</p>
+<p>./configure –enable-xdebug</p>
+<p>cp modules/xdebug.so /usr/local/php/lib/php/extensions/no-debug-non-zts-20020429/</p>
+<p>&nbsp; </p>
+<p>注：/usr/local/php/lib/php/extensions/no-debug-non-zts-20020429/不同的PHP版本路径不同，也不一定要放在该路径，可以在zend_extension_ts中自行指定xdebug.so所在位置。</p>
+<p>3 使用，可以写个简单程序去看效果，比如：</p>
+<p>&lt;?php</p>
+<p>testXdebug();</p>
+<p>function testXdebug() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; require_once(‘abc.php’);</p>
+<p>}</p>
+<p>?&gt;</p>
+<p> 运行后，可以看到是象JAVA一样，用堆栈的方式去输出错误的相关部分的。</p>
+<p>4 分析xdbebug下面的输出文件</p>
+<p>&nbsp;&nbsp; 因为这个目录下的文件比较难理解，因此可以下载工具来分析之，比如：</p>
+<p>KCacheGrind（适用于Linux）、WinCacheGrind（适用于Windows）和Webgrind（Web页面方式）。</p>
+<p>&nbsp; 我用的是WinCacheGrind（<a href="http://sourceforge.net/projects/wincachegrind" target="_blank" rel="external">http://sourceforge.net/projects/wincachegrind</a>)</p>
+<p>之后就可以打开输出文件来去看了。</p>
+<p>5 xdebug的一些配置</p>
+<p> xdebug.default_enable</p>
+<p>类型：布尔型 默认值：On</p>
+<p>如果这项设置为On，堆栈跟踪将被默认的显示在错误事件中。你可以通过在代码中使用xdebug_disable()来禁止堆叠跟踪的显示。因为这是xdebug基本功能之一，将这项参数设置为On是比较明智的。</p>
+<p>xdebug.max_nesting_level</p>
+<p>类型：整型 默认值：100</p>
+<p>The value of this setting is the maximum level of nested functions that are allowed before the script will be aborted.</p>
+<p>限制无限递归的访问深度。这项参数设置的值是脚本失败前所允许的嵌套程序的最大访问深度。</p>
+<p>xdebug.dump_globals</p>
+<p>类型：布尔型 默认值：1</p>
+<p>限制是否显示被xdebug.dump.*设置定义的超全局变量的值</p>
+<p>例如，xdebug.dump.SERVER = REQUEST_METHOD,REQUEST_URI,HTTP_USER_AGENT<br>将打印 PHP 超全局变量 $_SERVER[‘REQUEST_METHOD’]、$_SERVER[‘REQUEST_URI’] 和<br>$_SERVER[‘HTTP_USER_AGENT’]。</p>
+<p>xdebug.dump_once</p>
+<p>类型：布尔型 默认值：1</p>
+<p>限制是否超全局变量的值应该转储在所有出错环境(设置为Off时)或仅仅在开始的地方(设置为On时)</p>
+<p>xdebug.dump_undefined</p>
+<p>类型：布尔型 默认值：0</p>
+<p>如果你想从超全局变量中转储未定义的值，你应该把这个参数设置成On，否则就设置成Off</p>
+<p>xdebug.show_exception_trace</p>
+<p>类型：整型 默认值：0</p>
+<p>当这个参数被设置为1时，即使捕捉到异常，xdebug仍将强制执行异常跟踪当一个异常出现时。</p>
+<p>xdebug.show_local_vars</p>
+<p>类型：整型 默认值：0</p>
+<p>当这个参数被设置为不等于0时，xdebug在错环境中所产生的堆栈转储还将显示所有局部变量，包括尚未初始化的变量在最上面。要注意的是这将产生大量的信息，也因此默认情况下是关闭的。</p>
+<p>xdebug.profiler_append</p>
+<p>类型：整型 默认值：0</p>
+<p>当这个参数被设置为1时，文件将不会被追加当一个新的需求到一个相同的文件时(依靠xdebug.profiler_output_name的设置)。相反的设置的话，文件将被附加成一个新文件。</p>
+<p>xdebug.profiler_enable</p>
+<p>类型：整型 默认值：0</p>
+<p>开放xdebug文件的权限，就是在文件输出目录中创建文件。那些文件可以通过KCacheGrind来阅读来展现你的数据。这个设置不能通过在你的脚本中调用ini_set()来设置。</p>
+<p>xdebug.profiler_output_dir</p>
+<p>类型：字符串 默认值：/tmp</p>
+<p>这个文件是profiler文件输出写入的，确信PHP用户对这个目录有写入的权限。这个设置不能通过在你的脚本中调用ini_set()来设置。</p>
+<p>xdebug.profiler_output_name</p>
+<p>类型：字符串 默认值：cachegrind.out%p</p>
+<p>这个设置决定了转储跟踪写入的文件的名称。</p>
+<p>远程Debug</p>
+<p>相关参数设置</p>
+<p>xdebug.remote_autostart</p>
+<p>类型：布尔型 默认值：0</p>
+<p>一般来说，你需要使用明确的HTTP GET/POST变量来开启远程debug。而当这个参数设置为On，xdebug将经常试图去开启一个远程debug session并试图去连接客户端，即使GET/POST/COOKIE变量不是当前的。</p>
+<p>xdebug.remote_enable</p>
+<p>类型：布尔型 默认值：0</p>
+<p>这个开关控制xdebug是否应该试着去连接一个按照xdebug.remote_host和xdebug.remote_port来设置监听主机和端口的debug客户端。</p>
+<p>xdebug.remote_host</p>
+<p>类型：字符串 默认值：localhost</p>
+<p>选择debug客户端正在运行的主机，你不仅可以使用主机名还可以使用IP地址</p>
+<p>xdebug.remote_port</p>
+<p>类型：整型 默认值：9000</p>
+<p>这个端口是xdebug试着去连接远程主机的。9000是一般客户端和被绑定的debug客户端默认的端口。许多客户端都使用这个端口数字，最好不要去修改这个设置。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="http://blog.fbbin.com/" target="_blank" rel="external">http://blog.fbbin.com/</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/09/25/运用Xdebug调试和优化PHP程序/" data-title="运用Xdebug调试和优化PHP程序 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/25/phpstorm常用plugins/" title="phpstorm常用plugins">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  phpstorm常用plugins</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/09/18/Laravel5-打印SQL/"  title="Laravel5 打印SQL">
+ <strong>NEXT:</strong><br/> 
+ <span>Laravel5 打印SQL
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

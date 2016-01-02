@@ -1,0 +1,407 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Notepad++插件Emmet和Python Script的安装 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="最近在做一个项目，涉及到大量的HTML、CSS代码的编写，手动写代码效率实在 是低下。于是想搜索一下，有没有Notepad++插件可以支持自动生成的，果不其然还真有。Emmet，这款神器其实就是 Zen Coding 的升级版，它可以极大的提高代码编写的效率，并提供了一种非常简练的语法规则，立刻生成">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/12/Notepad-插件Emmet和Python-Script的安装/" title="Notepad++插件Emmet和Python Script的安装" itemprop="url">Notepad++插件Emmet和Python Script的安装</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-03-12T07:25:00.000Z" itemprop="datePublished">2015-03-12</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#zen-coding_u5E38_u7528_u7F29_u5199"><span class="toc-number">1.</span> <span class="toc-text">zen-coding常用缩写</span></a></li></ol>
+		</div>
+		
+		<p><span style="font-size: 14px;"><span style="font-size: 14px;">　最近在做一个项目，涉及到大量的HTML、CSS代码的编写，手动写代码效率实在 是低下。于是想搜索一下，有没有Notepad++插件可以支持自动生成的，果不其然还真有。Emmet，这款神器其实就是 Zen Coding 的升级版，它可以极大的提高代码编写的效率，并提供了一种非常简练的语法规则，立刻生成对应的 HTML 结构或者 CSS 代码，同时还有多种实用的功能帮助进行前端开发。</span></span></p>
+<p><span style="font-size: 14px;">　　Emmet支持多种编辑器，如Sublime Text 2，TextMate 1.x，Eclipse/Aptana，Espresso，Notepad++等。我习惯于在Notepad++下写代码，因此本文记述的是如何在Notepad++下安装和使用。</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 14px;"><strong>1、下载Emmet和Python Script</strong></span></p>
+<p><span style="font-size: 14px;">Emmet需要 Python Script 的支持，因此这两款插件必须同时安装才能使用。</span></p>
+<p><span style="font-size: 14px;">详见：<span style="font-family: Courier New;"><a href="https://github.com/emmetio/npp" target="_blank" rel="external">https://github.com/emmetio/npp</a></span></span></p>
+<p><span style="font-size: 14px;">下载地址：</span></p>
+<p><span style="font-size: 14px;"><a href="http://sourceforge.net/projects/npppythonscript/files/latest/download?source=dlp" target="_blank" rel="external">PythonScript_full_0.9.2.0</a></span></p>
+<p><span style="font-size: 14px;"><a href="http://download.emmet.io/npp/emmet-npp.zip" target="_blank" rel="external">Emmet的Notepad++插件</a></span></p>
+<p><span style="font-size: 14px;"><strong>2、安装</strong></span></p>
+<p><span style="font-size: 14px;">Emmet的安装比较简单，下载完解压后复制到Notepad++安装目录的plugins下即可。</span></p>
+<p><span style="font-size: 14px;">Python Script的安装则稍稍复杂，我走了一些弯路后才搞定。一开始以为将解压后的文件扔到plugins下就行了，但启动Notepad++时总是报错。</span></p>
+<p><span style="font-size: 14px;">于是我打开 Python Script 的帮助文件，看了一遍安装手册才搞明白。</span></p>
+<p><span style="font-size: 14px;">下载完PythonScript_full_0.9.2.0.zip后解压，将python27.dll文件复制到Notepad++安装目录的<span style="color: red;">根目录下，同时在plugins文件夹中的全部内容复制到Notepad++安装目录的plugins下。</span></span></p>
+<p><span style="font-size: 14px;">为表达清楚，摘录Python Script 的目录结构如下：</span></p>
+<div class="cnblogs_code"><br><pre><span style="color: #000000;">Notepad++ (Notepad++ 安装主目录,一般位于”C:\Program Files”下)<br> +<br> |– python27.dll(放在Notepad++ 安装主目录下，和notepad++.exe属于同一目录)<br> +– plugins<br>           \<br>           |– PythonScript.dll<br>           |<br>           |– PythonScript<br>           |   \<br>           |   |– lib<br>           |   |    \<br>           |   |     |– (<em>.py)   很多 </em>.py 文件和子目录<br>           |   |<br>           |   |– scripts<br>           |             \<br>           |             |– (脚本和一些示例)<br>           |<br>           |<br>           |– doc<br>           |    \<br>           |     |– PythonScript<br>           |             \<br>           |             |– PythonScript.chm(PythonScript帮助文档，英文版)</span></pre><br></div>
+
+<p>&nbsp;</p>
+<p> <span style="font-size: 14px;"><strong>3、Emmet的工作流程</strong></span></p>
+<p><span style="font-size: 14px;">安装完Emmet后，强烈建议更改 Expand Abbreviation 的键盘快捷键为Tab键。</span></p>
+<p><span style="font-size: 14px;">打开Notepad++Settings &gt; Shortcut Mapper&hellip;对话框，切换到 plugin commands，选中 Expand Abbreviation 项，</span></p>
+<p><span style="font-size: 14px;"><span style="font-size: 14px;"><span style="font-size: 14px;">(</span></span></span><strong>Expand Abbreviation(Ctrl+E):展开缩写</strong><span style="font-size: 14px;"><span style="font-size: 14px;"><span style="font-size: 14px;">&nbsp; </span></span></span>用法：输入缩写代码后，在代码末尾直接按快捷键得到完整代码。<span style="font-size: 14px;"><span style="font-size: 14px;"><span style="font-size: 14px;">)</span></span></span></p>
+<p><span style="font-size: 14px;"><span style="font-size: 14px;"><span style="font-size: 14px;">修改其快捷键为Tab键即可。</span></span></span></p>
+<p><img src="https://dn-teddysun.qbox.me/wp-content/uploads/2013/08/plugin_commands.png" alt=""></p>
+<p><span style="font-size: 14px;">然后，就可以按照 Emmet 的工作流程来干活了：</span></p>
+<p><span style="font-size: 14px;"><strong>打开 HTML 或 CSS 文件-&gt;按语法编写指令-&gt;按下 TAB 键-&gt;生成！</strong></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 14px;"><strong>4、Emmet的使用教程</strong></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Expand Abbreviation(Ctrl+E):展开缩写</strong></p>
+<p>&nbsp;</p>
+<p>用法：输入缩写代码后，在代码末尾直接按快捷键得到完整代码。</p>
+<p>&nbsp;</p>
+<p><strong>Wrap with Abbreviation(Ctrl+Shift+A):嵌套父级元素</strong></p>
+<p>&nbsp;</p>
+<p>用法：选中需要嵌套父级元素的标签，按快捷键，在弹出的对话框中输入父级标签回车即可。例：</p>
+<p>&nbsp;</p>
+<div><br><div id="highlighter_306775" class="syntaxhighlighter  xml ie"><br><table style="width: 1148px; height: 113px;" border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2"><span style="font-size: 14px;">1</span></div><br><div class="line number2 index1 alt1"><span style="font-size: 14px;">2</span></div><br><div class="line number3 index2 alt2"><span style="font-size: 14px;">3</span></div><br><div class="line number4 index3 alt1"><span style="font-size: 14px;">4</span></div><br><div class="line number5 index4 alt2"><span style="font-size: 14px;">5</span></div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><span style="font-size: 14px;"><code>list1</code></span></div><br><div class="line number2 index1 alt1"><span style="font-size: 14px;"><code>list2</code></span></div><br><div class="line number3 index2 alt2"><span style="font-size: 14px;"><code>list3</code></span></div><br><div class="line number4 index3 alt1"><span style="font-size: 14px;"><code>list4</code></span></div><br><div class="line number5 index4 alt2"><span style="font-size: 14px;"><code>list5</code></span></div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p>&nbsp;</p>
+<p>选中以上内容，然后按【Ctrl+Shift+A】在弹出的对话框中输入<strong>ul.nav&gt;li.item-$*&gt;a[title]</strong>后按【Enter】键，就会生成如下代码</p>
+<p>&nbsp;</p>
+<div><br><div id="highlighter_652367" class="syntaxhighlighter  xml ie"><br><table style="width: 1150px; height: 113px;" border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br><div class="line number2 index1 alt1">2</div><br><div class="line number3 index2 alt2">3</div><br><div class="line number4 index3 alt1">4</div><br><div class="line number5 index4 alt2">5</div><br><div class="line number6 index5 alt1">6</div><br><div class="line number7 index6 alt2">7</div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><span style="font-size: 14px;"><code>&amp;lt;``ul</code> <code>class``=``&quot;nav&quot;``&amp;gt;</code></span></div><br><div class="line number2 index1 alt1"><span style="font-size: 14px;"><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;``&amp;lt;``li</code> <code>class``=``&quot;item-1&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;</code> <code>title``=``&quot;&quot;``&amp;gt;list1&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></span></div><br><div class="line number3 index2 alt2"><span style="font-size: 14px;"><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;``&amp;lt;``li</code> <code>class``=``&quot;item-2&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;</code> <code>title``=``&quot;&quot;``&amp;gt;list2&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></span></div><br><div class="line number4 index3 alt1"><span style="font-size: 14px;"><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;``&amp;lt;``li</code> <code>class``=``&quot;item-3&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;</code> <code>title``=``&quot;&quot;``&amp;gt;list3&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></span></div><br><div class="line number5 index4 alt2"><span style="font-size: 14px;"><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;``&amp;lt;``li</code> <code>class``=``&quot;item-4&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;</code> <code>title``=``&quot;&quot;``&amp;gt;list4&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></span></div><br><div class="line number6 index5 alt1"><span style="font-size: 14px;"><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;``&amp;lt;``li</code> <code>class``=``&quot;item-5&quot;``&amp;gt;&amp;lt;``a</code> <code>href``=``&quot;&quot;</code> <code>title``=``&quot;&quot;``&amp;gt;list5&amp;lt;/``a``&amp;gt;&amp;lt;/``li``&amp;gt;</code></span></div><br><div class="line number7 index6 alt2"><span style="font-size: 14px;"><code>&amp;lt;/``ul``&amp;gt;</code></span></div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p>&nbsp;</p>
+<p><strong>Balance TagInward/Outward(<strong>Ctrl+Shift+D</strong>):选中代码块</strong></p>
+<p>&nbsp;</p>
+<p>选中当前光标所在的标记，再次按下可以依次选中其父标签。</p>
+<p>&nbsp;</p>
+<p><strong>Go to Next/Previous Edit Point( Ctrl+Alt+]&nbsp; / Ctrl+Alt+[ ):转到下一个/上一个编辑点</strong></p>
+<p>&nbsp;</p>
+<p><strong>Merge Lines(Ctrl+Alt+M):合并行</strong></p>
+<p>&nbsp;</p>
+<p>将选中的多行代码合并为一行。压缩css、js代码为一行时，这个很方便。Ctrl+A，然后Ctrl+Alt+M，两下即可搞定，免去了动用压缩工具的麻烦。（当然这个只是简单地将代码合并为一行，并不能做更深入的代码压缩）</p>
+<p>&nbsp;</p>
+<p><strong>Toggle Comment(Alt+/):添加、移除注释</strong></p>
+<p>&nbsp;</p>
+<p>注释掉光标所在的代码块 （Notepad++ 自带的Ctrl+Shift+Q也可以用来注释代码）</p>
+<p>&nbsp;</p>
+<p><strong>Split/Join Tag(Ctrl+&rsquo; ):空标签转化</strong></p>
+<p>&nbsp;</p>
+<p>比如将 <code>&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;</code> 转化为 <code>&amp;lt;div/&amp;gt;</code>， 反向亦可。</p>
+<p>&nbsp;</p>
+<p><strong>Remove Tag(Ctrl+Shift+&rsquo; ):移除标签</strong></p>
+<p>&nbsp;</p>
+<p>比如将 <code>&amp;lt;div&amp;gt;hello world&amp;lt;/div&amp;gt;</code> 移除div标签，留下hello world。</p>
+<p>&nbsp;</p>
+<h4 id="zen-coding_u5E38_u7528_u7F29_u5199"><a href="#zen-coding_u5E38_u7528_u7F29_u5199" class="headerlink" title="zen-coding常用缩写"></a><strong>zen-coding常用缩写</strong></h4><p>&nbsp;</p>
+<div><br><div id="highlighter_566171" class="syntaxhighlighter  xml ie"><br><table style="width: 1098px; height: 248px;" border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2"><span style="font-size: 14px;">1</span></div><br><div class="line number2 index1 alt1"><span style="font-size: 14px;">2</span></div><br><div class="line number3 index2 alt2"><span style="font-size: 14px;">3</span></div><br><div class="line number4 index3 alt1"><span style="font-size: 14px;">4</span></div><br><div class="line number5 index4 alt2"><span style="font-size: 14px;">5</span></div><br><div class="line number6 index5 alt1"><span style="font-size: 14px;">6</span></div><br><div class="line number7 index6 alt2"><span style="font-size: 14px;">7</span></div><br><div class="line number8 index7 alt1"><span style="font-size: 14px;">8</span></div><br><div class="line number9 index8 alt2"><span style="font-size: 14px;">9</span></div><br><div class="line number10 index9 alt1"><span style="font-size: 14px;">10</span></div><br><div class="line number11 index10 alt2"><span style="font-size: 14px;">11</span></div><br><div class="line number12 index11 alt1"><span style="font-size: 14px;">12</span></div><br><div class="line number13 index12 alt2"><span style="font-size: 14px;">13</span></div><br><div class="line number14 index13 alt1"><span style="font-size: 14px;">14</span></div><br><div class="line number15 index14 alt2"><span style="font-size: 14px;">15</span></div><br><div class="line number16 index15 alt1"><span style="font-size: 14px;">16</span></div>
+
+<p></p></td><p></p>
+<td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><span style="font-size: 14px;"><code>html:4t (HTML 4.01 Transitional)</code></span></div><br><div class="line number2 index1 alt1"><span style="font-size: 14px;"><code>html:4s (HTML 4.01)</code></span></div><br><div class="line number3 index2 alt2"><span style="font-size: 14px;"><code>html:xt (XHTML 1.0)</code></span></div><br><div class="line number4 index3 alt1"><span style="font-size: 14px;"><code>html:xs (XHTML 1.0 Strict)</code></span></div><br><div class="line number5 index4 alt2"><span style="font-size: 14px;"><code>html:xxs (XHTML 1.1)</code></span></div><br><div class="line number6 index5 alt1"><span style="font-size: 14px;"><code>html:5 (HTML5)</code></span></div><br><div class="line number7 index6 alt2"><span style="font-size: 14px;"><code>&amp;nbsp;</code>&nbsp;</span></div><br><div class="line number8 index7 alt1"><span style="font-size: 14px;"><code>meta:utf, meta:compat</code></span></div><br><div class="line number9 index8 alt2"><span style="font-size: 14px;"><code>style, link:css, link:print, link:favicon, link:rss,</code></span></div><br><div class="line number10 index9 alt1"><span style="font-size: 14px;"><code>script, script:src</code></span></div><br><div class="line number11 index10 alt2"><span style="font-size: 14px;"><code>&amp;nbsp;</code>&nbsp;</span></div><br><div class="line number12 index11 alt1"><span style="font-size: 14px;"><code>div, p, a, ul, ol, input:t, input:r</code></span></div><br><div class="line number13 index12 alt2"><span style="font-size: 14px;"><code>&amp;nbsp;</code>&nbsp;</span></div><br><div class="line number14 index13 alt1"><span style="font-size: 14px;"><code>ol+, dl+, table+, tr+, select+, map+, optg+</code></span></div><br><div class="line number15 index14 alt2"><span style="font-size: 14px;"><code>&amp;nbsp;</code>&nbsp;</span></div><br><div class="line number16 index15 alt1"><span style="font-size: 14px;"><code>cc:ie6, cc:ie, cc:noie</code></span></div><br><br></div><br><br></td>
+
+<p></p></tr><p></p>
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></div><p></p>
+<p>&nbsp;</p>
+<p>可以打开C:\Program Files\Notepad++\plugins\EmmetNPP\emmet\snippets.json这个json文件看一看，熟悉EmmetNPP自带的一些缩写规则。</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 14px;"></span></p>
+<p><a href="http://blog.wpjam.com/m/emmet-grammar/" target="_blank" rel="external"><span style="font-size: 14px;">参考链接</span></a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/03/12/Notepad-插件Emmet和Python-Script的安装/" data-title="Notepad++插件Emmet和Python Script的安装 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/03/12/【翻译】Emmet-Zen-Coding-官方文档-之六-自定义-Emmet/" title="【翻译】Emmet(Zen Coding)官方文档 之六 自定义 Emmet">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  【翻译】Emmet(Zen Coding)官方文档 之六 自定义 Emmet</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/12/zen-Coding在Notepad-中的使用/"  title="zen-Coding在Notepad++中的使用">
+ <strong>NEXT:</strong><br/> 
+ <span>zen-Coding在Notepad++中的使用
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#zen-coding_u5E38_u7528_u7F29_u5199"><span class="toc-number">1.</span> <span class="toc-text">zen-coding常用缩写</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

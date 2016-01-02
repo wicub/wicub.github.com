@@ -1,0 +1,345 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>【javascript】ajax 基础 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="什么是 ajaxajax 即&amp;ldquo;Asynchronous JavaScript and XML&amp;rdquo;（异步 JavaScript 和 XML），也就是无刷新数据读取。
+http 请求首先需要了解 http 请求的方法（GET 和 POST）。
+GET 用于获取数据。GET 是在 U">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/05/07/【javascript】ajax-基础/" title="【javascript】ajax 基础" itemprop="url">【javascript】ajax 基础</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-05-07T09:39:00.000Z" itemprop="datePublished">2015-05-07</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4EC0_u4E48_u662F_ajax"><span class="toc-number">1.</span> <span class="toc-text">什么是 ajax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http__u8BF7_u6C42"><span class="toc-number">2.</span> <span class="toc-text">http 请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax__u8BF7_u6C42"><span class="toc-number">3.</span> <span class="toc-text">ajax 请求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1_u3001_u521B_u5EFA_ajax__u5BF9_u8C61"><span class="toc-number">3.1.</span> <span class="toc-text">1、创建 ajax 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2_u3001_u8FDE_u63A5_u670D_u52A1_u5668"><span class="toc-number">3.2.</span> <span class="toc-text">2、连接服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3_u3001_u53D1_u9001_u8BF7_u6C42"><span class="toc-number">3.3.</span> <span class="toc-text">3、发送请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4_u3001_u63A5_u6536_u8FD4_u56DE_u503C"><span class="toc-number">3.4.</span> <span class="toc-text">4、接收返回值</span></a></li></ol></li></ol>
+		</div>
+		
+		<h2 id="u4EC0_u4E48_u662F_ajax"><a href="#u4EC0_u4E48_u662F_ajax" class="headerlink" title="什么是 ajax"></a>什么是 ajax</h2><p>ajax 即&ldquo;Asynchronous JavaScript and XML&rdquo;（异步 JavaScript 和 XML），也就是无刷新数据读取。</p>
+<h2 id="http__u8BF7_u6C42"><a href="#http__u8BF7_u6C42" class="headerlink" title="http 请求"></a>http 请求</h2><p>首先需要了解 http 请求的方法（GET 和 POST）。</p>
+<p>GET 用于获取数据。GET 是在 URL 中传递数据，它的安全性低，容量低。</p>
+<p>POST 用于上传数据。POST 安全性一般，容量几乎无限。</p>
+<h2 id="ajax__u8BF7_u6C42"><a href="#ajax__u8BF7_u6C42" class="headerlink" title="ajax 请求"></a>ajax 请求</h2><p>ajax 请求一般分成 4 个步骤。</p>
+<h3 id="1_u3001_u521B_u5EFA_ajax__u5BF9_u8C61"><a href="#1_u3001_u521B_u5EFA_ajax__u5BF9_u8C61" class="headerlink" title="1、创建 ajax 对象"></a>1、创建 ajax 对象</h3><p>在创建对象时，有兼容问题：</p>
+<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">var</span> oAjax = <span style="color: #0000ff;">new</span> XMLHttpRequest();   <span style="color: #008000;">//</span><span style="color: #008000;">for ie6 以上</span><br><span style="color: #0000ff;">var</span> oAjax = <span style="color: #0000ff;">new</span> ActiveXObject(‘Microsoft.XMLHTTP’); <span style="color: #008000;">//</span><span style="color: #008000;">for ie6</span></pre><br></div>
+
+<p>合并上面的代码：</p>
+<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">var</span> oAjax = <span style="color: #0000ff;">null</span><span style="color: #000000;">;<br></span><span style="color: #0000ff;">if</span><span style="color: #000000;">(window.XMLHttpRequest){<br>    oAjax </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> XMLHttpRequest();<br>}</span><span style="color: #0000ff;">else</span><span style="color: #000000;">{<br>    oAjax </span>= <span style="color: #0000ff;">new</span> ActiveXObject(‘Microsoft.XMLHTTP’<span style="color: #000000;">);<br>}</span></pre><br></div>
+
+<h3 id="2_u3001_u8FDE_u63A5_u670D_u52A1_u5668"><a href="#2_u3001_u8FDE_u63A5_u670D_u52A1_u5668" class="headerlink" title="2、连接服务器"></a>2、连接服务器</h3><p>在这里会用到 open() 方法。open() 方法有三个参数，第一个参数是连接方法即 GET 和 POST，第二个参数是 URL 即所要读取数据的地址，第三个参数是否异步，它是个布尔值，true 为异步，false 为同步。</p>
+<div class="cnblogs_code"><br><pre>oAjax.open(‘GET’, url, <span style="color: #0000ff;">true</span>);</pre><br></div>
+
+<h3 id="3_u3001_u53D1_u9001_u8BF7_u6C42"><a href="#3_u3001_u53D1_u9001_u8BF7_u6C42" class="headerlink" title="3、发送请求"></a>3、发送请求</h3><p>send() 方法。</p>
+<div class="cnblogs_code"><br><pre>oAjax.send();</pre><br></div>
+
+<h3 id="4_u3001_u63A5_u6536_u8FD4_u56DE_u503C"><a href="#4_u3001_u63A5_u6536_u8FD4_u56DE_u503C" class="headerlink" title="4、接收返回值"></a>4、接收返回值</h3><p>onreadystatechange 事件。当请求被发送到服务器时，我们需要执行一些基于响应的任务。每当 readyState 改变时，就会触发 onreadystatechange 事件。</p>
+<p>readyState：请求状态，返回的是整数（0-4）。</p>
+<p>0（未初始化）：还没有调用 open() 方法。</p>
+<p>1（载入）：已调用 send() 方法，正在发送请求。</p>
+<p>2（载入完成）：send() 方法完成，已收到全部响应内容。</p>
+<p>3（解析）：正在解析响应内容。</p>
+<p>4（完成）：响应内容解析完成，可以在客户端调用。</p>
+<p>status：请求结果，返回 200 或者 404。</p>
+<p>200 =&gt; 成功。</p>
+<p>404 =&gt; 失败。</p>
+<p>responseText：返回内容，即我们所需要读取的数据。需要注意的是：responseText 返回的是字符串。</p>
+<div class="cnblogs_code"><br><pre>oAjax.onreadystatechange=<span style="color: #0000ff;">function</span><span style="color: #000000;">(){<br>    </span><span style="color: #0000ff;">if</span>(oAjax.readyState==4<span style="color: #000000;">){<br>        </span><span style="color: #0000ff;">if</span>(oAjax.status==200<span style="color: #000000;">){<br>            fnSucc(oAjax.responseText);<br>        }</span><span style="color: #0000ff;">else</span><span style="color: #000000;">{<br>            </span><span style="color: #0000ff;">if</span><span style="color: #000000;">(fnFaild){<br>                fnFaild();<br>            }<br>        }<br>    }<br>};</span></pre><br></div>
+
+<p>将以上代码进行封装：</p>
+<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">function</span><span style="color: #000000;"> ajax(url, fnSucc, fnFaild){<br>    </span><span style="color: #008000;">//</span><span style="color: #008000;">1.创建对象</span><br>    <span style="color: #0000ff;">var</span> oAjax = <span style="color: #0000ff;">null</span><span style="color: #000000;">;<br>    </span><span style="color: #0000ff;">if</span><span style="color: #000000;">(window.XMLHttpRequest){<br>        oAjax </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> XMLHttpRequest();<br>    }</span><span style="color: #0000ff;">else</span><span style="color: #000000;">{<br>        oAjax </span>= <span style="color: #0000ff;">new</span> ActiveXObject(“Microsoft.XMLHTTP”<span style="color: #000000;">);<br>    }<br><br>    </span><span style="color: #008000;">//</span><span style="color: #008000;">2.连接服务器  </span><br>    oAjax.open(‘GET’, url, <span style="color: #0000ff;">true</span>);   <span style="color: #008000;">//</span><span style="color: #008000;">open(方法, url, 是否异步)</span><br><br>    <span style="color: #008000;">//</span><span style="color: #008000;">3.发送请求  </span><br><span style="color: #000000;">    oAjax.send();<br><br>    </span><span style="color: #008000;">//</span><span style="color: #008000;">4.接收返回</span><br>    oAjax.onreadystatechange = <span style="color: #0000ff;">function</span>(){  <span style="color: #008000;">//</span><span style="color: #008000;">OnReadyStateChange事件</span><br>        <span style="color: #0000ff;">if</span>(oAjax.readyState == 4){  <span style="color: #008000;">//</span><span style="color: #008000;">4为完成</span><br>            <span style="color: #0000ff;">if</span>(oAjax.status == 200){    <span style="color: #008000;">//</span><span style="color: #008000;">200为成功</span><br><span style="color: #000000;">                fnSucc(oAjax.responseText)<br>            }</span><span style="color: #0000ff;">else</span><span style="color: #000000;">{<br>                </span><span style="color: #0000ff;">if</span><span style="color: #000000;">(fnFaild){<br>                    fnFaild();<br>                }<br>            }<br>        }<br>    };<br>}</span></pre><br></div><br><div class="cnblogs_code"><br><pre>&lt;!DOCTYPE HTML&gt;<br>&lt;html lang=”en-US”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;ajax基础&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<span style="color: #000000;"><br>    点击按钮的时候，读取abc.txt</span>&lt;input id=”btn” type=”button” value=”读取”/&gt;&lt;br/&gt;<br>    &lt;div id=”con”&gt;&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br>&lt;script type=”text/javascript” src=”ajax.js”&gt;&lt;/script&gt;<br>&lt;script type=”text/javascript”&gt;<span style="color: #000000;"><br>window.onload </span>= <span style="color: #0000ff;">function</span><span style="color: #000000;">(){<br>    </span><span style="color: #0000ff;">var</span> oBtn = document.getElementById(‘btn’<span style="color: #000000;">);<br>    </span><span style="color: #0000ff;">var</span> oCon = document.getElementById(‘con’<span style="color: #000000;">);<br>    oBtn.onclick </span>= <span style="color: #0000ff;">function</span><span style="color: #000000;">(){<br>        ajax(</span>‘abc.txt’,<span style="color: #0000ff;">function</span><span style="color: #000000;">(str){<br>            oCon.innerHTML </span>=<span style="color: #000000;"> str;<br>        });<br>    }<br>}<br></span>&lt;/script&gt;</pre><br></div>
+
+<p>abc.txt 内容：</p>
+<div class="cnblogs_code"><br><pre><span style="color: #000000;">这是ajax调用的内容1。<br>这是ajax调用的内容2。<br>这是ajax调用的内容3。</span></pre><br></div>
+
+<p><a href="http://www.cnblogs.com/yjzhu/archive/2013/01/28/2879542.html" target="_blank" rel="external">参考</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/05/07/【javascript】ajax-基础/" data-title="【javascript】ajax 基础 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/17/手动安装Apache-PHP-MYSQL及环境配置/" title="手动安装Apache+PHP+MYSQL及环境配置">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  手动安装Apache+PHP+MYSQL及环境配置</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/05/04/Javascript-Ajax-请求/"  title="Javascript  Ajax 请求">
+ <strong>NEXT:</strong><br/> 
+ <span>Javascript  Ajax 请求
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4EC0_u4E48_u662F_ajax"><span class="toc-number">1.</span> <span class="toc-text">什么是 ajax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http__u8BF7_u6C42"><span class="toc-number">2.</span> <span class="toc-text">http 请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax__u8BF7_u6C42"><span class="toc-number">3.</span> <span class="toc-text">ajax 请求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1_u3001_u521B_u5EFA_ajax__u5BF9_u8C61"><span class="toc-number">3.1.</span> <span class="toc-text">1、创建 ajax 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2_u3001_u8FDE_u63A5_u670D_u52A1_u5668"><span class="toc-number">3.2.</span> <span class="toc-text">2、连接服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3_u3001_u53D1_u9001_u8BF7_u6C42"><span class="toc-number">3.3.</span> <span class="toc-text">3、发送请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4_u3001_u63A5_u6536_u8FD4_u56DE_u503C"><span class="toc-number">3.4.</span> <span class="toc-text">4、接收返回值</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

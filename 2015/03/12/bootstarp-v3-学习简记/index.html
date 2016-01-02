@@ -1,0 +1,332 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>bootstarp v3 学习简记 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="1、快速设置浮动通过这两个class让页面元素左右浮动。 !important被用来避免某些问题。&amp;nbsp;&amp;lt;div class=”pull-left”&amp;gt;…&amp;lt;/div&amp;gt;&amp;lt;div class=”pull-right”&amp;gt;…&amp;lt;/div&amp;gt;// Classes">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/12/bootstarp-v3-学习简记/" title="bootstarp v3 学习简记" itemprop="url">bootstarp v3 学习简记</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-03-12T03:30:00.000Z" itemprop="datePublished">2015-03-12</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+		</div>
+		
+		<div id="text"><br><br><strong>1、快速设置浮动</strong><br>通过这两个class让页面元素左右浮动。 !important被用来避免某些问题。<br><br>&nbsp;<br><br><div class="cnblogs_code"><br><pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”pull-left”</span><span style="color: #0000ff;">&gt;</span>…<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”pull-right”</span><span style="color: #0000ff;">&gt;</span>…<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;<br></span></pre><br><pre>// Classes.pull-left {float: left !important;}.pull-right {float: right !important;}</pre><br><pre><span style="color: #0000ff;">&nbsp;</span></pre><br></div>
+
+<p><strong>2、通过添加.lead可以让段落突出显示。</strong></p>
+<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”lead”</span><span style="color: #0000ff;">&gt;</span>…<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span></pre><br></div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>3、栅格选项</strong><br>超小屏幕设备 手机 (&lt;768px) .col-xs-<br>排列方式：总是水平排列</p>
+<p>小屏幕设备&nbsp;<span id="5_nwp"><a href="http://cpro.baidu.com/cpro/ui/uijs.php?c=news&amp;cf=1001&amp;ch=0&amp;di=128&amp;fv=14&amp;jk=394eafd9dfd62444&amp;k=%C6%BD%B0%E5&amp;k0=%C6%BD%B0%E5&amp;kdi0=0&amp;luki=3&amp;n=10&amp;p=baidu&amp;q=smileking_cpr&amp;rb=0&amp;rs=1&amp;seller_id=1&amp;sid=4424d6dfd9af4e39&amp;ssp2=1&amp;stid=0&amp;t=tpclicked3_hc&amp;tu=u1682280&amp;u=http%3A%2F%2Fwww%2Eth7%2Ecn%2Fweb%2Fhtml%2Dcss%2F201405%2F35855%2Eshtml&amp;urlid=0" target="_blank" rel="external">平板</a>&nbsp;(&ge;768px) .col-sm-<br>中等屏幕设备 桌面 (&ge;992px) .col-md-<br>大屏幕设备 桌面 (&ge;1200px) .col-lg-<br>排列方式：开始是堆叠在一起的，超过这些阈值将变为水平排列</span></p>
+<p><span id="4_nwp"><a href="http://cpro.baidu.com/cpro/ui/uijs.php?c=news&amp;cf=1001&amp;ch=0&amp;di=128&amp;fv=14&amp;jk=394eafd9dfd62444&amp;k=%D5%A4%B8%F1&amp;k0=%D5%A4%B8%F1&amp;kdi0=0&amp;luki=5&amp;n=10&amp;p=baidu&amp;q=smileking_cpr&amp;rb=0&amp;rs=1&amp;seller_id=1&amp;sid=4424d6dfd9af4e39&amp;ssp2=1&amp;stid=0&amp;t=tpclicked3_hc&amp;tu=u1682280&amp;u=http%3A%2F%2Fwww%2Eth7%2Ecn%2Fweb%2Fhtml%2Dcss%2F201405%2F35855%2Eshtml&amp;urlid=0" target="_blank" rel="external">栅格</a>class在屏幕宽度大于或等于阈值的设备上起作用，并且将针对小屏幕设备所设置的class覆盖掉。<br>对任何一个元素应用任何.col-md- class 将不仅作用于中等尺寸的屏幕，还将作用于<span id="3_nwp"><a href="http://cpro.baidu.com/cpro/ui/uijs.php?c=news&amp;cf=1001&amp;ch=0&amp;di=128&amp;fv=14&amp;jk=394eafd9dfd62444&amp;k=%B4%F3%C6%C1%C4%BB&amp;k0=%B4%F3%C6%C1%C4%BB&amp;kdi0=0&amp;luki=6&amp;n=10&amp;p=baidu&amp;q=smileking_cpr&amp;rb=0&amp;rs=1&amp;seller_id=1&amp;sid=4424d6dfd9af4e39&amp;ssp2=1&amp;stid=0&amp;t=tpclicked3_hc&amp;tu=u1682280&amp;u=http%3A%2F%2Fwww%2Eth7%2Ecn%2Fweb%2Fhtml%2Dcss%2F201405%2F35855%2Eshtml&amp;urlid=0" target="_blank" rel="external">大屏幕</a>设备（如果没有设置.col-lg- class的话）。<br>是否不希望在小屏幕设备上所有列都堆叠在一起？那就使用针对超小屏幕和中等屏幕设备所定义的class吧</span></span></p>
+<p><strong>4、Bootstrap是移动设备优先的。</strong><br>为了确保适当的绘制和触屏缩放，需要在</p>
+<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">=”viewport”</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">=”width=device-width, initial-scale=1.0”</span><span style="color: #0000ff;">&gt;</span></pre><br></div>
+
+<p>&nbsp;</p>
+<p>在移动设备浏览器上，通过为viewport meta标签添加user-scalable=no可以禁用其缩放（zooming）功能。</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">=”viewport”</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">=”width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no”</span><span style="color: #0000ff;">&gt;</span></pre><br></div>
+
+<p>&nbsp;</p>
+<p><strong>5、响应式图片</strong><br>通过添加.img-responsive class可以让Bootstrap 3中的图片对响应式布局的支持更友好。其实质是为图片赋予了max-width: 100%; 和height:&nbsp;<span id="2_nwp"><a href="http://cpro.baidu.com/cpro/ui/uijs.php?c=news&amp;cf=1001&amp;ch=0&amp;di=128&amp;fv=14&amp;jk=394eafd9dfd62444&amp;k=auto&amp;k0=auto&amp;kdi0=0&amp;luki=1&amp;n=10&amp;p=baidu&amp;q=smileking_cpr&amp;rb=0&amp;rs=1&amp;seller_id=1&amp;sid=4424d6dfd9af4e39&amp;ssp2=1&amp;stid=0&amp;t=tpclicked3_hc&amp;tu=u1682280&amp;u=http%3A%2F%2Fwww%2Eth7%2Ecn%2Fweb%2Fhtml%2Dcss%2F201405%2F35855%2Eshtml&amp;urlid=0" target="_blank" rel="external">auto</a>;属性，可以让图片按比例缩放，不超过其父元素的尺寸。</span></p>
+<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">img </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">=”…”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”img-responsive”</span><span style="color: #ff0000;"> alt</span><span style="color: #0000ff;">=”Responsive image”</span><span style="color: #0000ff;">&gt;</span></pre><br></div>
+
+<p>&nbsp;</p>
+<p><strong>6、图片占位符</strong><br>浅灰色背景，可加文字的图片占位符：<a href="http://placekitten.com/" target="_blank" rel="external">http://placekitten.com/</a><br>图片占位符纯色背景无文字版代码：<a href="http://fpoimg.com/" target="_blank" rel="external">http://fpoimg.com/</a><br>其他：<a href="http://placehold.it/是一个简单方便的占位图片生成工具，用户通过直接在url里加入图片宽、高数值参数即可生成你想要的占位图片。" target="_blank" rel="external">http://placehold.it/是一个简单方便的占位图片生成工具，用户通过直接在url里加入图片宽、高数值参数即可生成你想要的占位图片。</a></p>
+<p><strong>7、漂亮的bootstarp模板，参考模板学习，永远是一个好方法。</strong><br>收费的模板站点：<a href="http://wrapbootstrap.com/" target="_blank" rel="external">http://wrapbootstrap.com/</a> 不贵，不少好东西。<br>下面是免费的：<br>Bootstrap Editor and Builder：<a href="http://www.bootply.com/" target="_blank" rel="external">http://www.bootply.com/</a><br>Free themes for Bootstrap：<a href="http://bootswatch.com/" target="_blank" rel="external">http://bootswatch.com/</a><br>一个较为全面的，mPurpose &ndash; Free multipurpose Twitter Bootstrap 3 template<br><a href="http://www.bootstrapzero.com/bootstrap-template/mpurpose" target="_blank" rel="external">http://www.bootstrapzero.com/bootstrap-template/mpurpose</a></p>
+<p></p></div><p></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/03/12/bootstarp-v3-学习简记/" data-title="bootstarp v3 学习简记 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/03/12/Notepad-快捷键-大全/" title="Notepad++ 快捷键 大全">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  Notepad++ 快捷键 大全</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/12/Bootstarp学习教程（7）-表单/"  title="Bootstarp学习教程（7） 表单">
+ <strong>NEXT:</strong><br/> 
+ <span>Bootstarp学习教程（7） 表单
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

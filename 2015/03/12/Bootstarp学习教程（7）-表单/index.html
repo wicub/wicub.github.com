@@ -1,0 +1,395 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Bootstarp学习教程（7） 表单 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="基本案例：&amp;ldquo;form-control&amp;rdquo;修饰的&amp;amp;lt;input&amp;amp;gt;、&amp;amp;lt;textarea&amp;amp;gt;和&amp;amp;lt;select&amp;amp;gt;元素都将被默认设置为width: 100%;表单控件包裹在&amp;quot;&amp;lt;code&amp;gt;">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/12/Bootstarp学习教程（7）-表单/" title="Bootstarp学习教程（7） 表单" itemprop="url">Bootstarp学习教程（7） 表单</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-03-12T03:28:00.000Z" itemprop="datePublished">2015-03-12</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u9AD8_u5EA6_u5C3A_u5BF8"><span class="toc-number">1.</span> <span class="toc-text">高度尺寸</span></a></li></ol>
+		</div>
+		
+		<p>基本案例：&ldquo;form-control&rdquo;修饰的<code>&amp;lt;input&amp;gt;</code>、<code>&amp;lt;textarea&amp;gt;</code>和<code>&amp;lt;select&amp;gt;</code>元素都将被默认设置为<code>width: 100%;表单控件包裹在&quot;&lt;code&gt;.form-group&quot;</code>中可以获得最好的排列</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE html</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>Demo<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">=”keywords”</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">=”keyword1,keyword2,keyword3”</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">=”description”</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">=”this is my page”</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">=”content-type”</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">=”text/html; charset=UTF-8”</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">=”viewport”</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">=”width=device-width, initial-scale=1.0”</span><span style="color: #0000ff;">&gt;</span><br><br><span style="color: #008000;">&lt;!–</span><span style="color: #008000;">&lt;link rel=”stylesheet” type=”text/css” href=”./styles.css”&gt;</span><span style="color: #008000;">–&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">link </span><span style="color: #ff0000;">rel</span><span style="color: #0000ff;">=”stylesheet”</span><span style="color: #ff0000;"> href</span><span style="color: #0000ff;">=”css/bootstrap.min.css”</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #008000;">&lt;!–</span><span style="color: #008000;"> 可选的Bootstrap主题文件（一般不用引入） </span><span style="color: #008000;">–&gt;</span><br><span style="color: #008000;">&lt;!–</span><span style="color: #008000;">&lt;link rel=”stylesheet” href=”css/bootstrap-theme.min.css”&gt;</span><span style="color: #008000;">–&gt;</span><br><span style="color: #008000;">&lt;!–</span><span style="color: #008000;"> jQuery文件。务必在bootstrap.min.js 之前引入 </span><span style="color: #008000;">–&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">=”<a href="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js" target="_blank" rel="external">http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js</a>“</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #008000;">&lt;!–</span><span style="color: #008000;"> 最新的 Bootstrap 核心 JavaScript 文件 </span><span style="color: #008000;">–&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">=”js/bootstrap.min.js”</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span><br>    <span style="color: #008000;">&lt;!–</span><span style="color: #008000;">容器  </span><span style="color: #008000;">–&gt;</span><br>    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”container”</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”row”</span><span style="color: #0000ff;">&gt;</span><br>           <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”col-md-4”</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">form </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-group”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">=”exampleInputEmail1”</span><span style="color: #0000ff;">&gt;</span>用户名<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input<br>                        </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”text”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”form-control”</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">=”exampleInputEmail1”</span><span style="color: #ff0000;"><br>                        placeholder</span><span style="color: #0000ff;">=”请在此输入用户名”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-group”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">=”exampleInputPassword1”</span><span style="color: #0000ff;">&gt;</span>密码<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input<br>                        </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”password”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”form-control”</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">=”exampleInputPassword1”</span><span style="color: #ff0000;"><br>                        placeholder</span><span style="color: #0000ff;">=”请在此输入密码”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”checkbox”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”checkbox”</span><span style="color: #0000ff;">&gt;</span> 是否记住用户名和密码 <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">button </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”submit”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”btn btn-default”</span><span style="color: #0000ff;">&gt;</span>登入<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">button</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">form</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span></pre><br></div>
+
+<p><img src="http://img.blog.csdn.net/20140117163503984?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhvdXpoaXdlbmdhbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>&nbsp;</p>
+<div>&nbsp;<br><br><code>内联表单:&quot;form-inline&quot;可使其内容左对齐并且表现为inline-block级别的控件。**只适用于浏览器窗口至少在 768px 宽度时**</code><br><br><code>**&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 注意：**需要设置宽度</code><br><br><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在Bootstrap中，input、select和textarea默认被设置为100%宽度。为了使用内联表单，你需要专门为使用到的表单控件设置宽度。</code><br><br><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 一定要设置label</code><br><br><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 如果你没有为每个输入控件设置label，屏幕阅读器将无法正确识读。对于这些内联表单，你可以通过为label设置&lt;code&gt;.sr-only</code>已将其隐藏。<br><br>&nbsp;<br><br><div class="cnblogs_code"><br><pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”row”</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”col-md-6”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">form </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-inline”</span><span style="color: #ff0000;"> role</span><span style="color: #0000ff;">=”form”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-group”</span><span style="color: #0000ff;">&gt;</span><br>                        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”sr-only”</span><span style="color: #ff0000;"> for</span><span style="color: #0000ff;">=”exampleInputEmail2”</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">邮箱<br>                            </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”email”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”form-control”</span><span style="color: #ff0000;"><br>                            id</span><span style="color: #0000ff;">=”exampleInputEmail2”</span><span style="color: #ff0000;"> placeholder</span><span style="color: #0000ff;">=”在此输入邮箱地址”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-group”</span><span style="color: #0000ff;">&gt;</span><br>                        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”sr-only”</span><span style="color: #ff0000;"> for</span><span style="color: #0000ff;">=”exampleInputPassword2”</span><span style="color: #0000ff;">&gt;</span>密码<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>                        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”password”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”form-control”</span><span style="color: #ff0000;"><br>                            id</span><span style="color: #0000ff;">=”exampleInputPassword2”</span><span style="color: #ff0000;"> placeholder</span><span style="color: #0000ff;">=”在此输入密码”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”checkbox”</span><span style="color: #0000ff;">&gt;</span><br>                        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”checkbox”</span><span style="color: #0000ff;">&gt;</span> 是否记住 <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">button </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”submit”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”btn btn-default”</span><span style="color: #0000ff;">&gt;</span>登入<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">button</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">form</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre><br></div>
+
+<p><img src="http://img.blog.csdn.net/20140117164446515?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhvdXpoaXdlbmdhbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>&nbsp;</p>
+<p><code>水平排列的表单:表单添加&quot;&lt;code&gt;form-horizontal&quot;</code>，并使用Bootstrap预置的栅格class可以将label和控件组水平并排布局。这样做将改变”<code>form-group&quot;</code>的行为，使其表现为栅格系统中的行（row），因此就无需再使用”<code>row&quot;</code>了。</p>
+<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">form </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-horizontal”</span><span style="color: #ff0000;"> role</span><span style="color: #0000ff;">=”form”</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-group”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">=”inputEmail3”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”col-sm-2 control-label”</span><span style="color: #0000ff;">&gt;</span>用户名<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”col-sm-4”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”text”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”form-control”</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">=”inputEmail3”</span><span style="color: #ff0000;"><br>                        placeholder</span><span style="color: #0000ff;">=”在此输入用户名”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-group”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">=”inputPassword3”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”col-sm-2 control-label”</span><span style="color: #0000ff;">&gt;</span>密码<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”col-sm-4”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”password”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”form-control”</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">=”inputPassword3”</span><span style="color: #ff0000;"><br>                        placeholder</span><span style="color: #0000ff;">=”在此输入密码”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-group”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”col-sm-offset-2 col-sm-10”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”checkbox”</span><span style="color: #0000ff;">&gt;</span><br>                        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”checkbox”</span><span style="color: #0000ff;">&gt;</span> 是否保留 <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-group”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”col-sm-offset-2 col-sm-10”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">button </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”submit”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”btn btn-default”</span><span style="color: #0000ff;">&gt;</span>登入<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">button</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">form</span><span style="color: #0000ff;">&gt;</span></pre><br></div>
+
+<p><img src="http://img.blog.csdn.net/20140117165137359?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhvdXpoaXdlbmdhbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>&nbsp;</p>
+<p><code>被支持的控件:在表单布局案例中展示了其所支持的标准表单控件</code></p>
+<p><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Input:大部分表单控件、文本输入域控件。包括HTML5支持的所有类型：&lt;code&gt;text</code>、<code>password</code>、<code>datetime</code>、<code>datetime-local</code>、<code>date</code>、<code>month</code>、<code>time</code>、<code>week</code>、<code>number</code>、<code>email</code>、<code>url</code>、<code>search</code>、<code>tel</code>和<code>color</code>。(只有正确设置了<code>type</code>的input控件才能被赋予正确的样式。)</p>
+<p><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Textarea:支持多行文本的表单控件。可根据需要改变&lt;code&gt;rows</code>属性。</p>
+<p><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Checkbox 和 radio:Checkbox用于选择列表中的一个或多个选项，而radio用于从多个选项中只选择一个。</code></p>
+<p><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 内联checkboxes：通过将&amp;ldquo;&lt;code&gt;checkbox-inline&amp;rdquo;</code>&nbsp;或 &ldquo;<code>radio-inline&amp;rdquo;</code>应用到一系列的checkbox或radio控件上，可以使这些控件排列在一行</p>
+<p><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Select:使用默认选项或添加&lt;code&gt;multiple</code>属性可以显示多个选项。</p>
+<p>&nbsp;</p>
+<p><code>(4)静态控件:在水平布局的表单中，如果需要将一行纯文本放置于label的同一行，为&lt;code&gt;&amp;lt;p&amp;gt;</code>元素添加<code>.form-control-static</code>即可。</p>
+<p><code>&amp;nbsp;&amp;lt;form class=&quot;form-horizontal&quot; role=&quot;form&quot;&amp;gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;div class=&quot;form-group&quot;&amp;gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;label class=&quot;col-sm-2 control-label&quot;&amp;gt;邮箱&amp;lt;/label&amp;gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;div class=&quot;col-sm-10&quot;&amp;gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;p class=&quot;form-control-static&quot;&amp;gt;email@example.com&amp;lt;/p&amp;gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;/div&amp;gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;/div&amp;gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;div class=&quot;form-group&quot;&amp;gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;label for=&quot;inputPassword&quot; class=&quot;col-sm-2 control-label&quot;&amp;gt;密码&amp;lt;/label&amp;gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;div class=&quot;col-sm-10&quot;&amp;gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;inputPassword&quot;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;placeholder=&quot;Password&quot;&amp;gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;/div&amp;gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;/div&amp;gt;
+&amp;nbsp;&amp;nbsp;&amp;lt;/form&amp;gt;</code></p>
+<p><code>![](http://img.blog.csdn.net/20140117170205843?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhvdXpoaXdlbmdhbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)</code></p>
+<p><code>(5)控件状态:通过为控件和label设置一些基本状态，可以为用户提供回馈。</code></p>
+<p><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 输入焦点:表单控件的默认&lt;code&gt;outline</code>样式，并对其<code>:focus</code>状态赋予了<code>box-shadow</code>样式.</p>
+<p><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 被禁用的输入框:为输入框设置&lt;code&gt;disabled</code>属性可以防止用户输入，并能改变一点外观，使其更直观.</p>
+<p><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 被禁用的fieldset:为&lt;code&gt;&amp;lt;fieldset&amp;gt;</code>设置<code>disabled</code>属性可以禁用<code>&amp;lt;fieldset&amp;gt;</code>中包含的所有控件。</p>
+<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">form </span><span style="color: #ff0000;">role</span><span style="color: #0000ff;">=”form”</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">fieldset </span><span style="color: #ff0000;">disabled</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-group”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">=”disabledTextInput”</span><span style="color: #0000ff;">&gt;</span>Disabled input<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input<br>                        </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”text”</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">=”disabledTextInput”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”form-control”</span><span style="color: #ff0000;"><br>                        placeholder</span><span style="color: #0000ff;">=”Disabled input”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-group”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">=”disabledSelect”</span><span style="color: #0000ff;">&gt;</span>Disabled select menu<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">select<br>                        </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">=”disabledSelect”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”form-control”</span><span style="color: #0000ff;">&gt;</span><br>                        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>Disabled select<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">select</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”checkbox”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”checkbox”</span><span style="color: #0000ff;">&gt;</span> Can’t check this <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">button </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”submit”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”btn btn-primary”</span><span style="color: #0000ff;">&gt;</span>Submit<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">button</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">fieldset</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">form</span><span style="color: #0000ff;">&gt;</span></pre><br></div>
+
+<p><img src="http://img.blog.csdn.net/20140117171730671?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhvdXpoaXdlbmdhbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>&nbsp;</p>
+<p><code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 校验状态:Bootstrap对表单控件的校验状态，如error、warning和success状态，都定义了样式。使用时，添加&lt;code&gt;.has-warning</code>、<code>.has-error</code>或<code>.has-success</code>到这些控件的父元素即可。任何包含在此元素之内的<code>.control-label</code>、<code>.form-control</code>和<code>.help-block</code>都将接受这些校验状态的样式。</p>
+<div class="dp-highlighter bg_html"><br><div class="bar"><br><div class="tools"><br><div class="cnblogs_code"><br><pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-group has-success”</span><span style="color: #0000ff;">&gt;</span><br>  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”control-label”</span><span style="color: #ff0000;"> for</span><span style="color: #0000ff;">=”inputSuccess”</span><span style="color: #0000ff;">&gt;</span>Input with success<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”text”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”form-control”</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">=”inputSuccess”</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-group has-warning”</span><span style="color: #0000ff;">&gt;</span><br>  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”control-label”</span><span style="color: #ff0000;"> for</span><span style="color: #0000ff;">=”inputWarning”</span><span style="color: #0000ff;">&gt;</span>Input with warning<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”text”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”form-control”</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">=”inputWarning”</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”form-group has-error”</span><span style="color: #0000ff;">&gt;</span><br>  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”control-label”</span><span style="color: #ff0000;"> for</span><span style="color: #0000ff;">=”inputError”</span><span style="color: #0000ff;">&gt;</span>Input with error<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”text”</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">=”form-control”</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">=”inputError”</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre><br></div>
+
+<p>(6)控件尺寸:通过<code>.input-lg</code>之类的class可以为控件设置高度，通过<code>.col-lg-*</code>之类的class可以为控件设置宽度。</p>
+<h3 id="u9AD8_u5EA6_u5C3A_u5BF8"><a href="#u9AD8_u5EA6_u5C3A_u5BF8" class="headerlink" title="高度尺寸"></a><a name="t0"></a>高度尺寸</h3><p>创建大一些或小一些的表单控件以匹配按钮尺寸。</p>
+<div class="bs-example bs-example-control-sizing"><form><br><div class="controls"><input class="form-control input-lg" type="text" value=""><input class="form-control" type="text" value=""><input class="form-control input-sm" type="text" value=""><select class="form-control input-lg"><br><option selected="selected" value="">&nbsp;.input-lg</option><br>&nbsp;</select><select class="form-control"><br><option selected="selected" value="">&nbsp;Default select</option><br>&nbsp;</select><select class="form-control input-sm"><br><option selected="selected" value="">&nbsp;.input-sm</option><br>&nbsp;</select></div><br></form></div>
+
+<p>&nbsp;</p>
+<div class="highlight"><br><br>    <span class="tag">&lt;<span class="title">input <span class="attribute">class=<span class="value">“form-control input-lg” <span class="attribute">type=<span class="value">“text” <span class="attribute">placeholder=<span class="value">“.input-lg”&gt;<br>    <span class="tag">&lt;<span class="title">input <span class="attribute">class=<span class="value">“form-control” <span class="attribute">type=<span class="value">“text” <span class="attribute">placeholder=<span class="value">“Default input”&gt;<br>    <span class="tag">&lt;<span class="title">input <span class="attribute">class=<span class="value">“form-control input-sm” <span class="attribute">type=<span class="value">“text” <span class="attribute">placeholder=<span class="value">“.input-sm”&gt;<br><br>    <span class="tag">&lt;<span class="title">select <span class="attribute">class=<span class="value">“form-control input-lg”&gt;…<span class="tag">&lt;/<span class="title">select&gt;<br>    <span class="tag">&lt;<span class="title">select <span class="attribute">class=<span class="value">“form-control”&gt;…<span class="tag">&lt;/<span class="title">select&gt;<br>    <span class="tag">&lt;<span class="title">select <span class="attribute">class=<span class="value">“form-control input-sm”&gt;…<span class="tag">&lt;/<span class="title">select&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>`<br>    </div>
+
+<pre><code>### &lt;a name=&quot;t1&quot;&gt;&lt;/a&gt;调整列尺寸
+
+用栅格系统中的列包裹input或其任何父元素，都可很容易的为其设置宽度。
+
+&lt;div class=&quot;bs-example&quot;&gt;&lt;form&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;div class=&quot;col-xs-2&quot;&gt;&lt;input class=&quot;form-control&quot; type=&quot;text&quot; value=&quot;&quot; /&gt;&lt;/div&gt;
+&lt;div class=&quot;col-xs-3&quot;&gt;&lt;input class=&quot;form-control&quot; type=&quot;text&quot; value=&quot;&quot; /&gt;&lt;/div&gt;
+&lt;div class=&quot;col-xs-4&quot;&gt;&lt;input class=&quot;form-control&quot; type=&quot;text&quot; value=&quot;&quot; /&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/form&gt;&lt;/div&gt;
+
+&amp;nbsp;
+
+&lt;div class=&quot;highlight&quot;&gt;
+&lt;pre&gt;`&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div &lt;span class=&quot;attribute&quot;&gt;class=&lt;span class=&quot;value&quot;&gt;&quot;row&quot;&amp;gt;
+  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div &lt;span class=&quot;attribute&quot;&gt;class=&lt;span class=&quot;value&quot;&gt;&quot;col-xs-2&quot;&amp;gt;
+    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;input &lt;span class=&quot;attribute&quot;&gt;type=&lt;span class=&quot;value&quot;&gt;&quot;text&quot; &lt;span class=&quot;attribute&quot;&gt;class=&lt;span class=&quot;value&quot;&gt;&quot;form-control&quot; &lt;span class=&quot;attribute&quot;&gt;placeholder=&lt;span class=&quot;value&quot;&gt;&quot;.col-xs-2&quot;&amp;gt;
+  &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&amp;gt;
+  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div &lt;span class=&quot;attribute&quot;&gt;class=&lt;span class=&quot;value&quot;&gt;&quot;col-xs-3&quot;&amp;gt;
+    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;input &lt;span class=&quot;attribute&quot;&gt;type=&lt;span class=&quot;value&quot;&gt;&quot;text&quot; &lt;span class=&quot;attribute&quot;&gt;class=&lt;span class=&quot;value&quot;&gt;&quot;form-control&quot; &lt;span class=&quot;attribute&quot;&gt;placeholder=&lt;span class=&quot;value&quot;&gt;&quot;.col-xs-3&quot;&amp;gt;
+  &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&amp;gt;
+  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div &lt;span class=&quot;attribute&quot;&gt;class=&lt;span class=&quot;value&quot;&gt;&quot;col-xs-4&quot;&amp;gt;
+    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;input &lt;span class=&quot;attribute&quot;&gt;type=&lt;span class=&quot;value&quot;&gt;&quot;text&quot; &lt;span class=&quot;attribute&quot;&gt;class=&lt;span class=&quot;value&quot;&gt;&quot;form-control&quot; &lt;span class=&quot;attribute&quot;&gt;placeholder=&lt;span class=&quot;value&quot;&gt;&quot;.col-xs-4&quot;&amp;gt;
+  &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&amp;gt;
+&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+</code></pre><p></p></div><br></div><br></div><br></div><p></p>
+<div class="dp-highlighter bg_html">&nbsp;</div>
+
+<p><a href="http://blog.csdn.net/zhouzhiwengang/article/details/18410489" target="_blank" rel="external">原文链接</a></p>
+<p>&nbsp;</p>
+<p></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/03/12/Bootstarp学习教程（7）-表单/" data-title="Bootstarp学习教程（7） 表单 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/03/12/bootstarp-v3-学习简记/" title="bootstarp v3 学习简记">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  bootstarp v3 学习简记</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/10/git移除某文件夹的版本控制/"  title="git移除某文件夹的版本控制">
+ <strong>NEXT:</strong><br/> 
+ <span>git移除某文件夹的版本控制
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u9AD8_u5EA6_u5C3A_u5BF8"><span class="toc-number">1.</span> <span class="toc-text">高度尺寸</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

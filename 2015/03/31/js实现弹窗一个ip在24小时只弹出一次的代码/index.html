@@ -1,0 +1,315 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>js实现弹窗一个ip在24小时只弹出一次的代码 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="function cookieGO(name) {  var today = new Date();  var expires = new Date();  expires.setTime(today.getTime() + 1000606024);  setCookie(“cookievalue”">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/31/js实现弹窗一个ip在24小时只弹出一次的代码/" title="js实现弹窗一个ip在24小时只弹出一次的代码" itemprop="url">js实现弹窗一个ip在24小时只弹出一次的代码</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-03-31T07:13:00.000Z" itemprop="datePublished">2015-03-31</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+		</div>
+		
+		<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">function</span><span style="color: #000000;"> cookieGO(name) {<br>  </span><span style="color: #0000ff;">var</span> today = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Date();<br>  </span><span style="color: #0000ff;">var</span> expires = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Date();<br>  expires.setTime(today.getTime() </span>+ 1000<em>60</em>60<em>24<span style="color: #000000;">);<br>  setCookie(</span>“cookievalue”<span style="color: #000000;">, name, expires);<br>}<br><br></span><span style="color: #0000ff;">function</span><span style="color: #000000;"> setCookie(name, value, expire) {<br>  window.document.cookie </span>= name + “=” + escape(value) + ((expire == <span style="color: #0000ff;">null</span>) ? “” : (“; expires=” +<span style="color: #000000;"> expire.toGMTString()));<br>}<br><br></span><span style="color: #0000ff;">function</span><span style="color: #000000;"> getCookie(Name) {<br>   </span><span style="color: #0000ff;">var</span> findcookie = Name + “=”<span style="color: #000000;">;<br>   </span><span style="color: #0000ff;">if</span> (window.document.cookie.length &gt; 0) { <span style="color: #008000;">//</span><span style="color: #008000;"> if there are any cookies</span><br>     offset =<span style="color: #000000;"> window.document.cookie.indexOf(findcookie);<br>  </span><span style="color: #0000ff;">if</span> (offset != -1) { <span style="color: #008000;">//</span><span style="color: #008000;"> if cookie exists</span><br>       offset += findcookie.length;          <span style="color: #008000;">//</span><span style="color: #008000;"> set index of beginning of value</span><br>    end = window.document.cookie.indexOf(“;”, offset)          <span style="color: #008000;">//</span><span style="color: #008000;"> set index of end of cookie value</span><br>    <span style="color: #0000ff;">if</span> (end == -1<span style="color: #000000;">)<br>      end </span>=<span style="color: #000000;"> window.document.cookie.length;<br>    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> unescape(window.document.cookie.substring(offset, end));<br>     }<br>   }<br>   </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">null</span><span style="color: #000000;">;<br>}<br><br></span><span style="color: #0000ff;">function</span><span style="color: #000000;"> TanChuang() {<br>  </span><span style="color: #0000ff;">var</span> c = getCookie(“cookievalue”<span style="color: #000000;">);<br>  </span><span style="color: #008000;">//</span><span style="color: #008000;">alert(c);</span><br>  <span style="color: #0000ff;">if</span> (c != <span style="color: #0000ff;">null</span><span style="color: #000000;">) {<br>    </span><span style="color: #0000ff;">return</span><span style="color: #000000;">;<br>  }<br>  cookieGO(</span>“getcookie”<span style="color: #000000;">);<br><br>  </span><span style="color: #008000;">/</span></em><span style="color: #008000;"><em>var featureStr=”‘’”;<br>  featureStr=”‘top=0,left=0,width=800,height=600,toolbar=yes, menubar=no, scrollbars=no, resizable=no, location=no, status=no,center:no’”;<br>  self.focus();<br>  var ExitWindow = window.open(exitURL,’’, featureStr);<br>  ExitWindow.focus();</em></span><span style="color: #008000;">*/</span><span style="color: #000000;"><br>    window.location.href </span>=<span style="color: #000000;"> exitURL;<br><br>}<br></span><span style="color: #0000ff;">var</span> exitURL=”<a href="http://mp.weixin.qq.com/s?__biz=MzAwNjM2OTA3OQ==&amp;mid=204679702&amp;idx=1&amp;sn=355bbc453617129c5c6e5f8f5873ced7#rd" target="_blank" rel="external">http://mp.weixin.qq.com/s?__biz=MzAwNjM2OTA3OQ==&amp;mid=204679702&amp;idx=1&amp;sn=355bbc453617129c5c6e5f8f5873ced7#rd</a>“<span style="color: #000000;">;<br><br>setTimeout(</span>“TanChuang()”,2000<span style="color: #000000;">);<br>window.focus()</span></pre><br></div>
+
+<p>&nbsp;</p>
+<p>注意：</p>
+<p>chrome浏览器在本地获取不到cookie。必须在服务器上才可以。如果是本地的话，你可以放到local的www目录下面。</p>
+<p>Google Chrome只支持在线网站的cookie的读写操作，对本地html的cookie操作是禁止的。所以下面的代码如果你写在一个本地的html文件中，将弹出的对话框内容为空。</p>
+<p>document.cookie = “Test=cooo”;<br>alert(document.cookie);</p>
+<p>如果这个页面是在线网站的内容，则会正常显示cookie内容Test=cooo等等。</p>
+<p>&nbsp;</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/03/31/js实现弹窗一个ip在24小时只弹出一次的代码/" data-title="js实现弹窗一个ip在24小时只弹出一次的代码 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/03/31/JS设置cookie/" title="JS设置cookie">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  JS设置cookie</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/27/解决Strict-Standards-Only-variables-should-be-passed-by-reference/"  title="解决Strict Standards: Only variables should be passed by reference">
+ <strong>NEXT:</strong><br/> 
+ <span>解决Strict Standards: Only variables should be passed by reference
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

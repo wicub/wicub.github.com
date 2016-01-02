@@ -1,0 +1,317 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>获取订单的product_id 和订单的数量 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="php 获取订单的product_id 和相对id的数量
+&amp;nbsp;
+ &amp;lt;?php foreach ($val-&amp;gt;groupResults(2) as $key2=&amp;gt;$val2):?&amp;gt;     &amp;lt;tr class=”eveData” shoppingCartId=”&amp;">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/10/16/获取订单的product-id-和订单的数量/" title="获取订单的product_id 和订单的数量" itemprop="url">获取订单的product_id 和订单的数量</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-10-16T02:13:00.000Z" itemprop="datePublished">2015-10-16</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+		</div>
+		
+		<p>php 获取订单的product_id 和相对id的数量</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><br><pre> &lt;?php <span style="color: #0000ff;">foreach</span> (<span style="color: #800080;">$val</span>-&gt;groupResults(2) <span style="color: #0000ff;">as</span> <span style="color: #800080;">$key2</span>=&gt;<span style="color: #800080;">$val2</span>):?&gt;<br>     &lt;tr <span style="color: #0000ff;">class</span>=”eveData” shoppingCartId=”&lt;?=<span style="color: #800080;">$val2</span>-&gt;id?&gt;” productId=”&lt;?=<span style="color: #800080;">$val2</span>-&gt;product()-&gt;id?&gt;” freightId=”&lt;?=<span style="color: #800080;">$val2</span>-&gt;product()-&gt;freight_id?&gt;”&gt;<br>       &lt;td width=”10%”&gt;&lt;a href=”&lt;?=<span style="color: #800080;">$val2</span>-&gt;product()-&gt;strUrl()?&gt;” target=”_blank”&gt;&lt;img src=”&lt;?=<span style="color: #800080;">$val2</span>-&gt;strPic()?&gt;” <span style="color: #0000ff;">class</span>=”img75” /&gt;&lt;/a&gt;&lt;/td&gt;<br>       &lt;td width=”33%”&gt;<br>          &lt;a href=”&lt;?=<span style="color: #800080;">$val2</span>-&gt;product()-&gt;strUrl()?&gt;” target=”_blank”&gt;&lt;?=<span style="color: #800080;">$val2</span>-&gt;product()-&gt;title?&gt;&lt;/a&gt;&lt;br/&gt;<br>          &lt;?php <span style="color: #0000ff;">if</span>(<span style="color: #800080;">$val2</span>-&gt;shop()-&gt;isVip()):?&gt;<br>         &lt;a href=”javascript:void(0)” title=”VIP商家” <span style="color: #0000ff;">class</span>=”shop_ico_vip”&gt;&lt;/a&gt;<br>         &lt;?php <span style="color: #0000ff;">endif</span>;?&gt;<br>         &lt;?php <span style="color: #0000ff;">if</span>(<span style="color: #800080;">$val2</span>-&gt;product()-&gt;is_24h&gt;0):?&gt;<br>                &lt;a href=”javascript:void(0)” title=”&lt;?=<span style="color: #800080;">$val2</span>-&gt;product()-&gt;is_24h?&gt;小时内发货” <span style="color: #0000ff;">class</span>=”shop_ico_24h”&gt;&lt;/a&gt;<br>         &lt;?php <span style="color: #0000ff;">endif</span>;?&gt;<br>         &lt;?php <span style="color: #0000ff;">if</span>(<span style="color: #800080;">$val2</span>-&gt;product()-&gt;is_aftermarket&gt;0):?&gt;<br>                &lt;a href=”javascript:void(0)” title=”售后保障” <span style="color: #0000ff;">class</span>=”shop_ico_baozhang”&gt;&lt;/a&gt;<br>         &lt;?php <span style="color: #0000ff;">endif</span>;?&gt;<br>         &lt;?php <span style="color: #0000ff;">if</span>(<span style="color: #800080;">$val2</span>-&gt;product()-&gt;is_7goodsreturn&gt;0):?&gt;<br>                &lt;a href=”javascript:void(0)” title=”&lt;?=<span style="color: #800080;">$val2</span>-&gt;product()-&gt;is_7goodsreturn?&gt;+天包退” <span style="color: #0000ff;">class</span>=”shop_ico_7”&gt;&lt;/a&gt;<br>         &lt;?php <span style="color: #0000ff;">endif</span>;?&gt;<br>         &lt;?php <span style="color: #0000ff;">if</span>(<span style="color: #800080;">$val2</span>-&gt;product()-&gt;is_15renew&gt;0):?&gt;<br>                &lt;a href=”javascript:void(0)” title=”&lt;?=<span style="color: #800080;">$val2</span>-&gt;product()-&gt;is_15renew?&gt;+天换新” <span style="color: #0000ff;">class</span>=”shop_ico_15”&gt;&lt;/a&gt;<br>         &lt;?php <span style="color: #0000ff;">endif</span>;?&gt;<br>         &lt;?php <span style="color: #0000ff;">if</span>(<span style="color: #800080;">$val2</span>-&gt;product()-&gt;is_wholesale&gt;0):?&gt;<br>                &lt;a href=”javascript:void(0)” title=”批发” <span style="color: #0000ff;">class</span>=”shop_ico_pifa”&gt;&lt;/a&gt;<br>         &lt;?php <span style="color: #0000ff;">endif</span>;?&gt;<br>       &lt;/td&gt;<br>       &lt;td width=”13%”&gt;<br>          &lt;i <span style="color: #0000ff;">class</span>=”i_gray”&gt;型号：&lt;/i&gt;&lt;?=<span style="color: #800080;">$val2</span>-&gt;attriModel()-&gt;title?&gt;&lt;br/&gt;<br>          &lt;i <span style="color: #0000ff;">class</span>=”i_gray”&gt;分类：&lt;/i&gt;&lt;?=<span style="color: #800080;">$val2</span>-&gt;attriCategory()-&gt;title?&gt;<br>       &lt;/td&gt;<br>       &lt;td&gt;&lt;b <span style="color: #0000ff;">class</span>=”eveUnitPrice”&gt;&lt;?=<span style="color: #800080;">$val2</span>-&gt;product()-&gt;price?&gt;a&lt;?=<span style="color: #800080;">$val2</span>-&gt;product()-&gt;id?&gt;&lt;/b&gt;&lt;/td&gt;<br>       &lt;td&gt;<br>          &lt;input type=”text” <span style="color: #0000ff;">class</span>=”num eveNum” shoppingCartId=”&lt;?=<span style="color: #800080;">$val2</span>-&gt;id?&gt;” value=”&lt;?=<span style="color: #800080;">$val2</span>-&gt;number?&gt;” /&gt;&lt;br/&gt;<br>          &lt;i <span style="color: #0000ff;">class</span>=”i_gray”&gt;库存：&lt;/i&gt;&lt;?=<span style="color: #800080;">$val2</span>-&gt;product()-&gt;inventorySurplus()?&gt;<br>       &lt;/td&gt;<br>       &lt;td&gt;&lt;i <span style="color: #0000ff;">class</span>=”i_16red evePrice”&gt;&lt;?=<span style="color: #800080;">$val2</span>-&gt;priceSum()?&gt;&lt;/i&gt;&lt;/td&gt;<br>       &lt;?php <span style="color: #0000ff;">if</span>(<span style="color: #800080;">$key2</span>==0):?&gt;<br>       &lt;td rowspan=”3”&gt;<span style="color: #000000;"><br>          方式：<br>          </span>&lt;select name=”logistics_type” onchange=”freightPrice()”&gt;<br>              &lt;option value=”1”&gt;自取&lt;/option&gt;<br>              &lt;option value=”2”&gt;配送&lt;/option&gt;<br>          &lt;/select&gt;<br>          &lt;br/&gt;<span style="color: #000000;"><br>          费用：</span>&lt;span <span style="color: #0000ff;">class</span>=”eveLogisticsPrice”&gt;0.00&lt;/span&gt;<br>       &lt;/td&gt;<br>       &lt;?php <span style="color: #0000ff;">endif</span>;?&gt;<br>     &lt;/tr&gt;</pre><br></div>
+
+<p>&nbsp;</p>
+<p>jquery获取的方法</p>
+<div class="cnblogs_code"><br><pre><span style="color: #008000;">/<em></em></span><span style="color: #008000;">获取产品的id和产品的数量</span><span style="color: #008000;">/</span><br>            <span style="color: #0000ff;">var</span> data=<span style="color: #000000;">[];<br>            $(</span>‘.eveData’).<span style="color: #008080;">each</span>(<span style="color: #0000ff;">function</span>(k,<span style="color: #000000;">v){<br>                </span><span style="color: #0000ff;">var</span> tmp =<span style="color: #000000;"> {<br>                    </span>‘prodcut_id’:$(this).attr(‘productId’),<br>                    ‘count’:$(this).find(‘.eveNum’).val(),<span style="color: #000000;"><br>                };<br>                data</span>.<span style="color: #000000;">push(tmp);<br>            });<br>            param</span>.product = data;</pre><br></div>
+
+<p>&nbsp;</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/10/16/获取订单的product-id-和订单的数量/" data-title="获取订单的product_id 和订单的数量 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/10/19/jquery插件layer/" title="jquery插件layer">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  jquery插件layer</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/10/14/12-个强大的-Chrome-插件扩展/"  title="12 个强大的 Chrome 插件扩展">
+ <strong>NEXT:</strong><br/> 
+ <span>12 个强大的 Chrome 插件扩展
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

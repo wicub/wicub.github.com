@@ -1,0 +1,331 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>PHP中的生成XML文件的4种方法分享 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="生成如下XML串Xml代码
+&amp;nbsp;
+&amp;lt;?xml version=”1.0” encoding=”utf-8”?&amp;gt;&amp;lt;article&amp;gt;    &amp;lt;item&amp;gt;        &amp;lt;title size=”1”&amp;gt;title1&amp;lt;/title&amp;gt;    ">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/20/PHP中的生成XML文件的4种方法分享/" title="PHP中的生成XML文件的4种方法分享" itemprop="url">PHP中的生成XML文件的4种方法分享</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-03-20T07:53:00.000Z" itemprop="datePublished">2015-03-20</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+		</div>
+		
+		<p>生成如下XML串<br>Xml代码</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><br><pre>&lt;?xml version=”1.0” encoding=”utf-8”?&gt;<br>&lt;article&gt;<br>    &lt;item&gt;<br>        &lt;title size=”1”&gt;title1&lt;/title&gt;<br>        &lt;content&gt;content1&lt;/content&gt;<br>        &lt;pubdate&gt;2009-10-11&lt;/pubdate&gt;<br>    &lt;/item&gt;<br>    &lt;item&gt;<br>        &lt;title size=”1”&gt;title2&lt;/title&gt;<br>        &lt;content&gt;content2&lt;/content&gt;<br>        &lt;pubdate&gt;2009-11-11&lt;/pubdate&gt;<br>    &lt;/item&gt;<br>&lt;/article&gt; </pre><br></div>
+
+<p><strong>方法I.【直接生成字符串】 
+</strong>使用纯粹的PHP代码生成字符串，并把这个字符串写入一个以XML为后缀的文件。这是最原始的生成XML的方法，不过有效！</p>
+<div class="cnblogs_code"><br><pre><span style="color: #008080;"> 1</span> &lt;?<span style="color: #000000;">PHP<br></span><span style="color: #008080;"> 2</span> <span style="color: #800080;">$data_array</span> = <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br></span><span style="color: #008080;"> 3</span>     <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br></span><span style="color: #008080;"> 4</span>     ‘title’ =&gt; ‘title1’,<br><span style="color: #008080;"> 5</span>     ‘content’ =&gt; ‘content1’,<br><span style="color: #008080;"> 6</span>         ‘pubdate’ =&gt; ‘2009-10-11’,<br><span style="color: #008080;"> 7</span>     ),<br><span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br></span><span style="color: #008080;"> 9</span>     ‘title’ =&gt; ‘title2’,<br><span style="color: #008080;">10</span>     ‘content’ =&gt; ‘content2’,<br><span style="color: #008080;">11</span>     ‘pubdate’ =&gt; ‘2009-11-11’,<br><span style="color: #008080;">12</span> <span style="color: #000000;">    )<br></span><span style="color: #008080;">13</span> <span style="color: #000000;">);<br></span><span style="color: #008080;">14</span> <span style="color: #800080;">$title_size</span> = 1<span style="color: #000000;">;<br></span><span style="color: #008080;">15</span> <span style="color: #800080;">$xml</span> = “&lt;?xml version=\”1.0\” encoding=\”utf-8\”?&gt;\n”<span style="color: #000000;">;<br></span><span style="color: #008080;">16</span> <span style="color: #800080;">$xml</span> .= “&lt;article&gt;\n”<span style="color: #000000;">;<br></span><span style="color: #008080;">17</span> <span style="color: #0000ff;">foreach</span> (<span style="color: #800080;">$data_array</span> <span style="color: #0000ff;">as</span> <span style="color: #800080;">$data</span><span style="color: #000000;">) {<br></span><span style="color: #008080;">18</span> <span style="color: #800080;">$xml</span> .= create_item(<span style="color: #800080;">$data</span>[‘title’], <span style="color: #800080;">$title_size</span>, <span style="color: #800080;">$data</span>[‘content’], <span style="color: #800080;">$data</span>[‘pubdate’<span style="color: #000000;">]);<br></span><span style="color: #008080;">19</span> <span style="color: #000000;">}<br></span><span style="color: #008080;">20</span> <span style="color: #800080;">$xml</span> .= “&lt;/article&gt;\n”<span style="color: #000000;">;<br></span><span style="color: #008080;">21</span> <span style="color: #008080;">header</span>(“Content-type: text/xml”<span style="color: #000000;">);<br></span><span style="color: #008080;">22</span> <span style="color: #0000ff;">echo</span> <span style="color: #800080;">$xml</span><span style="color: #000000;">;<br></span><span style="color: #008080;">23</span> <span style="color: #008000;">//</span><span style="color: #008000;">  创建XML单项</span><br><span style="color: #008080;">24</span> <span style="color: #0000ff;">function</span> create_item(<span style="color: #800080;">$title_data</span>, <span style="color: #800080;">$title_size</span>, <span style="color: #800080;">$content_data</span>, <span style="color: #800080;">$pubdate_data</span><span style="color: #000000;">)<br></span><span style="color: #008080;">25</span> <span style="color: #000000;">{<br></span><span style="color: #008080;">26</span>     <span style="color: #800080;">$item</span> = “&lt;item&gt;\n”<span style="color: #000000;">;<br></span><span style="color: #008080;">27</span>     <span style="color: #800080;">$item</span> .= “&lt;title size=\”” . <span style="color: #800080;">$title_size</span> . “\”&gt;” . <span style="color: #800080;">$title_data</span> . “&lt;/title&gt;\n”<span style="color: #000000;">;<br></span><span style="color: #008080;">28</span>     <span style="color: #800080;">$item</span> .= “&lt;content&gt;” . <span style="color: #800080;">$content_data</span> . “&lt;/content&gt;\n”<span style="color: #000000;">;<br></span><span style="color: #008080;">29</span>     <span style="color: #800080;">$item</span> .= “ &lt;pubdate&gt;” . <span style="color: #800080;">$pubdate_data</span> . “&lt;/pubdate&gt;\n”<span style="color: #000000;">;<br></span><span style="color: #008080;">30</span>     <span style="color: #800080;">$item</span> .= “&lt;/item&gt;\n”<span style="color: #000000;">;<br></span><span style="color: #008080;">31</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">$item</span><span style="color: #000000;">;<br></span><span style="color: #008080;">32</span> <span style="color: #000000;">}<br></span><span style="color: #008080;">33</span> ?&gt; </pre><br></div>
+
+<p>&nbsp;</p>
+<p><strong>方法2：【DomDocument】 
+</strong>使用DomDocument生成XML文件，创建节点使用createElement方法，创建文本内容使用createTextNode方法，添加子节点使用appendChild方法，创建属性使用createAttribute方法</p>
+<div class="cnblogs_code"><br><pre>&lt;?<span style="color: #000000;">php<br></span><span style="color: #800080;">$data_array</span> = <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span><span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span>‘title’ =&gt; ‘title1’,<br>    ‘content’ =&gt; ‘content1’,<br>        ‘pubdate’ =&gt; ‘2009-10-11’,<span style="color: #000000;"><br>    )</span>,<br>    <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span>‘title’ =&gt; ‘title2’,<br>    ‘content’ =&gt; ‘content2’,<br>    ‘pubdate’ =&gt; ‘2009-11-11’,<span style="color: #000000;"><br>    )<br>);<br></span><span style="color: #008000;">//</span><span style="color: #008000;">  属性数组</span><br><span style="color: #800080;">$attribute_array</span> = <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span>‘title’ =&gt; <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span>‘size’ =&gt; 1<span style="color: #000000;"><br>    )<br>);<br></span><span style="color: #008000;">//</span><span style="color: #008000;">  创建一个XML文档并设置XML版本和编码。。</span><br><span style="color: #800080;">$dom</span>=<span style="color: #0000ff;">new</span> DomDocument(‘1.0’, ‘utf-8’<span style="color: #000000;">);<br></span><span style="color: #008000;">//</span><span style="color: #008000;">  创建根节点</span><br><span style="color: #800080;">$article</span> = <span style="color: #800080;">$dom</span>-&gt;createElement(‘article’<span style="color: #000000;">);<br></span><span style="color: #800080;">$dom</span>-&gt;appendchild(<span style="color: #800080;">$article</span><span style="color: #000000;">);<br></span><span style="color: #0000ff;">foreach</span> (<span style="color: #800080;">$data_array</span> <span style="color: #0000ff;">as</span> <span style="color: #800080;">$data</span><span style="color: #000000;">) {<br>    </span><span style="color: #800080;">$item</span> = <span style="color: #800080;">$dom</span>-&gt;createElement(‘item’<span style="color: #000000;">);<br>    </span><span style="color: #800080;">$article</span>-&gt;appendchild(<span style="color: #800080;">$item</span><span style="color: #000000;">);<br>    create_item(</span><span style="color: #800080;">$dom</span>, <span style="color: #800080;">$item</span>, <span style="color: #800080;">$data</span>, <span style="color: #800080;">$attribute_array</span><span style="color: #000000;">);<br>}<br></span><span style="color: #0000ff;">echo</span> <span style="color: #800080;">$dom</span>-&gt;<span style="color: #000000;">saveXML();<br></span><span style="color: #0000ff;">function</span> create_item(<span style="color: #800080;">$dom</span>, <span style="color: #800080;">$item</span>, <span style="color: #800080;">$data</span>, <span style="color: #800080;">$attribute</span><span style="color: #000000;">) {<br>    </span><span style="color: #0000ff;">if</span> (<span style="color: #008080;">is_array</span>(<span style="color: #800080;">$data</span><span style="color: #000000;">)) {<br>        </span><span style="color: #0000ff;">foreach</span> (<span style="color: #800080;">$data</span> <span style="color: #0000ff;">as</span> <span style="color: #800080;">$key</span> =&gt; <span style="color: #800080;">$val</span><span style="color: #000000;">) {<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;">  创建元素</span><br>            $<span style="color: #800080;">$key</span> = <span style="color: #800080;">$dom</span>-&gt;createElement(<span style="color: #800080;">$key</span><span style="color: #000000;">);<br>            </span><span style="color: #800080;">$item</span>-&gt;appendchild($<span style="color: #800080;">$key</span><span style="color: #000000;">);<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;">  创建元素值</span><br>            <span style="color: #800080;">$text</span> = <span style="color: #800080;">$dom</span>-&gt;createTextNode(<span style="color: #800080;">$val</span><span style="color: #000000;">);<br>            $</span><span style="color: #800080;">$key</span>-&gt;appendchild(<span style="color: #800080;">$text</span><span style="color: #000000;">);<br>            </span><span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">isset</span>(<span style="color: #800080;">$attribute</span>[<span style="color: #800080;">$key</span><span style="color: #000000;">])) {<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;">  如果此字段存在相关属性需要设置</span><br>                <span style="color: #0000ff;">foreach</span> (<span style="color: #800080;">$attribute</span>[<span style="color: #800080;">$key</span>] <span style="color: #0000ff;">as</span> <span style="color: #800080;">$akey</span> =&gt; <span style="color: #800080;">$row</span><span style="color: #000000;">) {<br>                    </span><span style="color: #008000;">//</span><span style="color: #008000;">  创建属性节点</span><br>                    $<span style="color: #800080;">$akey</span> = <span style="color: #800080;">$dom</span>-&gt;createAttribute(<span style="color: #800080;">$akey</span><span style="color: #000000;">);<br>                    $</span><span style="color: #800080;">$key</span>-&gt;appendchild($<span style="color: #800080;">$akey</span><span style="color: #000000;">);<br>                    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 创建属性值节点</span><br>                    <span style="color: #800080;">$aval</span> = <span style="color: #800080;">$dom</span>-&gt;createTextNode(<span style="color: #800080;">$row</span><span style="color: #000000;">);<br>                    $</span><span style="color: #800080;">$akey</span>-&gt;appendChild(<span style="color: #800080;">$aval</span><span style="color: #000000;">);<br>                }<br>            }   </span><span style="color: #008000;">//</span><span style="color: #008000;">  end if</span><br><span style="color: #000000;">        }<br>    }   </span><span style="color: #008000;">//</span><span style="color: #008000;">  end if</span><br>}   <span style="color: #008000;">//</span><span style="color: #008000;">  end function</span><br>?&gt; </pre><br></div>
+
+<p>&nbsp;</p>
+<p><strong>方法3：【XMLWriter】 
+</strong>使用XMLWriter类创建XML文件，此方法在PHP 5.1.2后有效。另外，它可以输出多种编码的XML，但是输入只能是utf-8</p>
+<div class="cnblogs_code"><br><pre>&lt;?<span style="color: #000000;">php<br></span><span style="color: #800080;">$data_array</span> = <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span><span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span>‘title’ =&gt; ‘title1’,<br>    ‘content’ =&gt; ‘content1’,<br>        ‘pubdate’ =&gt; ‘2009-10-11’,<span style="color: #000000;"><br>    )</span>,<br>    <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span>‘title’ =&gt; ‘title2’,<br>    ‘content’ =&gt; ‘content2’,<br>    ‘pubdate’ =&gt; ‘2009-11-11’,<span style="color: #000000;"><br>    )<br>);<br></span><span style="color: #008000;">//</span><span style="color: #008000;">  属性数组</span><br><span style="color: #800080;">$attribute_array</span> = <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span>‘title’ =&gt; <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span>‘size’ =&gt; 1<span style="color: #000000;"><br>    )<br>);<br></span><span style="color: #800080;">$xml</span> = <span style="color: #0000ff;">new</span><span style="color: #000000;"> XMLWriter();<br></span><span style="color: #800080;">$xml</span>-&gt;openUri(“php://output”<span style="color: #000000;">);<br></span><span style="color: #008000;">//</span><span style="color: #008000;">  输出方式，也可以设置为某个xml文件地址，直接输出成文件</span><br><span style="color: #800080;">$xml</span>-&gt;setIndentString(‘  ‘<span style="color: #000000;">);<br></span><span style="color: #800080;">$xml</span>-&gt;setIndent(<span style="color: #0000ff;">true</span><span style="color: #000000;">);<br></span><span style="color: #800080;">$xml</span>-&gt;startDocument(‘1.0’, ‘utf-8’<span style="color: #000000;">);<br></span><span style="color: #008000;">//</span><span style="color: #008000;">  开始创建文件<br>//  根结点</span><br><span style="color: #800080;">$xml</span>-&gt;startElement(‘article’<span style="color: #000000;">);<br></span><span style="color: #0000ff;">foreach</span> (<span style="color: #800080;">$data_array</span> <span style="color: #0000ff;">as</span> <span style="color: #800080;">$data</span><span style="color: #000000;">) {<br>    </span><span style="color: #800080;">$xml</span>-&gt;startElement(‘item’<span style="color: #000000;">);<br>    </span><span style="color: #0000ff;">if</span> (<span style="color: #008080;">is_array</span>(<span style="color: #800080;">$data</span><span style="color: #000000;">)) {<br>        </span><span style="color: #0000ff;">foreach</span> (<span style="color: #800080;">$data</span> <span style="color: #0000ff;">as</span> <span style="color: #800080;">$key</span> =&gt; <span style="color: #800080;">$row</span><span style="color: #000000;">) {<br>          </span><span style="color: #800080;">$xml</span>-&gt;startElement(<span style="color: #800080;">$key</span><span style="color: #000000;">);<br>          </span><span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">isset</span>(<span style="color: #800080;">$attribute_array</span>[<span style="color: #800080;">$key</span>]) &amp;&amp; <span style="color: #008080;">is_array</span>(<span style="color: #800080;">$attribute_array</span>[<span style="color: #800080;">$key</span><span style="color: #000000;">]))<br>          {<br>              </span><span style="color: #0000ff;">foreach</span> (<span style="color: #800080;">$attribute_array</span>[<span style="color: #800080;">$key</span>] <span style="color: #0000ff;">as</span> <span style="color: #800080;">$akey</span> =&gt; <span style="color: #800080;">$aval</span><span style="color: #000000;">) {<br>              </span><span style="color: #008000;">//</span><span style="color: #008000;">  设置属性值</span><br>                    <span style="color: #800080;">$xml</span>-&gt;writeAttribute(<span style="color: #800080;">$akey</span>, <span style="color: #800080;">$aval</span><span style="color: #000000;">);<br>                }<br>            }<br>            </span><span style="color: #800080;">$xml</span>-&gt;text(<span style="color: #800080;">$row</span>);   <span style="color: #008000;">//</span><span style="color: #008000;">  设置内容</span><br>            <span style="color: #800080;">$xml</span>-&gt;endElement(); <span style="color: #008000;">//</span><span style="color: #008000;"> $key</span><br><span style="color: #000000;">        }<br>    }<br>    </span><span style="color: #800080;">$xml</span>-&gt;endElement(); <span style="color: #008000;">//</span><span style="color: #008000;">  item</span><br><span style="color: #000000;">}<br></span><span style="color: #800080;">$xml</span>-&gt;endElement(); <span style="color: #008000;">//</span><span style="color: #008000;">  article</span><br><span style="color: #800080;">$xml</span>-&gt;<span style="color: #000000;">endDocument();<br></span><span style="color: #800080;">$xml</span>-&gt;<span style="color: #008080;">flush</span><span style="color: #000000;">();<br></span>?&gt; </pre><br></div>
+
+<p><strong>方法4: 【SimpleXML】 
+</strong>使用SimpleXML创建XML文档</p>
+<div class="cnblogs_code"><br><pre>&lt;?<span style="color: #000000;">php<br></span><span style="color: #800080;">$data_array</span> = <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span><span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span>‘title’ =&gt; ‘title1’,<br>    ‘content’ =&gt; ‘content1’,<br>        ‘pubdate’ =&gt; ‘2009-10-11’,<span style="color: #000000;"><br>    )</span>,<br>    <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span>‘title’ =&gt; ‘title2’,<br>    ‘content’ =&gt; ‘content2’,<br>    ‘pubdate’ =&gt; ‘2009-11-11’,<span style="color: #000000;"><br>    )<br>);<br></span><span style="color: #008000;">//</span><span style="color: #008000;">  属性数组</span><br><span style="color: #800080;">$attribute_array</span> = <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span>‘title’ =&gt; <span style="color: #0000ff;">array</span><span style="color: #000000;">(<br>    </span>‘size’ =&gt; 1<span style="color: #000000;"><br>    )<br>);<br></span><span style="color: #800080;">$string</span> = &lt;&lt;&lt;<span style="color: #000000;">XML<br></span>&lt;?xml version=’1.0’ encoding=’utf-8’?&gt;<br>&lt;article&gt;<br>&lt;/article&gt;<span style="color: #000000;"><br>XML;<br></span><span style="color: #800080;">$xml</span> = <span style="color: #008080;">simplexml_load_string</span>(<span style="color: #800080;">$string</span><span style="color: #000000;">);<br></span><span style="color: #0000ff;">foreach</span> (<span style="color: #800080;">$data_array</span> <span style="color: #0000ff;">as</span> <span style="color: #800080;">$data</span><span style="color: #000000;">) {<br>    </span><span style="color: #800080;">$item</span> = <span style="color: #800080;">$xml</span>-&gt;addChild(‘item’<span style="color: #000000;">);<br>    </span><span style="color: #0000ff;">if</span> (<span style="color: #008080;">is_array</span>(<span style="color: #800080;">$data</span><span style="color: #000000;">)) {<br>        </span><span style="color: #0000ff;">foreach</span> (<span style="color: #800080;">$data</span> <span style="color: #0000ff;">as</span> <span style="color: #800080;">$key</span> =&gt; <span style="color: #800080;">$row</span><span style="color: #000000;">) {<br>          </span><span style="color: #800080;">$node</span> = <span style="color: #800080;">$item</span>-&gt;addChild(<span style="color: #800080;">$key</span>, <span style="color: #800080;">$row</span><span style="color: #000000;">);<br>          </span><span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">isset</span>(<span style="color: #800080;">$attribute_array</span>[<span style="color: #800080;">$key</span>]) &amp;&amp; <span style="color: #008080;">is_array</span>(<span style="color: #800080;">$attribute_array</span>[<span style="color: #800080;">$key</span><span style="color: #000000;">]))<br>            {<br>              </span><span style="color: #0000ff;">foreach</span> (<span style="color: #800080;">$attribute_array</span>[<span style="color: #800080;">$key</span>] <span style="color: #0000ff;">as</span> <span style="color: #800080;">$akey</span> =&gt; <span style="color: #800080;">$aval</span><span style="color: #000000;">) {<br>             </span><span style="color: #008000;">//</span><span style="color: #008000;">  设置属性值</span><br>                  <span style="color: #800080;">$node</span>-&gt;addAttribute(<span style="color: #800080;">$akey</span>, <span style="color: #800080;">$aval</span><span style="color: #000000;">);<br>            }<br>          }<br>        }<br>    }<br>}<br></span><span style="color: #0000ff;">echo</span> <span style="color: #800080;">$xml</span>-&gt;<span style="color: #000000;">asXML();<br></span>?&gt; </pre><br></div>
+
+<p>&nbsp;</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/03/20/PHP中的生成XML文件的4种方法分享/" data-title="PHP中的生成XML文件的4种方法分享 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/03/26/解决windows下Composer因php-openssl扩展缺失而安装失败的问题/" title="解决windows下Composer因php_openssl扩展缺失而安装失败的问题">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  解决windows下Composer因php_openssl扩展缺失而安装失败的问题</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/15/git中-gitignore-文件/"  title="git中.gitignore 文件">
+ <strong>NEXT:</strong><br/> 
+ <span>git中.gitignore 文件
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

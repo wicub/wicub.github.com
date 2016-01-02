@@ -1,0 +1,312 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>js控制select选中显示不同表单内容 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="&amp;lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd“&amp;gt;&amp;lt;html xmlns=”http://">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/30/js控制select选中显示不同表单内容/" title="js控制select选中显示不同表单内容" itemprop="url">js控制select选中显示不同表单内容</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-04-30T08:08:00.000Z" itemprop="datePublished">2015-04-30</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+		</div>
+		
+		<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" target="_blank" rel="external">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</a>“</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html </span><span style="color: #ff0000;">xmlns</span><span style="color: #0000ff;">=”<a href="http://www.w3.org/1999/xhtml" target="_blank" rel="external">http://www.w3.org/1999/xhtml</a>“</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">=”Content-Type”</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">=”text/html; charset=utf-8”</span> <span style="color: #0000ff;">/&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>js select选中显示不同表单内容 <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">link </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”text/css”</span><span style="color: #ff0000;"> rel</span><span style="color: #0000ff;">=”stylesheet”</span><span style="color: #ff0000;"> href</span><span style="color: #0000ff;">=”css/text.css”</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span><br><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”text/javascript”</span><span style="color: #0000ff;">&gt;</span><br><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> test(Names){<br>    </span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> Name;<br>    </span><span style="background-color: #f5f5f5; color: #0000ff;">for</span><span style="background-color: #f5f5f5; color: #000000;"> (</span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> i</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">1</span><span style="background-color: #f5f5f5; color: #000000;">;i</span><span style="background-color: #f5f5f5; color: #000000;">&lt;</span><span style="background-color: #f5f5f5; color: #000000;">4</span><span style="background-color: #f5f5f5; color: #000000;">;i</span><span style="background-color: #f5f5f5; color: #000000;">++</span><span style="background-color: #f5f5f5; color: #000000;">){    </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">  更改数字4可以改变选择的内容数量，在下拉总数值的基础上+1.比如：下拉菜单有5个值，则4变成6</span><br>        <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> tempname</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">“</span><span style="background-color: #f5f5f5; color: #000000;">mune_x</span><span style="background-color: #f5f5f5; color: #000000;">“</span><span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #000000;">i<br>        </span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> NewsHot</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">“</span><span style="background-color: #f5f5f5; color: #000000;">x</span><span style="background-color: #f5f5f5; color: #000000;">“</span><span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #000000;">i    </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">  &ldquo;X&rdquo;是ID名称，比如：ID命名为&ldquo;case1&rdquo;，这里的&ldquo;X&rdquo;即为&ldquo;case&rdquo;</span><br>        <span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;"> (Names</span><span style="background-color: #f5f5f5; color: #000000;">==</span><span style="background-color: #f5f5f5; color: #000000;">tempname){<br>            Nnews</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">document.getElementById(NewsHot)<br>            Nnews.style.display</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">‘’</span><span style="background-color: #f5f5f5; color: #000000;">;<br>        }</span><span style="background-color: #f5f5f5; color: #0000ff;">else</span><span style="background-color: #f5f5f5; color: #000000;">{<br>            Nnews</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">document.getElementById(NewsHot)<br>            Nnews.style.display</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">‘</span><span style="background-color: #f5f5f5; color: #000000;">none</span><span style="background-color: #f5f5f5; color: #000000;">‘</span><span style="background-color: #f5f5f5; color: #000000;">;<br>        }<br>    }<br>}<br></span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span><br><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span><br><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">fieldset </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”cont”</span><span style="color: #0000ff;">&gt;</span><br><br>    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”list”</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span><em><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span>验证方式：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">select </span><span style="color: #ff0000;">size</span><span style="color: #0000ff;">=”1”</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">=”D1”</span><span style="color: #ff0000;"> onChange</span><span style="color: #0000ff;">=”javascript:test(‘mune_x’+this.value)”</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”1”</span><span style="color: #0000ff;">&gt;</span>密保手机<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”2”</span><span style="color: #0000ff;">&gt;</span>密保邮箱<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”3”</span><span style="color: #0000ff;">&gt;</span>密保问题<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">select</span><span style="color: #0000ff;">&gt;</span><br>    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br><br>    <span style="color: #008000;">&lt;!–</span><span style="color: #008000;">—————————–选择密保手机————————————</span><span style="color: #008000;">–&gt;</span><br>    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”list”</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">=”x1”</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span></em><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span>密保手机：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”text”</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">=””</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">=”phone”</span><span style="color: #ff0000;"> placeholder</span><span style="color: #0000ff;">=”请输入密保手机”</span><span style="color: #0000ff;">&gt;</span><br>    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br><br>    <span style="color: #008000;">&lt;!–</span><span style="color: #008000;">—————————–选择密保邮箱————————————</span><span style="color: #008000;">–&gt;</span><br>    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”list”</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">=”x2”</span><span style="color: #ff0000;"> style</span><span style="color: #0000ff;">=”display:none”</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span><em><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span>密保邮箱：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”email”</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">=””</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">=”email”</span><span style="color: #ff0000;"> placeholder</span><span style="color: #0000ff;">=”请输入密保邮箱”</span><span style="color: #0000ff;">&gt;</span><br>    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br><br>    <span style="color: #008000;">&lt;!–</span><span style="color: #008000;">—————————–选择密保问题————————————</span><span style="color: #008000;">–&gt;</span><br>    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”fl”</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">=”x3”</span><span style="color: #ff0000;"> style</span><span style="color: #0000ff;">=”display:none”</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”list”</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”ask”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span></em><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span>问题一：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">select </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">=”question1”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">selected</span><span style="color: #0000ff;">=”selected”</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">=”0”</span><span style="color: #0000ff;">&gt;</span>请选择密保问题<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”1”</span><span style="color: #0000ff;">&gt;</span>您母亲的姓名是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”2”</span><span style="color: #0000ff;">&gt;</span>您母亲的生日是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”3”</span><span style="color: #0000ff;">&gt;</span>您父亲的姓名是?<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”4”</span><span style="color: #0000ff;">&gt;</span>您父亲的生日是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”5”</span><span style="color: #0000ff;">&gt;</span>您配偶的姓名是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”6”</span><span style="color: #0000ff;">&gt;</span>您配偶的生日是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”7”</span><span style="color: #0000ff;">&gt;</span>您的学号（或工号）是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”8”</span><span style="color: #0000ff;">&gt;</span>您高中班主任的名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”9”</span><span style="color: #0000ff;">&gt;</span>您小学班主任的名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”10”</span><span style="color: #0000ff;">&gt;</span>您初中班主任的名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”11”</span><span style="color: #0000ff;">&gt;</span>您最熟悉的童年好友名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”12”</span><span style="color: #0000ff;">&gt;</span>您家在哪？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”13”</span><span style="color: #0000ff;">&gt;</span>对您影响最大的人名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">select</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”answer”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span><em><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span>答案：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”text”</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">=””</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br><br>        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”list”</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”ask”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span></em><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span>问题二：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">select </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">=”question2”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">selected</span><span style="color: #0000ff;">=”selected”</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">=”0”</span><span style="color: #0000ff;">&gt;</span>请选择密保问题<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”2”</span><span style="color: #0000ff;">&gt;</span>您母亲的生日是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”3”</span><span style="color: #0000ff;">&gt;</span>您父亲的姓名是?<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”4”</span><span style="color: #0000ff;">&gt;</span>您父亲的生日是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”5”</span><span style="color: #0000ff;">&gt;</span>您配偶的姓名是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”6”</span><span style="color: #0000ff;">&gt;</span>您配偶的生日是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”7”</span><span style="color: #0000ff;">&gt;</span>您的学号（或工号）是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”8”</span><span style="color: #0000ff;">&gt;</span>您高中班主任的名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”9”</span><span style="color: #0000ff;">&gt;</span>您小学班主任的名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”10”</span><span style="color: #0000ff;">&gt;</span>您初中班主任的名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”11”</span><span style="color: #0000ff;">&gt;</span>您最熟悉的童年好友名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”12”</span><span style="color: #0000ff;">&gt;</span>您家在哪？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”13”</span><span style="color: #0000ff;">&gt;</span>对您影响最大的人名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">select</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”answer”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span><em><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span>答案：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”text”</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">=””</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br><br>        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”list”</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”ask”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span></em><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span>问题三：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">select </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">=”question3”</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">selected</span><span style="color: #0000ff;">=”selected”</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">=”0”</span><span style="color: #0000ff;">&gt;</span>请选择密保问题<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”1”</span><span style="color: #0000ff;">&gt;</span>您母亲的姓名是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”2”</span><span style="color: #0000ff;">&gt;</span>您母亲的生日是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”3”</span><span style="color: #0000ff;">&gt;</span>您父亲的姓名是?<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”4”</span><span style="color: #0000ff;">&gt;</span>您父亲的生日是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”5”</span><span style="color: #0000ff;">&gt;</span>您配偶的姓名是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”6”</span><span style="color: #0000ff;">&gt;</span>您配偶的生日是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”7”</span><span style="color: #0000ff;">&gt;</span>您的学号（或工号）是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”8”</span><span style="color: #0000ff;">&gt;</span>您高中班主任的名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”9”</span><span style="color: #0000ff;">&gt;</span>您小学班主任的名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”10”</span><span style="color: #0000ff;">&gt;</span>您初中班主任的名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”11”</span><span style="color: #0000ff;">&gt;</span>您最熟悉的童年好友名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”12”</span><span style="color: #0000ff;">&gt;</span>您家在哪？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=”13”</span><span style="color: #0000ff;">&gt;</span>对您影响最大的人名字是？<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">select</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">=”answer”</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span>*<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">s</span><span style="color: #0000ff;">&gt;</span>答案：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span><br>                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">=”text”</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">=””</span><span style="color: #0000ff;">&gt;</span><br>            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br>    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br><br><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">fieldset</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">=”text-align:center;margin:50px 0; font:normal 14px/24px ‘MicroSoft YaHei’;”</span><span style="color: #0000ff;">&gt;</span><br><br><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span></pre><br></div>
+
+<p>css:</p>
+<div class="cnblogs_code"><br><pre><span style="color: #800000;">@charset “utf-8”;<br></span><span style="color: #008000;">/<em></em></span><span style="color: #008000;"> CSS Document </span><span style="color: #008000;">/</span><span style="color: #800000;"><br>body,div,fieldset,input</span>{<span style="color: #ff0000;">margin</span>:<span style="color: #0000ff;">0</span>;<span style="color: #ff0000;">padding</span>:<span style="color: #0000ff;">0</span>;}<span style="color: #800000;"><br>s</span>{<span style="color: #ff0000;">font-style</span>:<span style="color: #0000ff;">normal</span>;<span style="color: #ff0000;">font-weight</span>:<span style="color: #0000ff;">normal</span>;<span style="color: #ff0000;">text-decoration</span>:<span style="color: #0000ff;">none</span>;<span style="color: #ff0000;">color</span>:<span style="color: #0000ff;">red</span>;<span style="color: #ff0000;">padding-right</span>:<span style="color: #0000ff;"> 5px</span>;}<span style="color: #800000;"><br>body</span>{<span style="color: #ff0000;"> font</span>:<span style="color: #0000ff;">12px/1.5 tahoma,arial,Microsoft YaHei,SimSun</span>;<span style="color: #ff0000;"> background</span>:<span style="color: #0000ff;">#badff2</span>;<span style="color: #ff0000;"> color</span>:<span style="color: #0000ff;">#666</span>;<span style="color: #ff0000;">_width</span>:<span style="color: #0000ff;">100%</span>;<span style="color: #ff0000;">_height</span>:<span style="color: #0000ff;">100%</span>;}<span style="color: #800000;"><br>input,select</span>{<span style="color: #ff0000;">font</span>:<span style="color: #0000ff;">12px/1.5 ‘microsoft yahei’, simsun,arial</span>;<span style="color: #ff0000;"> border</span>:<span style="color: #0000ff;">1px solid #ccc</span>}<span style="color: #800000;"><br>input[type=”text”],input[type=”email”],select</span>{<span style="color: #ff0000;">padding</span>:<span style="color: #0000ff;">5px</span>;<span style="color: #ff0000;">margin</span>:<span style="color: #0000ff;">0</span>}<span style="color: #800000;"><br>input</span>{<span style="color: #ff0000;">width</span>:<span style="color: #0000ff;">250px</span>;}<span style="color: #800000;"><br>select</span>{<span style="color: #ff0000;">width</span>:<span style="color: #0000ff;">200px</span>}<span style="color: #800000;"><br>fieldset </span>{<span style="color: #ff0000;">border</span>:<span style="color: #0000ff;">0 none</span>;}<span style="color: #800000;"><br>label</span>{<span style="color: #ff0000;">float</span>:<span style="color: #0000ff;">left</span>;<span style="color: #ff0000;">width</span>:<span style="color: #0000ff;">100px</span>;<span style="color: #ff0000;">text-align</span>:<span style="color: #0000ff;">right</span>;<span style="color: #ff0000;">line-height</span>:<span style="color: #0000ff;">30px</span>}<span style="color: #800000;"><br><br>.list</span>{<span style="color: #ff0000;">margin-bottom</span>:<span style="color: #0000ff;"> 20px</span>;<span style="color: #ff0000;">float</span>:<span style="color: #0000ff;"> left</span>;<span style="color: #ff0000;">width</span>:<span style="color: #0000ff;">80%</span>;<span style="color: #ff0000;">padding-left</span>:<span style="color: #0000ff;">100px</span>}<span style="color: #800000;"><br>.cont</span>{<span style="color: #ff0000;">width</span>:<span style="color: #0000ff;">940px</span>;<span style="color: #ff0000;">margin</span>:<span style="color: #0000ff;">0 auto</span>;<span style="color: #ff0000;">background</span>:<span style="color: #0000ff;">#fff</span>;<span style="color: #ff0000;">padding</span>:<span style="color: #0000ff;">30px</span>;<span style="color: #ff0000;">margin-top</span>:<span style="color: #0000ff;">50px</span>}<span style="color: #800000;"><br>.fl</span>{<span style="color: #ff0000;">float</span>:<span style="color: #0000ff;">left</span>}<span style="color: #800000;"><br>.ask,.answer</span>{<span style="color: #ff0000;">padding-bottom</span>:<span style="color: #0000ff;">10px</span>;<span style="color: #ff0000;">width</span>:<span style="color: #0000ff;"> 100%</span>;<span style="color: #ff0000;">float</span>:<span style="color: #0000ff;"> left</span>;}</pre><br></div>
+
+<p>js控制select选中显示不同表单内容</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/04/30/js控制select选中显示不同表单内容/" data-title="js控制select选中显示不同表单内容 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/05/01/ThinkPHP-create-方法有什么用呢？/" title="ThinkPHP:create()方法有什么用呢？">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  ThinkPHP:create()方法有什么用呢？</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/04/01/jquery-绘图工具-flot-学习笔记/"  title="jquery 绘图工具 flot 学习笔记">
+ <strong>NEXT:</strong><br/> 
+ <span>jquery 绘图工具 flot 学习笔记
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

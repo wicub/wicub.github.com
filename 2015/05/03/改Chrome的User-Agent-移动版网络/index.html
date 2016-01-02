@@ -1,0 +1,310 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>改Chrome的User Agent,移动版网络 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="&amp;nbsp;
+理论上访问手机版或者iPad等平板电脑版的网络，应该可以剩些流量的，毕竟移动网络是经过优化压缩的，但是PC电脑如果访问移动版的网站呢？我主要使用的浏览器是Chrome，这几天也找了下Chrome下的修改方法，设置User Agent参数轻松把Chrome伪装成Android，iPhon">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/05/03/改Chrome的User-Agent-移动版网络/" title="改Chrome的User Agent,移动版网络" itemprop="url">改Chrome的User Agent,移动版网络</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-05-03T14:54:00.000Z" itemprop="datePublished">2015-05-03</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+		</div>
+		
+		<form action="http://so.2cto.com/cse/search" target="_blank"><input id="Keyword" type="text" name="q"></form>
+
+<p>&nbsp;</p>
+<dl id="fontzoom" class="box_body"><dd id="Article"><br><br>理论上访问手机版或者iPad等平板电脑版的网络，应该可以剩些流量的，毕竟移动网络是经过优化压缩的，但是PC电脑如果访问移动版的网站呢？我主要使用的<a href="http://www.2cto.com/os/liulanqi/" target="_blank" rel="external">浏览器</a>是Chrome，这几天也找了下Chrome下的修改方法，设置User Agent参数轻松把Chrome伪装成<a href="http://www.2cto.com/kf/yidong/Android/" target="_blank" rel="external">Android</a>，iPhone，iPad等移动设备，访问针对移动版的网站。<br><br>&nbsp;<br><br>修改方式比较常见的都是很长的一段参数，比如：<br><br>&nbsp;<br><br>把Chrome伪装模拟成iPad, 修改Chrome的快捷方式，在快捷方式&gt;目标一栏最后添加如下User Agent字符串：<br><br>&nbsp;<br><br>–user-agent=”Mozilla/5.0(iPad; U; CPU iPhone OS 3_2 like Mac OS X;<br>en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4<br>Mobile/7B314 Safari/531.21.10”<br><br>&nbsp;<br><br>确定之后，重新打开Chrome访问网页(比如Google搜索，Gmail)，你会发现，网站变成了针对iPad优化过的界面。<br><br>&nbsp;<br><br>上边的User Agent字符串是国际标准的格式，比较长，难记。今天就介绍个更简洁的方式修改Chrome的User Agent的方法,轻松体验移动版网络。<br><br>&nbsp;<br><br>把Chrome伪装模拟成iPad的User Agent字符串：<br><br>&nbsp;<br><br>–user-agent=”iPad”<br><br>&nbsp;<br><br>把Chrome伪装模拟成iPhone的User Agent字符串：<br><br>&nbsp;<br><br>–user-agent=”iPhone”<br><br>&nbsp;<br><br>把Chrome伪装模拟成Android的User Agent字符串：<br><br>&nbsp;<br><br>–user-agent=”Android”<br><br>&nbsp;<br><br>这样是不是简洁方便很多，而且也容易记。<br><br>修改之后的Chrome快捷方式的目标(T)一栏应该为:<br><br>&nbsp;<br><br>C:\Users\你的用户名\AppData\Local\Google\Chrome\Application\chrome.exe –user-agent=”iPad”<br><br>&nbsp;<br><br>更新提示：好像横线在网页中显示效果不同，以上User Agent开头都是两个横线。<br><br>&nbsp;<br><br>在Chrome下测试成功，Firefox和Opera等其他浏览器不晓得支持不支持这种简洁的User<br>Agent，我这里没装其他的浏览器，无法测试，看到本文的童鞋有时间的话可以测试下。按照你希望伪装模拟的移动设备设置对应的User<br>Agent，体验移动版网站。<br><br>&nbsp;<br><br>使用这个Chrome插件Window Resizer轻松调整Chrome的窗口尺寸配合移动版页面。<br><br>&nbsp;<br><br>ps：对于像我一样这样使用3g网络的朋友来说，主要在意的还是能够省些流量                        </dd></dl>  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/05/03/改Chrome的User-Agent-移动版网络/" data-title="改Chrome的User Agent,移动版网络 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/05/03/Firefox-修改User-Agent/" title="Firefox 修改User Agent">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  Firefox 修改User Agent</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/05/02/ThinkPHP-更新数据-save方法/"  title="ThinkPHP 更新数据 save方法">
+ <strong>NEXT:</strong><br/> 
+ <span>ThinkPHP 更新数据 save方法
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

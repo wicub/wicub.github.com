@@ -1,0 +1,337 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>ThinkPHP 更新数据 save方法 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="ThinkPHP save() 方法ThinkPHP 中使用 save() 方法来更新数据库，并且也支持连贯操作的使用。
+例子：
+public function update(){    header(“Content-Type:text/html; charset=utf-8”);    $Dao">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/05/02/ThinkPHP-更新数据-save方法/" title="ThinkPHP 更新数据 save方法" itemprop="url">ThinkPHP 更新数据 save方法</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-05-02T10:24:00.000Z" itemprop="datePublished">2015-05-02</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ThinkPHP_save_28_29__u65B9_u6CD5"><span class="toc-number">1.</span> <span class="toc-text">ThinkPHP save() 方法</span></a></li></ol>
+		</div>
+		
+		<h2 id="ThinkPHP_save_28_29__u65B9_u6CD5"><a href="#ThinkPHP_save_28_29__u65B9_u6CD5" class="headerlink" title="ThinkPHP save() 方法"></a>ThinkPHP save() 方法</h2><p>ThinkPHP 中使用 save() 方法来更新数据库，并且也支持连贯操作的使用。</p>
+<p>例子：</p>
+<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> update(){<br>    </span><span style="color: #008080;">header</span>(“Content-Type:text/html; charset=utf-8”<span style="color: #000000;">);<br>    </span><span style="color: #800080;">$Dao</span> = M(“User”<span style="color: #000000;">);<br><br>    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 需要更新的数据</span><br>    <span style="color: #800080;">$data</span>[‘email’] = ‘Jack@163.com’<span style="color: #000000;">;<br>    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 更新的条件</span><br>    <span style="color: #800080;">$condition</span>[‘username’] = ‘Jack’<span style="color: #000000;">;<br>    </span><span style="color: #800080;">$result</span> = <span style="color: #800080;">$Dao</span>-&gt;where(<span style="color: #800080;">$condition</span>)-&gt;save(<span style="color: #800080;">$data</span><span style="color: #000000;">);<br>    </span><span style="color: #008000;">//</span><span style="color: #008000;">或者：$resul t= $Dao-&gt;where($condition)-&gt;data($data)-&gt;save();</span><br><br>    <span style="color: #0000ff;">if</span>(<span style="color: #800080;">$result</span> !== <span style="color: #0000ff;">false</span><span style="color: #000000;">){<br>        </span><span style="color: #0000ff;">echo</span> ‘数据更新成功！’<span style="color: #000000;">;<br>    }</span><span style="color: #0000ff;">else</span><span style="color: #000000;">{<br>        </span><span style="color: #0000ff;">echo</span> ‘数据更新失败！’<span style="color: #000000;">;<br>    }<br>}</span></pre><br></div>
+
+<p>上面例子执行的 SQL 语句为：</p>
+<div class="cnblogs_code"><br><pre>UPDATE user SET email=’Jack@163.com’ WHERE username=’Jack’</pre><br></div>
+
+<p>&nbsp;</p>
+<p><strong>提示</strong></p>
+<p>为了保证数据库的安全，避免出错更新整个数据表，如果没有任何更新条件，数据对象本身也不包含<a href="http://www.5idev.com/p-php_mysql_column_property.shtml" target="_blank" rel="external">主键字段</a>的话，save方法不会更新任何数据库的记录。</p>
+<p>因此要使用 save() 方法更新数据，必须<strong>指定更新条件</strong>或者<strong>更新的数据中包含主键字段</strong>。</p>
+<p>使用主键的例子：</p>
+<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> update(){<br>    </span><span style="color: #008080;">header</span>(“Content-Type:text/html; charset=utf-8”<span style="color: #000000;">);<br>    </span><span style="color: #800080;">$Dao</span> = M(“User”<span style="color: #000000;">);<br><br>    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 需要更新的数据</span><br>    <span style="color: #800080;">$data</span>[‘email’] = ‘Jack@163.com’<span style="color: #000000;">;<br>    </span><span style="color: #800080;">$data</span>[‘uid’] = 2<span style="color: #000000;">;<br>    </span><span style="color: #800080;">$result</span> = <span style="color: #800080;">$Dao</span>-&gt;save(<span style="color: #800080;">$data</span><span style="color: #000000;">);<br><br>    </span><span style="color: #0000ff;">if</span>(<span style="color: #800080;">$result</span> !== <span style="color: #0000ff;">false</span><span style="color: #000000;">){<br>        </span><span style="color: #0000ff;">echo</span> ‘数据更新成功！’<span style="color: #000000;">;<br>    }</span><span style="color: #0000ff;">else</span><span style="color: #000000;">{<br>        </span><span style="color: #0000ff;">echo</span> ‘数据更新失败！’<span style="color: #000000;">;<br>    }<br>}</span></pre><br></div>
+
+<p>&nbsp;</p>
+<p>如果需要更新的数据里面包含主键，那么 ThinkPHP 会自动把主键的值作为条件来更新。上面的例子跟下面的效果相同：</p>
+<div class="cnblogs_code"><br><pre>  <span style="color: #008000;">//</span><span style="color: #008000;"> 需要更新的数据</span><br>    <span style="color: #800080;">$data</span>[‘email’] = ‘Jack@163.com’<span style="color: #000000;">;<br>    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 更新的条件</span><br>    <span style="color: #800080;">$condition</span>[‘uid’] = 2<span style="color: #000000;">;<br>    </span><span style="color: #800080;">$result</span> = <span style="color: #800080;">$Dao</span>-&gt;where(<span style="color: #800080;">$condition</span>)-&gt;save(<span style="color: #800080;">$data</span>);</pre><br></div>
+
+<p>&nbsp;</p>
+<p>如果是表单数据，还可以使用 create() 方法创建数据对象来更新数据：</p>
+<div class="cnblogs_code"><br><pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">function</span><span style="color: #000000;"> update(){<br>    </span><span style="color: #008080;">header</span>(“Content-Type:text/html; charset=utf-8”<span style="color: #000000;">);<br>    </span><span style="color: #800080;">$Dao</span> = D(“User”<span style="color: #000000;">);<br><br>    </span><span style="color: #0000ff;">if</span>(<span style="color: #800080;">$vo</span> = <span style="color: #800080;">$Dao</span>-&gt;<span style="color: #000000;">create()) {<br>        </span><span style="color: #800080;">$result</span> = <span style="color: #800080;">$Dao</span>-&gt;<span style="color: #000000;">save();<br>        </span><span style="color: #0000ff;">if</span>(<span style="color: #800080;">$result</span> !== <span style="color: #0000ff;">false</span><span style="color: #000000;">){<br>            </span><span style="color: #0000ff;">echo</span> ‘数据更新成功！’<span style="color: #000000;">;<br>        }</span><span style="color: #0000ff;">else</span><span style="color: #000000;">{<br>            </span><span style="color: #0000ff;">echo</span> ‘数据更新失败！’<span style="color: #000000;">;<br>        }<br>    }</span><span style="color: #0000ff;">else</span><span style="color: #000000;">{<br>        </span><span style="color: #800080;">$this</span>-&gt;error(<span style="color: #800080;">$Form</span>-&gt;<span style="color: #000000;">getError());<br>    }<br>}</span></pre><br></div>
+
+<p>&nbsp;</p>
+<p>如果更新的数据需要做逻辑处理，可以在操作类以对象的方式处理或者在模型内处理，具体可参考《<a href="http://www.5idev.com/p-thinkphp_CURD_create_add.shtml" target="_blank" rel="external">ThinkPHP 表单数据智能写入 create 方法</a>》。</p>
+<p>注意：以create() 方法创建数据对象来更新数据，表单中必须包含一个以主键为名称的隐藏域，才能完成保存操作。</p>
+<p>数据没变，提交更新，返回false;</p>
+<p>数据变，提交更新，返回true;</p>
+<p><span style="color: #ff0000;">返回的不是false 而是0 你要用恒等判断 是否提交失败</span></p>
+<p><a href="http://www.5idev.com/p-thinkphp_CURD_save.shtml" target="_blank" rel="external">原文链接</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/05/02/ThinkPHP-更新数据-save方法/" data-title="ThinkPHP 更新数据 save方法 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/05/03/改Chrome的User-Agent-移动版网络/" title="改Chrome的User Agent,移动版网络">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  改Chrome的User Agent,移动版网络</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/05/01/ThinkPHP-create-方法有什么用呢？/"  title="ThinkPHP:create()方法有什么用呢？">
+ <strong>NEXT:</strong><br/> 
+ <span>ThinkPHP:create()方法有什么用呢？
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ThinkPHP_save_28_29__u65B9_u6CD5"><span class="toc-number">1.</span> <span class="toc-text">ThinkPHP save() 方法</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

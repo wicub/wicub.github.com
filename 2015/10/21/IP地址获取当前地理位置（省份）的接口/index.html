@@ -1,0 +1,317 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>IP地址获取当前地理位置（省份）的接口 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="腾讯的接口是 ，返回数组 http://fw.qq.com/ipaddress返回值 var IPData = new Array(“61.135.152.194”,””,”北京市”,””);&amp;nbsp;新浪的接口 ： http://int.dpool.sina.com.cn/iplookup/ip">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/10/21/IP地址获取当前地理位置（省份）的接口/" title="IP地址获取当前地理位置（省份）的接口" itemprop="url">IP地址获取当前地理位置（省份）的接口</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-10-21T08:18:00.000Z" itemprop="datePublished">2015-10-21</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+		</div>
+		
+		<div><strong>腾讯</strong>的接口是 ，返回数组 <a href="http://fw.qq.com/ipaddress" target="_blank" rel="external">http://fw.qq.com/ipaddress</a></div><br><div>返回值 var IPData = new Array(“61.135.152.194”,””,”北京市”,””);</div><br><div>&nbsp;</div><br><div><strong>新浪</strong>的接口 ： <a href="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js&amp;nbsp" target="_blank" rel="external">http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js&amp;nbsp</a>;</div><br><div>多地域测试方法：<a href="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js&amp;ip=218.192.3.42" target="_blank" rel="external">http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js&amp;ip=218.192.3.42</a></div><br><div>返回值 var remote_ip_info = {“ret”:1,”start”:”218.192.0.0”,”end”:”218.192.7.255”,”country”:”\u4e2d\u56fd”,”province”:”\u5e7f\u4e1c”,”city”:”\u5e7f\u5dde”,”district”:””,”isp”:”\u6559\u80b2\u7f51”,”type”:”\u5b66\u6821”,”desc”:”\u5e7f\u5dde\u5927\u5b66\u7eba\u7ec7\u670d\u88c5\u5b66\u9662”};</div><br><div>&nbsp;</div><br><div>&nbsp;</div><br><div>使用<strong>腾迅的api接口</strong>，php获取ip地址以及所在城市</div><br><div><a href="http://fw.qq.com/ipaddress返回类似：var" target="_blank" rel="external">http://fw.qq.com/ipaddress返回类似：var</a> IPData = new Array(“61.51.71.183”,””,”北京市”,””);</div><br><div>代码&nbsp;</div><br><div>&nbsp;</div><br><div><br><div class="cnblogs_code"><br><pre>  <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span><span style="color: #000000;"> function positionAction($ip) {<br>        $ch </span>= curl_init(<span style="color: #800000;">“</span><span style="color: #800000;"><a href="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&amp;ip={$ip}" target="_blank" rel="external">http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&amp;ip={$ip}</a></span><span style="color: #800000;">“</span><span style="color: #000000;">);<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">curl_setopt($ch,CURLOPT_ENCODING ,’utf8’); </span><br>        curl_setopt($ch, CURLOPT_TIMEOUT, <span style="color: #800080;">10</span><span style="color: #000000;">);<br>        curl_setopt($ch, CURLOPT_RETURNTRANSFER, </span><span style="color: #0000ff;">true</span>); <span style="color: #008000;">//</span><span style="color: #008000;"> 获取数据返回 </span><br>        $location =<span style="color: #000000;"> json_decode(curl_exec($ch));<br>        curl_close($ch);<br>        </span><span style="color: #0000ff;">if</span> ($location-&gt;ret == -<span style="color: #800080;">1</span><span style="color: #000000;">) {<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> [<br>                </span><span style="color: #800000;">‘</span><span style="color: #800000;">status</span><span style="color: #800000;">‘</span> =&gt; <span style="color: #800080;">0</span><span style="color: #000000;">,<br>                </span><span style="color: #800000;">‘</span><span style="color: #800000;">info</span><span style="color: #800000;">‘</span> =&gt; <span style="color: #800000;">‘</span><span style="color: #800000;">获取地理位置失败</span><span style="color: #800000;">‘</span><span style="color: #000000;"><br>            ];<br>        }<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> [<br>            </span><span style="color: #800000;">‘</span><span style="color: #800000;">status</span><span style="color: #800000;">‘</span> =&gt; <span style="color: #800080;">1</span><span style="color: #000000;">,<br>            </span><span style="color: #800000;">‘</span><span style="color: #800000;">info</span><span style="color: #800000;">‘</span> =&gt; <span style="color: #800000;">‘</span><span style="color: #800000;">获取地理位置成功</span><span style="color: #800000;">‘</span><span style="color: #000000;">,<br>            </span><span style="color: #800000;">‘</span><span style="color: #800000;">handle</span><span style="color: #800000;">‘</span> =&gt;<span style="color: #000000;"> $location<br>        ];<br>    }</span></pre><br></div>
+
+<p>&nbsp;</p>
+<div class="al"><br><br># php用淘宝接口获取ip的城市省份<br><br></div><br><div class="view_code"><br><br>&nbsp;<br><br><div class="cnblogs_code"><br><pre><span style="color: #008000;">/<em></em></span><span style="color: #008000;"><br><em> 通过淘宝IP接口获取IP地理位置
+</em> @param string $ip<br><em> @return: string
+</em></span><span style="color: #008000;">*/</span><br><span style="color: #0000ff;">function</span> getCity(<span style="color: #800080;">$ip</span><span style="color: #000000;">)<br>{<br>　　</span><span style="color: #800080;">$url</span>=”<a href="http://ip.taobao.com/service/getIpInfo.php?ip=" target="_blank" rel="external">http://ip.taobao.com/service/getIpInfo.php?ip=</a>“.<span style="color: #800080;">$ip</span><span style="color: #000000;">;<br>　　</span><span style="color: #800080;">$ipinfo</span>=json_decode(<span style="color: #008080;">file_get_contents</span>(<span style="color: #800080;">$url</span><span style="color: #000000;">));<br>　　</span><span style="color: #0000ff;">if</span>(<span style="color: #800080;">$ipinfo</span>-&gt;code==’1’<span style="color: #000000;">){<br>　　　　</span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;<br>　　}<br>　　</span><span style="color: #800080;">$city</span> = <span style="color: #800080;">$ipinfo</span>-&gt;data-&gt;region.<span style="color: #800080;">$ipinfo</span>-&gt;data-&gt;<span style="color: #000000;">city;<br>　　</span><span style="color: #0000ff;">return</span> <span style="color: #800080;">$city</span><span style="color: #000000;">;<br>　}<br></span><span style="color: #008080;">header</span>(“Content-Type:text/html;charset=utf-8”<span style="color: #000000;">);<br></span><span style="color: #008000;">//</span><span style="color: #008000;"> 这样调用，显示山东省临沂市</span><br><span style="color: #008080;">var_dump</span>(getCity(“112.234.69.189”<span style="color: #000000;">));<br></span>?&gt;</pre><br></div>
+
+<p>&nbsp;</p>
+<p></p></div><p></p>
+<p>&nbsp;</p>
+<p></p></div><p></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/10/21/IP地址获取当前地理位置（省份）的接口/" data-title="IP地址获取当前地理位置（省份）的接口 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/10/22/WebStorm中Node-js项目配置教程——项目设置/" title="WebStorm中Node.js项目配置教程——项目设置">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  WebStorm中Node.js项目配置教程——项目设置</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/10/20/nodejs如果npm-install-express-g远程安装费时/"  title="nodejs如果npm install express -g远程安装费时">
+ <strong>NEXT:</strong><br/> 
+ <span>nodejs如果npm install express -g远程安装费时
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

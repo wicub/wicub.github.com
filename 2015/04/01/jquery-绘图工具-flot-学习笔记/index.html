@@ -1,0 +1,323 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>jquery 绘图工具 flot 学习笔记 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="今天想做一个统计图表，像163博客的流量统计一样的，借助 flot 实现了，而且很简单。
+flot网址：http://code.google.com/p/flot/下载 JS 文件，使用方法和 jquery 一样。&amp;nbsp;注意：flot是自动绘制在画布标签（canvas）内的，IE不支持，需要添">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/01/jquery-绘图工具-flot-学习笔记/" title="jquery 绘图工具 flot 学习笔记" itemprop="url">jquery 绘图工具 flot 学习笔记</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-04-01T03:17:00.000Z" itemprop="datePublished">2015-04-01</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+		</div>
+		
+		<p><span style="font-family: system; font-size: small;">今天想做一个统计图表，像163博客的流量统计一样的，借助 flot 实现了，而且很简单。</span></p>
+<div><br><div><span style="font-family: system; font-size: small;">flot网址：<a href="http://code.google.com/p/flot/" target="_blank" rel="external">http://code.google.com/p/flot/</a></span></div><br></div><br><div><span style="font-family: system; font-size: small;">下载 JS 文件，使用方法和 jquery 一样。</span></div><br><div><span style="font-family: system; font-size: small;">&nbsp;</span></div><br><div><span style="font-family: system; font-size: small;">注意：flot是自动绘制在画布标签（canvas）内的，IE不支持，需要添加 excanvas.min.js ，此文件可以在上面给出的flot网址中下载</span></div><br><div><span style="font-family: system; font-size: small;">&nbsp;</span></div><br><div><span style="font-family: system; font-size: small;">示例网址：<a href="http://people.iola.dk/olau/flot/examples/" target="_blank" rel="external">http://people.iola.dk/olau/flot/examples/</a></span></div><br><div>参数说明：<a href="http://wenku.baidu.com/view/d504613331126edb6f1a1008.html" target="_blank" rel="external">http://wenku.baidu.com/view/d504613331126edb6f1a1008.html</a></div><br><div><span style="font-family: system; font-size: small;">上面的两个网址已经将基础说的很清楚了。</span></div><br><div><span style="font-family: system; font-size: small;">&nbsp;</span></div><br><div><span style="font-family: system; font-size: small;">示例说明：</span></div><br><div><span style="font-family: system; font-size: small;">语法：&nbsp;<span style="color: #ff0000;">$.plot(id, data, options);</span></span></div><br><div><span style="font-family: system; font-size: small;">1.id :放置 canvas 的 div 的ID</span></div><br><div><span style="font-family: system; font-size: small;">2.data :数据，一般为二维数组的形式。</span></div><br><div><span style="font-family: system; font-size: small;">例如：[[x1,y1],[x2,y2],[x3,y3] , …]</span></div><br><div><span style="font-family: system; font-size: small;">如果某个数据为空，则对应点将被忽略，且改点前后两个点将不再用直线连接。</span></div><br><div><span style="font-family: system; font-size: small;">3.options :样式，用于设置显示样式。 options 的格式：</span></div><br><div><br><div><span style="font-family: system; font-size: small;">3.options :样式，用于设置显示样式。 options 的格式：</span></div><br><table><br><tbody><br><tr><br><td><span style="font-family: system;">var options = {</span></td><br></tr><br><tr><br><td>&nbsp;</td><br><td><span style="font-family: system;">lines: { show: true },</span></td><br></tr><br><tr><br><td>&nbsp;</td><br><td><span style="font-family: system;">points: { show: true },</span></td><br></tr><br><tr><br><td>&nbsp;</td><br><td><span style="font-family: system;">xaxis: { tickDecimals: 0, tickSize: 1 }</span></td><br></tr><br><tr><br><td>&nbsp;</td><br><td><span style="font-family: system;">};<br></span></td><br><br></tr><br><br></tbody><br><br></table><br><div><span style="font-family: system;"><span style="font-size: small;">参数:</span></span></div><br><div><span style="font-family: system;"><span style="font-size: small;">&nbsp;1.<span style="font-size: small;">lines { } &nbsp;显示直线</span></span></span></div><br><div><span style="font-family: system;"><span style="font-size: small;">&nbsp;show: true&nbsp;显示</span></span></div><br><div><span style="font-family: system;"><span style="font-size: small;">&nbsp;&nbsp; &nbsp;color： “#FFFFFF” 线条颜色</span></span></div><br><div><span style="font-family: system;"><span style="font-size: small;">&nbsp;&nbsp; steps: true&nbsp;阶梯形&nbsp;</span></span></div><br><div><span style="font-family: system; font-size: small;">2.points { } &nbsp;显示点</span></div><br><div><span style="font-family: system; font-size: small;">3.bars { }  显示直方图</span></div><br><div><span style="font-family: system; font-size: small;">4.xaxis { } 横坐标的样式</span></div><br><div>&nbsp;</div><br><div><span style="font-family: system; font-size: small;">&nbsp;</span></div><br><div><span style="font-family: system; font-size: small;">例一：<a href="http://people.iola.dk/olau/flot/examples/basic.html" target="_blank" rel="external">http://people.iola.dk/olau/flot/examples/basic.html</a></span></div><br><div><span style="font-family: system; font-size: small;">语法示例：$.plot($(“#name”), [ d1,d2,d3 ]);<br></span></div><br><div><span style="font-family: system; font-size: small;">参数①：name 为画布所在 div 的 id&nbsp;<span style="font-family: system; line-height: 19px; font-size: small;">。</span></span></div><br><div><span style="font-family: system; font-size: small;">参数②：d2，d3 一般为数列数组 [x,y]，x和y分别表示每个点的横轴和纵轴，例如可以定义如下：</span></div><br><div><span style="font-family: system; font-size: small;">var d1 = [];</span></div><br><div><span style="font-family: system; font-size: small;">for (var i = 0; i &lt; 14; i += 0.5)</span></div><br><div><span style="font-family: system; font-size: small;">d1.push([i, Math.sin(i)]);</span></div><br><div><span style="font-family: system; font-size: small;">var d2 = [[0, 3], [4, 8], [8, 5], [9, 13]];</span></div><br><div><span style="font-family: system; font-size: small;">var d3 = [[0, 12], [7, 12], <span style="color: #993300;">null, [7, 2.5], [12, 2.5]];</span></span></div><br><div><br><div><span style="font-family: system; font-size: small;">flot会依据其最大值和画布大小自动设置刻度，例如设置div如下&nbsp;</span></div><br><div><span style="font-family: system; font-size: small;">&nbsp;&lt;div id=”placeholder” style=”width:100px;height:100px;”&gt;&lt;/div&gt; </span></div>
+
+<p></p></div><p></p>
+<div><span style="font-family: system; font-size: small;">则x方向每个像素表示 9/100=0.09 个单位，y方向每个像素表示 12/100=0.12 个单位。</span></div><br><div><span style="font-family: system; font-size: small;">&nbsp;</span></div><br><div><span style="font-family: system; font-size: small;">例二：<a href="http://people.iola.dk/olau/flot/examples/graph-types.html" target="_blank" rel="external">http://people.iola.dk/olau/flot/examples/graph-types.html</a></span></div><br><div><span style="font-family: system; font-size: small;">语法示例：&nbsp;</span></div><br><div><br><div class="cnblogs_code"><br><pre>$.plot($(“#placeholder”<span style="color: #000000;">), [<br>    {<br>        data: d1,<br>        lines: { show: </span><span style="color: #0000ff;">true</span>, fill: <span style="color: #0000ff;">true</span><span style="color: #000000;"> }<br>    },<br>    {<br>        data: d2,<br>        bars: { show: </span><span style="color: #0000ff;">true</span><span style="color: #000000;"> }<br>    },<br>    {<br>        data: d3,<br>        points: { show: </span><span style="color: #0000ff;">true</span><span style="color: #000000;"> }<br>    },<br>    {<br>        data: d4,<br>        lines: { show: </span><span style="color: #0000ff;">true</span><span style="color: #000000;"> }<br>    },<br>    {<br>        data: d5,<br>        lines: { show: </span><span style="color: #0000ff;">true</span><span style="color: #000000;"> },<br>        points: { show: </span><span style="color: #0000ff;">true</span><span style="color: #000000;"> }<br>    },<br>    {<br>        data: d6,<br>        lines: { show: </span><span style="color: #0000ff;">true</span>, steps: <span style="color: #0000ff;">true</span><span style="color: #000000;"> }<br>    }<br>]);</span></pre><br></div>
+
+<p>&nbsp;</p>
+<p></p></div><p></p>
+<div>&nbsp;</div><br><div><span style="font-family: system; font-size: small;"><span style="font-size: small;">参数说明：lins 表示直线，参数 steps:true 表示梯形图，bars 表示直方图，points 表示点状图。与示例一比较，实例二将示例一中的数据用花括号括起，此时需要用 “data:” 指定数据源，逗号之后指定其显示样式。</span></span></div><br><div><span style="font-family: system; font-size: small;">&nbsp;</span></div><br><div>&nbsp;</div><br><div>例三：指定刻度显示的内容</div><br><div>用法实例：</div><br><div><br><div class="cnblogs_code"><br><pre>$.plot($(“#placeholder”), [{ label: “”<span style="color: #000000;">, data: vData}],<br>{<br>    series: { lines: { show: </span><span style="color: #0000ff;">true</span> }, points: { show: <span style="color: #0000ff;">true</span><span style="color: #000000;">} },<br>    xaxis: { ticks: [[</span>1, “1月”], [3, “3月”], [5, “5月”], [7, “7月”], [9, “9月”], [11, “11月”]], min: 1, max: 12 },  <span style="color: #008000;">//</span><span style="color: #008000;">指定固定的显示内容</span><br>    yaxis: { ticks: 5, min: 0 }  <span style="color: #008000;">//</span><span style="color: #008000;">在y轴方向显示5个刻度，此时显示内容由 flot 根据所给的数据自动判断</span><br><span style="color: #000000;">}<br>    );</span></pre><br></div>
+
+<p>&nbsp;</p>
+<p></p></div><p></p>
+<div>&nbsp;</div><br><div><span style="font-family: system; font-size: small;">其中 vData 为自定义数据</span></div><br><div><span style="font-family: system; font-size: small;">var<br>vData = [[1, 103], [2, 28], [3, 135], [4, 130], [5, 145], [6, 155], [7,<br>155], [8, 155], [9, 155], [10, 155], [11, 155], [12, 155]];&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="font-family: system; line-height: 19px; font-size: small;">&nbsp;</span></span></div><br><div><span style="font-family: system; font-size: small;">显示效果为：<img src="http://pic002.cnblogs.com/images/2011/117985/2011051216392590.png" alt=""></span></div><br><div><span style="font-family: system; font-size: small;">关键参数为 <span style="color: #ff0000;">ticks <span style="color: #000000;">。可以看到本例中 x轴刻度的显示内容是自己指定的，y轴让 flot 自动划分，当然也可以指定y轴。</span></span></span></div><br><div>&nbsp;</div><br><div>&nbsp;</div><br><div>&nbsp;</div><br><div>&nbsp;</div><br><div>&nbsp;</div><br><div><span style="font-family: system; font-size: small;"><span style="font-family: system; font-size: small;"><span style="color: #ff0000;"><span style="color: #000000;">如果你是使用Internet Explorer, 且版本为8以下的, 浏览有用Flot绘制图表的网页可能无法正常观看, 因为这些浏览器不支持HTML5 canvas标签, 不过别担心, 只要加入ExplorerCanvas插件(excanvas.min.js)就可以让Internet Explorer也能正常显示Flot图表. 档案可以到此<a href="http://excanvas.sourceforge.net/" title="ExplorerCanvas" target="_blank" rel="external">下载</a>. <a name="step2"></a></span></span></span></span><br><br>#### 加入定位点<br><br><span style="font-family: system; font-size: small;"><span style="color: #ff0000;"><span style="color: #000000;">准备好所需要的档案后, 接下来就是决定Flot要绘图的位置, 你可以自行决定Flot要在那里出现, 只要在&lt;body&gt;加上下面的&lt;div&gt;标签, 并给一个id, 后面要绘制时会用到此id. 另一个比较重要的是, 你必须设置定位点的长度和宽度, 如果没有设置就有可能发生<span style="color: red;">Uncaught Invalid dimensions for plot, width = 0, height = 0</span>的script错误.</span></span></span></div><br><div><br><div class="cnblogs_code"><br><pre>   &lt;div id=”flot-placeholder” style=”width:300px;height:150px”&gt;&lt;/div&gt;</pre><br></div>
+
+<p><a href="http://www.jqueryflottutorial.com/cn/how-to-make-jquery-flot-line-chart.html" target="_blank" rel="external">参考链接</a></p>
+<p></p></div><p></p>
+<div>&nbsp;</div><br></div>  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/04/01/jquery-绘图工具-flot-学习笔记/" data-title="jquery 绘图工具 flot 学习笔记 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/04/30/js控制select选中显示不同表单内容/" title="js控制select选中显示不同表单内容">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  js控制select选中显示不同表单内容</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/31/js判断移动端还是PC端/"  title="js判断移动端还是PC端">
+ <strong>NEXT:</strong><br/> 
+ <span>js判断移动端还是PC端
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

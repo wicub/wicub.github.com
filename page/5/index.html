@@ -1,0 +1,310 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main">
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/04/01/jquery-绘图工具-flot-学习笔记/" title="jquery 绘图工具 flot 学习笔记" itemprop="url">
+  
+    <h1 itemprop="name">jquery 绘图工具 flot 学习笔记</h1>
+    
+     
+           <p itemprop="description" >今天想做一个统计图表，像163博客的流量统计一样的，借助 flot 实现了，而且很简单。
+flot网址：http://code.google.com/p/flot/下载 JS 文件，使用方法和 jquery 一样。&amp;nbsp;注意：flot是自动绘制在画布标签（canvas）内的</p>
+        
+    
+    <time datetime="2015-04-01T03:17:00.000Z" itemprop="datePublished">2015-04-01</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/03/31/js判断移动端还是PC端/" title="js判断移动端还是PC端" itemprop="url">
+  
+    <h1 itemprop="name">js判断移动端还是PC端</h1>
+    
+     
+           <p itemprop="description" >function isMobile(){　　 var sUserAgent= navigator.userAgent.toLowerCase(),　　 bIsIpad= sUserAgent.match(/ipad/i) == “ipad”,　　 bIsIphoneOs= sUs</p>
+        
+    
+    <time datetime="2015-03-31T08:19:00.000Z" itemprop="datePublished">2015-03-31</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/03/31/JS设置cookie/" title="JS设置cookie" itemprop="url">
+  
+    <h1 itemprop="name">JS设置cookie</h1>
+    
+     
+           <p itemprop="description" >js设置cookie有很多种方法。
+第一种：（这个是w3c官网的代码）
+&amp;lt;script&amp;gt;//设置cookiefunction setCookie(cname, cvalue, exdays) {    var d = new Date();    d.setTime(</p>
+        
+    
+    <time datetime="2015-03-31T07:56:00.000Z" itemprop="datePublished">2015-03-31</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/03/31/js实现弹窗一个ip在24小时只弹出一次的代码/" title="js实现弹窗一个ip在24小时只弹出一次的代码" itemprop="url">
+  
+    <h1 itemprop="name">js实现弹窗一个ip在24小时只弹出一次的代码</h1>
+    
+     
+           <p itemprop="description" >function cookieGO(name) {  var today = new Date();  var expires = new Date();  expires.setTime(today.getTime() + 1000606024);  setCookie(“co</p>
+        
+    
+    <time datetime="2015-03-31T07:13:00.000Z" itemprop="datePublished">2015-03-31</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/03/27/解决Strict-Standards-Only-variables-should-be-passed-by-reference/" title="解决Strict Standards: Only variables should be passed by reference" itemprop="url">
+  
+    <h1 itemprop="name">解决Strict Standards: Only variables should be passed by reference</h1>
+    
+     
+           <p itemprop="description" >这个错误发生在大家php调试程序用到一段代码里，那就是格式化显示出变量的函数functionrdump($arr``)的第5行， 这段代码出自ecmall团队之手，但是ecmall已经很古董了，在php5.3以上版本会出这个问题，应该也和php的配置有关，只要把这一句拆成两 句就</p>
+        
+    
+    <time datetime="2015-03-27T08:01:00.000Z" itemprop="datePublished">2015-03-27</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/03/26/解决windows下Composer因php-openssl扩展缺失而安装失败的问题/" title="解决windows下Composer因php_openssl扩展缺失而安装失败的问题" itemprop="url">
+  
+    <h1 itemprop="name">解决windows下Composer因php_openssl扩展缺失而安装失败的问题</h1>
+    
+     
+           <p itemprop="description" >Composer( https://getcomposer.org/ )是PHP下的一个依赖管理工具。你可以在你的项目中声明你所需要用到的类库，然后Composer会在项目中为你安装它们。如果你了解Node的 npm 或者Ruby的 Bundler ，就理解它是做什么的了，但是，</p>
+        
+    
+    <time datetime="2015-03-26T06:30:00.000Z" itemprop="datePublished">2015-03-26</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/03/20/PHP中的生成XML文件的4种方法分享/" title="PHP中的生成XML文件的4种方法分享" itemprop="url">
+  
+    <h1 itemprop="name">PHP中的生成XML文件的4种方法分享</h1>
+    
+     
+           <p itemprop="description" >生成如下XML串Xml代码
+&amp;nbsp;
+&amp;lt;?xml version=”1.0” encoding=”utf-8”?&amp;gt;&amp;lt;article&amp;gt;    &amp;lt;item&amp;gt;        &amp;lt;title size=”1”&amp;gt;title1&amp;lt;/tit</p>
+        
+    
+    <time datetime="2015-03-20T07:53:00.000Z" itemprop="datePublished">2015-03-20</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/03/15/git中-gitignore-文件/" title="git中.gitignore 文件" itemprop="url">
+  
+    <h1 itemprop="name">git中.gitignore 文件</h1>
+    
+     
+           <p itemprop="description" >现在项目的根目录放了 .gitignore 文件，并且git远程仓库的项目根目录已经有了 logs文件夹。由于每次本地运行项目，都会生成新的log文件，但是我并不想提交logs文件夹里面的内容，所以要在.gitignore写logs的规则。我尝试过添加以下规则logs/.logl</p>
+        
+    
+    <time datetime="2015-03-15T13:44:00.000Z" itemprop="datePublished">2015-03-15</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/03/14/Git-的-gitignore-配置/" title="Git 的 .gitignore 配置" itemprop="url">
+  
+    <h1 itemprop="name">Git 的 .gitignore 配置</h1>
+    
+     
+           <p itemprop="description" >.gitignore 配置文件用于配置不需要加入版本管理的文件，配置好该文件可以为我们的版本管理带来很大的便利，以下是个人对于配置 .gitignore 的一些心得。1、配置语法：　　以斜杠&amp;ldquo;/&amp;rdquo;开头表示目录；　　以星号&amp;ldquo;&amp;rdquo;通配多个</p>
+        
+    
+    <time datetime="2015-03-14T03:20:00.000Z" itemprop="datePublished">2015-03-14</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/03/12/【翻译】Emmet-Zen-Coding-官方文档-之六-自定义-Emmet/" title="【翻译】Emmet(Zen Coding)官方文档 之六 自定义 Emmet" itemprop="url">
+  
+    <h1 itemprop="name">【翻译】Emmet(Zen Coding)官方文档 之六 自定义 Emmet</h1>
+    
+     
+           <p itemprop="description" >【说明】本系列博文是依据 Emmet 官方文档翻译的，原文地址为：http://docs.emmet.io/，部分内容已经在博主之前的博文中节选过，为方便已经收藏过之前博文的朋友，没有删除这些博文，仅将其完整的收录于本系列中。# 自定义Emmet 提供了大范围的微调，以使你可以用</p>
+        
+    
+    <time datetime="2015-03-12T07:57:00.000Z" itemprop="datePublished">2015-03-12</time>
+  </a>
+</section>
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+
+
+
+
+
+  </body>
+ </html>

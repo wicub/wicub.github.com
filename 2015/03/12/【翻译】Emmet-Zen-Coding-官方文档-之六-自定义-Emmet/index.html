@@ -1,0 +1,379 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>【翻译】Emmet(Zen Coding)官方文档 之六 自定义 Emmet | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="【说明】本系列博文是依据 Emmet 官方文档翻译的，原文地址为：http://docs.emmet.io/，部分内容已经在博主之前的博文中节选过，为方便已经收藏过之前博文的朋友，没有删除这些博文，仅将其完整的收录于本系列中。# 自定义Emmet 提供了大范围的微调，以使你可以用之提升自己的插件体验">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/12/【翻译】Emmet-Zen-Coding-官方文档-之六-自定义-Emmet/" title="【翻译】Emmet(Zen Coding)官方文档 之六 自定义 Emmet" itemprop="url">【翻译】Emmet(Zen Coding)官方文档 之六 自定义 Emmet</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-03-12T07:57:00.000Z" itemprop="datePublished">2015-03-12</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u9884_u5B9A_u4E49_u53D8_u91CF"><span class="toc-number">1.</span> <span class="toc-text">预定义变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u8F6C_u7801_26nbsp_3B_7C_26nbsp_3B_u548C_26nbsp_3B_24_26nbsp_3B_u5B57_u7B26"><span class="toc-number">2.</span> <span class="toc-text">转码 | 和 $ 字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5171_u4EAB_u7247_u6BB5"><span class="toc-number">3.</span> <span class="toc-text">共享片段</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#preferences-json"><span class="toc-number"></span> <span class="toc-text">preferences.json</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#syntaxProfiles-json"><span class="toc-number"></span> <span class="toc-text">syntaxProfiles.json</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u521B_u5EFA_u81EA_u5DF1_u7684_u914D_u7F6E"><span class="toc-number">1.</span> <span class="toc-text">创建自己的配置</span></a></li></ol>
+		</div>
+		
+		<div id="cnblogs_post_body"><br><br>【说明】本系列博文是依据 Emmet 官方文档翻译的，原文地址为：<a href="http://docs.emmet.io/，部分内容已经在博主之前的博文中节选过，为方便已经收藏过之前博文的朋友，没有删除这些博文，仅将其完整的收录于本系列中。" target="_blank" rel="external">http://docs.emmet.io/，部分内容已经在博主之前的博文中节选过，为方便已经收藏过之前博文的朋友，没有删除这些博文，仅将其完整的收录于本系列中。</a><br><br># 自定义<br><br>Emmet 提供了大范围的微调，以使你可以用之提升自己的插件体验。几乎所有的正式开发的编辑器插件 (除了 PSPad 和基于浏览器的) 都有&nbsp;<strong>扩展支持：</strong>&nbsp;一个用于扩展 Emmet可以放置&nbsp;<code>json</code>&nbsp;和&nbsp;<code>js</code>&nbsp;文件的文件夹。请参考随编辑器插件发布的 README 文件，找出 Emmet 在哪儿搜索扩展。<br><br>扩展文件夹中的每个&nbsp;<code>.js</code>&nbsp;文件都在插件启动时被载入和执行。使用&nbsp;<code>js</code>&nbsp;文件建立自己的&nbsp;<a href="http://www.cnblogs.com/matchless/archive/2013/04/13/3018573.html" target="_blank" rel="external">过滤器</a>&nbsp;或&nbsp;<a href="http://www.cnblogs.com/matchless/archive/2013/04/11/3015759.html" target="_blank" rel="external">动作</a>：可以使用 Emmet 模块并使用 JavaScript 缩写脚本与编辑器。<a href="http://docs.emmet.io/filters/" target="_blank" rel="external">
+</a><br><br>使用&nbsp;<code>.json</code>&nbsp;文件能够微调 Emmet 工具的不同部分：<br><br><dl><dt><a href="http://docs.emmet.io/customization/snippets/" target="_blank" rel="external">snippets.json</a></dt><dd></dd><dd>添加自己的片段或升级已有的片段。</dd><dd><br><br># snippets.json<br><br>在扩展文件夹内创建&nbsp;<code>snippets.json</code>&nbsp;文件来添加或者覆盖片段。此文件的结构与&nbsp;<a href="https://github.com/emmetio/emmet/blob/master/snippets.json" target="_blank" rel="external">原始文件&nbsp;</a>相同：在最顶级定义片段所属的&nbsp;<em>语法名称&nbsp;</em>，第二级有下面几段：<br><br><em>   <code>abbreviations</code>&nbsp;或&nbsp;<code>snippets</code>&nbsp;包含&nbsp;<a href="http://www.cnblogs.com/matchless/archive/2013/04/11/3014524.html" target="_blank" rel="external">不同类型</a>&nbsp;的片段定义。
+</em>   <code>filters</code>&nbsp;包含用逗号间隔的当前语法的默认&nbsp;<a href="http://www.cnblogs.com/matchless/archive/2013/04/13/3018573.html" target="_blank" rel="external">过滤器</a>&nbsp;列表。如果没有定义本属性，则默认使用&nbsp;<code>html</code>&nbsp;过滤器。<br><em>   <code>extends</code>: 当前语法所继承的片段定义的语法名称。例如，<code>sass&amp;nbsp;</code>语法继承自&nbsp;<code>css</code>&nbsp;，不过可以为这个<em>语法定义</em>建立自己的或者覆盖一些 SASS 特定的片段。<br><br>走入完成后，用户的&nbsp;<code>snippets.json</code>&nbsp;与原始文件递归合并，添加或升级缩写和片段。<br><br>### <a href="http://docs.emmet.io/customization/snippets/#text-snippets" target="_blank" rel="external"></a>文本片段<br><br>在语法定义的&nbsp;<code>snippets</code>&nbsp;一节，可以创建普通的文本片段，你编辑里的一样漂亮。可以在片段中使用&nbsp;<em>tabstops</em>&nbsp;，当缩写展开时可以使用 Tab 键在它们之间跳转（前提是所用的编辑器支持 tabstops）。Emmet 采用&nbsp;<a href="http://macromates.com/" target="_blank" rel="external">TextMate</a>&nbsp;编辑器的 tabstops 格式：
+
+</em>   <code>$1</code>&nbsp;或&nbsp;<code>${1}</code><br>*   <code>${1:hello world}</code>&nbsp;&mdash; 带有占位符的 tabstop<br><br>注意&nbsp;<code>${0}</code>&nbsp;或&nbsp;<code>$0</code>&nbsp;tabstop 在类似于 TexeMate 或 Eclipse 等一些编辑器中有特殊含义：用作离开 &ldquo;tabstops 模式&rdquo;的最后一个光标位置，所以最好从 1 开始使用 tabstops 。<br><br>### <a href="http://docs.emmet.io/customization/snippets/#variables" target="_blank" rel="external"></a>变量<br><br>可以在片段中使用&nbsp;<em>片段&nbsp;</em>&nbsp;来输出预定义数据。例如 HTML 语法的&nbsp;<code>html:5</code>&nbsp;片段是这样定义的：<br><br><div class="cnblogs_code"><br><pre>&lt;!doctype html&gt;\n&lt;html lang=”${lang}”&gt;…&lt;/body&gt;\n&lt;/html&gt;</pre><br></div>
+
+<p>在上面的盒子中，&nbsp;<code>${lang}</code>&nbsp;用于引用定义在 snippets.json 文件的&nbsp;<code>variables</code>&nbsp;一节的&nbsp;<code>lang</code>&nbsp;变量。例如，所用的母语是俄语，可以直接使用&nbsp;<code>ru</code>&nbsp;值覆盖&nbsp;<code>lang</code>&nbsp;变量，并保持原始的片段定义。</p>
+<p>也可以使用行内缩写属性覆盖变量值：&nbsp;<code>html:5[lang=ru]</code>。与 ID 和 CLASS 属性缩写&mdash;<code>#</code>&nbsp;和&nbsp;<code>.</code>&mdash;一起，可以很容易的覆盖缩写中的变量：</p>
+<div class="cnblogs_code"><br><pre>“for”: “for (var ${class} = 0; i &lt; ${id}.length; ${class}++) {\n\t|}”</pre><br></div>
+
+<p>用法示例：&nbsp;<code>for#array.i</code>.</p>
+<h3 id="u9884_u5B9A_u4E49_u53D8_u91CF"><a href="#u9884_u5B9A_u4E49_u53D8_u91CF" class="headerlink" title="预定义变量"></a><a href="http://docs.emmet.io/customization/snippets/#predefined-variables" target="_blank" rel="external"></a>预定义变量</h3><p>片段有一些对 Emmet 有特殊意义的预定义变量名：</p>
+<ul>
+<li><code>${cursor}</code>&nbsp;或&nbsp;<code>|</code>&nbsp;是&nbsp;<code>$0</code>&nbsp;的罔，用作生成输出的当前位置。</li>
+<li><code>${child}</code>&nbsp;引用了一个位置，子属性和片段将被输出到此处。如果没有定义，子元素将输出到片段内容的后边。</li>
+</ul>
+<h3 id="u8F6C_u7801_26nbsp_3B_7C_26nbsp_3B_u548C_26nbsp_3B_24_26nbsp_3B_u5B57_u7B26"><a href="#u8F6C_u7801_26nbsp_3B_7C_26nbsp_3B_u548C_26nbsp_3B_24_26nbsp_3B_u5B57_u7B26" class="headerlink" title="转码&nbsp;|&nbsp;和&nbsp;$&nbsp;字符"></a><a href="http://docs.emmet.io/customization/snippets/#escaping--and--characters" target="_blank" rel="external"></a>转码&nbsp;<code>|</code>&nbsp;和&nbsp;<code>$</code>&nbsp;字符</h3><p>字符&nbsp;<code>$</code>&nbsp;作于 tabstops 和变量，字符&nbsp;<code>|</code>&nbsp;用于指示缩写展开时的光标位置。如果想原样输出这些字符，必须使用双斜杠来对它们进行转码：&nbsp;<code>\\$</code>&nbsp;或&nbsp;<code>\\|</code></p>
+<h3 id="u5171_u4EAB_u7247_u6BB5"><a href="#u5171_u4EAB_u7247_u6BB5" class="headerlink" title="共享片段"></a><a href="http://docs.emmet.io/customization/snippets/#sharing-snippets" target="_blank" rel="external"></a>共享片段</h3><p>如果想与其它用户共享片段，可以将它们放进以 snippets&nbsp;命名的文件中，例如：&nbsp;<code>snippets-foo.json</code>、<code>snippets_bar.json</code>、<code>snippetsBaz.json</code>。Emmet 将在启动时载入它们，并将它们合并到单个片段集合中。</p>
+<p><em>注意，定义在&nbsp;<code>snippets.json</code>&nbsp;（译注：此处疑是 snippets-*.json）文件中的片段优先于定义在 `snippets</em>.json` 文件中的片段</p>
+<p></p></dd><dt><a href="http://docs.emmet.io/customization/preferences/" target="_blank" rel="external">preferences.json</a></dt><dd></dd><dd>改变某些 Emmet 过滤器和运作的行为。</dd><dd><p></p>
+<h1 id="preferences-json"><a href="#preferences-json" class="headerlink" title="preferences.json"></a>preferences.json</h1><p><code>preferences.json</code>&nbsp;文件用于编辑 Emmet 的一些运作和解析器的行为。此文件包含 Key-value 对的简单字典。</p>
+<p>例如在 &ldquo;<a href="http://www.cnblogs.com/matchless/archive/2013/04/12/3014552.html" target="_blank" rel="external">CSS 渐变</a>&rdquo; 上，有&nbsp;<code>css.gradient.fallback</code>&nbsp;选项描述当定义展开时能够回调&nbsp;<code>background-color</code>&nbsp;。要使它生效，直接加入如下内容到&nbsp;<code>preferences.json</code>&nbsp;文件：</p>
+<div class="cnblogs_code"><br><pre>{<br>    “css.gradient.fallback”: true<br>}</pre><br></div>
+
+<p>以下是当前可用的选项列表：</p>
+<div class="emmet-preferences"><br><table class="emmet-preferences__list"><br><tbody><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">bem.elementSeparator</span></span><br><div class="emmet-preferences__desc">Class 名的元素分隔符</div><br></td><br><td><span class="emmet-preferences__value"><strong></strong></span></td><br></tr><br><tr><br><td>&lt;span class=”emmet-preferencesname”&gt;<span class="emmet-preferences__name">bem.modifierSeparator</span><br><div class="emmet-preferences__desc">Class 名的修饰符分隔符</div><br></td><br><td><span class="emmet-preferences__value">_</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">bem.shortElementPrefix</span></span><br><div class="emmet-preferences__desc">描述短的 &ldquo;块元素&rdquo;标记的符号。 带有这个符号前缀的Class 类名将被视为你块名称的元素名。每个符号实例在解析树的块元素中向上跳转一级。空值将禁用短标记。</div><br></td><br><td><span class="emmet-preferences__value">-</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.alignVendor</span></span><br><div class="emmet-preferences__desc">如果设置为&nbsp;<code>true，所有生成的&amp;nbsp;</code>vendor 前缀属性将被赋予真实的元素名。</div><br></td><br><td><span class="emmet-preferences__value">false</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.autoInsertVendorPrefixes</span></span><br><div class="emmet-preferences__desc">在扩展 CSS 属性时自动生成 vendor 前缀副本。默认情况下，当缩写前放置了存折号&nbsp;(例如，&nbsp;<code>-bxsh</code>)，Emmet 将仅生成 vendor 前缀属性. 该属性可用时，不需要在缩写前定义破折号： Emmet 为你生成 vendor 前缀属性。</div><br></td><br><td><span class="emmet-preferences__value">true</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.closeBraceIndentation</span></span><br><div class="emmet-preferences__desc">在 CSS 关闭括号前缩进。一些用户为了增强可读性而缩进 CSS 规则的关闭括号。设置这个选项将在用户新建规则添加新行（如在 CSS 文件中执行&ldquo;插入格式化换行&rdquo;动作）时自动在关闭前缩进。如果你恰好是这种用户，也许会想在这个选项占放一个类似于&nbsp;<code>\n\t</code>&nbsp;的值.</div><br></td><br><td>&nbsp;</td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.color.case</span></span><br><div class="emmet-preferences__desc">颜色缩写(类似于&nbsp;<code>c#0)的颜色字母的大小写。可取的值有</code>&nbsp;<code>upper</code>、&nbsp;<code>lower</code>&nbsp;和&nbsp;<code>keep。</code></div><br></td><br><td><span class="emmet-preferences__value">keep</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.color.short</span></span><br><div class="emmet-preferences__desc">在带有颜色的缩写展开时，将类似于&nbsp;<code>#ffffff</code>&nbsp;的颜色值简化成&nbsp;<code>#fff</code>。</div><br></td><br><td><span class="emmet-preferences__value">true</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.floatUnit</span></span><br><div class="emmet-preferences__desc">浮点值的默认单位。</div><br></td><br><td><span class="emmet-preferences__value">em</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.fuzzySearch</span></span><br><div class="emmet-preferences__desc">是否能够模糊搜索 CSS 片段的名字。当设置为可用时，每个未知的片段将被改成接近的可用的片段名(对 CSS 值或属性无效)。最接近的匹配将被用于片段解析。例如，在此选项可用时，下面的缩写是等效的：<code>ov:h</code>==&nbsp;<code>ov-h</code>&nbsp;==&nbsp;<code>o-h</code>&nbsp;==&nbsp;<code>oh。</code></div><br></td><br><td><span class="emmet-preferences__value">true</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.fuzzySearchMinScore</span></span><br><div class="emmet-preferences__desc">模糊匹配时搜索的最小值（取值范围为从 0 到 1）。较低的设置值能够获得更多的匹配，较高的值则匹配度更高。</div><br></td><br><td><span class="emmet-preferences__value">0.3</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.gradient.defaultProperty</span></span><br><div class="emmet-preferences__desc">当展开 CSS 值上下文外面的渐变时，它将生成带有相同名字的属性。</div><br></td><br><td><span class="emmet-preferences__value">background-image</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.gradient.fallback</span></span><br><div class="emmet-preferences__desc">当此选项可用时，CSS 渐变将为旧浏览器生成带有渐变第一个颜色的&nbsp;<code>background-color 属性。</code></div><br></td><br><td><span class="emmet-preferences__value">false</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.gradient.oldWebkit</span></span><br><div class="emmet-preferences__desc">为旧的 webkit 实现生成渐变定义。</div><br></td><br><td><span class="emmet-preferences__value">true</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.gradient.omitDefaultDirection</span></span><br><div class="emmet-preferences__desc">在生成的渐变中不输出默认的方向定义。</div><br></td><br><td><span class="emmet-preferences__value">true</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.gradient.prefixes</span></span><br><div class="emmet-preferences__desc">用逗号的 vendor 前缀列表，每个都将被生成。</div><br></td><br><td><span class="emmet-preferences__value">webkit, moz, o</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.intUnit</span></span><br><div class="emmet-preferences__desc">整数值的默认单位。</div><br></td><br><td><span class="emmet-preferences__value">px</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.keywordAliases</span></span><br><div class="emmet-preferences__desc">用逗号间隔的关键词别名列表，用在 CSS 缩写中。每个别名的定义格式如下：&nbsp;<code>alias:keyword_name。</code></div><br></td><br><td><span class="emmet-preferences__value">a:auto, i:inherit, s:solid, da:dashed, do:dotted, t:transparent</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.keywords</span></span><br><div class="emmet-preferences__desc">用逗号间隔的能够用于 CSS 缩写的有效关键词列表。</div><br></td><br><td><span class="emmet-preferences__value">auto, inherit</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.mozProperties</span></span><br><div class="emmet-preferences__desc">可能用于&nbsp;<code>moz</code>&nbsp;vendor 前缀的用逗号间隔的 CSS 属性列表。这个列表用于在展开&nbsp;<code>-property 缩写时</code>生成前缀属性列表。空值意味着所有可用的 CSS 属性都将拥有&nbsp;<code>moz</code>&nbsp;前缀。</div><br></td><br><td><span class="emmet-preferences__value">animation-delay, animation-direction, animation-duration, animation-fill-mode, animation-iteration-count, animation-name, animation-play-state, animation-timing-function, appearance, backface-visibility, background-inline-policy, binding, border-bottom-colors, border-image, border-left-colors, border-right-colors, border-top-colors, box-align, box-direction, box-flex, box-ordinal-group, box-orient, box-pack, box-shadow, box-sizing, column-count, column-gap, column-rule-color, column-rule-style, column-rule-width, column-width, float-edge, font-feature-settings, font-language-override, force-broken-image-icon, hyphens, image-region, orient, outline-radius-bottomleft, outline-radius-bottomright, outline-radius-topleft, outline-radius-topright, perspective, perspective-origin, stack-sizing, tab-size, text-blink, text-decoration-color, text-decoration-line, text-decoration-style, text-size-adjust, transform, transform-origin, transform-style, transition, transition-delay, transition-duration, transition-property, transition-timing-function, user-focus, user-input, user-modify, user-select, window-shadow, background-clip, border-radius</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.mozPropertiesAddon</span></span><br><div class="emmet-preferences__desc">用于&nbsp;<code>css.mozPreperties``&amp;nbsp;选项的附加 CSS 属性列表，用逗号间隔。如果想从原始集合中添加或删除几个 &amp;nbsp;CSS 属性，可以用这个列表来完成。如果想添加新属性，直接写入属性名，如果想删除，就在属性名前加个连字符。</code>例如，添加&nbsp;<em>foo</em>&nbsp;属性和删除&nbsp;<em>border-radius</em>&nbsp;属性，此选项的值将是：<code>foo, -border-radius。</code></div><br></td><br><td>&nbsp;</td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.msProperties</span></span><br><div class="emmet-preferences__desc">可能用于&nbsp;<code>ms</code>&nbsp;vendor 前缀的用逗号间隔的 CSS 属性列表。这个列表用于在展开&nbsp;<code>-property 缩写时</code>生成前缀属性列表。空值意味着所有可用的 CSS 属性都将拥有&nbsp;<code>ms</code>&nbsp;前缀。</div><br></td><br><td><span class="emmet-preferences__value">accelerator, backface-visibility, background-position-x, background-position-y, behavior, block-progression, box-align, box-direction, box-flex, box-line-progression, box-lines, box-ordinal-group, box-orient, box-pack, content-zoom-boundary, content-zoom-boundary-max, content-zoom-boundary-min, content-zoom-chaining, content-zoom-snap, content-zoom-snap-points, content-zoom-snap-type, content-zooming, filter, flow-from, flow-into, font-feature-settings, grid-column, grid-column-align, grid-column-span, grid-columns, grid-layer, grid-row, grid-row-align, grid-row-span, grid-rows, high-contrast-adjust, hyphenate-limit-chars, hyphenate-limit-lines, hyphenate-limit-zone, hyphens, ime-mode, interpolation-mode, layout-flow, layout-grid, layout-grid-char, layout-grid-line, layout-grid-mode, layout-grid-type, line-break, overflow-style, perspective, perspective-origin, perspective-origin-x, perspective-origin-y, scroll-boundary, scroll-boundary-bottom, scroll-boundary-left, scroll-boundary-right, scroll-boundary-top, scroll-chaining, scroll-rails, scroll-snap-points-x, scroll-snap-points-y, scroll-snap-type, scroll-snap-x, scroll-snap-y, scrollbar-arrow-color, scrollbar-base-color, scrollbar-darkshadow-color, scrollbar-face-color, scrollbar-highlight-color, scrollbar-shadow-color, scrollbar-track-color, text-align-last, text-autospace, text-justify, text-kashida-space, text-overflow, text-size-adjust, text-underline-position, touch-action, transform, transform-origin, transform-origin-x, transform-origin-y, transform-origin-z, transform-style, transition, transition-delay, transition-duration, transition-property, transition-timing-function, user-select, word-break, word-wrap, wrap-flow, wrap-margin, wrap-through, writing-mode</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.msPropertiesAddon</span></span><br><div class="emmet-preferences__desc">用于&nbsp;<code>css.msPreperties``&amp;nbsp;选项的附加 CSS 属性列表，用逗号间隔。如果想从原始集合中添加或删除几个 &amp;nbsp;CSS 属性，可以用这个列表来完成。如果想添加新属性，直接写入属性名，如果想删除，就在属性名前加个连字符。</code>例如，添加&nbsp;<em>foo</em>&nbsp;属性和删除&nbsp;<em>border-radius</em>&nbsp;属性，此选项的值将是：<code>foo, -border-radius。</code></div><br></td><br><td>&nbsp;</td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.oProperties</span></span><br><div class="emmet-preferences__desc">可能用于&nbsp;<code>o</code>&nbsp;vendor 前缀的用逗号间隔的 CSS 属性列表。这个列表用于在展开&nbsp;<code>-property 缩写时</code>生成前缀属性列表。空值意味着所有可用的 CSS 属性都将拥有&nbsp;<code>o</code>&nbsp;前缀。</div><br></td><br><td><span class="emmet-preferences__value">dashboard-region, animation, animation-delay, animation-direction, animation-duration, animation-fill-mode, animation-iteration-count, animation-name, animation-play-state, animation-timing-function, border-image, link, link-source, object-fit, object-position, tab-size, table-baseline, transform, transform-origin, transition, transition-delay, transition-duration, transition-property, transition-timing-function, accesskey, input-format, input-required, marquee-dir, marquee-loop, marquee-speed, marquee-style</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.oPropertiesAddon</span></span><br><div class="emmet-preferences__desc">用于&nbsp;<code>css.oPreperties``&amp;nbsp;选项的附加 CSS 属性列表，用逗号间隔。如果想从原始集合中添加或删除几个 &amp;nbsp;CSS 属性，可以用这个列表来完成。如果想添加新属性，直接写入属性名，如果想删除，就在属性名前加个连字符。</code>例如，添加&nbsp;<em>foo</em>&nbsp;属性和删除&nbsp;<em>border-radius</em>&nbsp;属性，此选项的值将是：<code>foo, -border-radius。</code></div><br></td><br><td>&nbsp;</td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.propertyEnd</span></span><br><div class="emmet-preferences__desc">在展开 CSS 缩写时在每个 CSS 属性的后面放置的符号。</div><br></td><br><td><span class="emmet-preferences__value">;</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.unitAliases</span></span><br><div class="emmet-preferences__desc">用逗号间隔的单位别名的列表，用于 CSS 缩写。每个别名的定义格式如下：&nbsp;<code>alias:unit_value。</code></div><br></td><br><td><span class="emmet-preferences__value">e:em, p:%, x:ex, r:rem</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.unitlessProperties</span></span><br><div class="emmet-preferences__desc">必须包含单位的属性的列表。</div><br></td><br><td><span class="emmet-preferences__value">z-index, line-height, opacity, font-weight, zoom</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.valueSeparator</span></span><br><div class="emmet-preferences__desc">定义在展开 CSS 缩写时，在两个 CSS 属性和值之间放置的符号。</div><br></td><br><td><span class="emmet-preferences__value">:</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.webkitProperties</span></span><br><div class="emmet-preferences__desc">可能用于&nbsp;<code>webkit</code>&nbsp;vendor 前缀的用逗号间隔的 CSS 属性列表。这个列表用于在展开&nbsp;<code>-property 缩写时</code>生成前缀属性列表。空值意味着所有可用的 CSS 属性都将拥有&nbsp;<code>webkit</code>&nbsp;前缀。</div><br></td><br><td><span class="emmet-preferences__value">animation, animation-delay, animation-direction, animation-duration, animation-fill-mode, animation-iteration-count, animation-name, animation-play-state, animation-timing-function, appearance, backface-visibility, background-clip, background-composite, background-origin, background-size, border-fit, border-horizontal-spacing, border-image, border-vertical-spacing, box-align, box-direction, box-flex, box-flex-group, box-lines, box-ordinal-group, box-orient, box-pack, box-reflect, box-shadow, color-correction, column-break-after, column-break-before, column-break-inside, column-count, column-gap, column-rule-color, column-rule-style, column-rule-width, column-span, column-width, dashboard-region, font-smoothing, highlight, hyphenate-character, hyphenate-limit-after, hyphenate-limit-before, hyphens, line-box-contain, line-break, line-clamp, locale, margin-before-collapse, margin-after-collapse, marquee-direction, marquee-increment, marquee-repetition, marquee-style, mask-attachment, mask-box-image, mask-box-image-outset, mask-box-image-repeat, mask-box-image-slice, mask-box-image-source, mask-box-image-width, mask-clip, mask-composite, mask-image, mask-origin, mask-position, mask-repeat, mask-size, nbsp-mode, perspective, perspective-origin, rtl-ordering, text-combine, text-decorations-in-effect, text-emphasis-color, text-emphasis-position, text-emphasis-style, text-fill-color, text-orientation, text-security, text-stroke-color, text-stroke-width, transform, transition, transform-origin, transform-style, transition-delay, transition-duration, transition-property, transition-timing-function, user-drag, user-modify, user-select, writing-mode, svg-shadow, box-sizing, border-radius</span></td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">css.webkitPropertiesAddon</span></span><br><div class="emmet-preferences__desc">用于&nbsp;<code>css.webkitPreperties 选项的附加 CSS 属性列表，用逗号间隔。如果想从原始集合中添加或删除几个 &amp;nbsp;CSS 属性，可以用这个列表来完成。如果想添加新属性，直接写入属性名，如果想删除，就在属性名前加个连字符。</code>例如，添加&nbsp;<em>foo</em>&nbsp;属性和删除&nbsp;<em>border-radius</em>&nbsp;属性，此选项的值将是：<code>foo, -border-radius。</code></div><br></td><br><td>&nbsp;</td><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">filter.commentAfter</span></span><br><div class="emmet-preferences__desc">当应用&nbsp;<code>comment</code>&nbsp;过滤器时，将被放在对应的元素后的注释内容的定义。这个定义是传递给&nbsp;<code>_.template()函数的</code>&nbsp;ERB 风格的模板。在模板上下文中，如下属性和函数是有效的：<br><br><em>   <code>attr(name, before, after)</code>&nbsp;&ndash; 这个函数输出用&nbsp;<code>before</code>&nbsp;and&nbsp;<code>after 连接的指定的属性。如果属性不存在，将返回空字符串。</code>
+</em>   <code>node</code>&nbsp;&ndash; 当前节点 (<code>AbbreviationNode 的实例</code>)<br><em>   <code>name</code>&nbsp;&ndash; 当前标签的名字
+</em>   <code>padding</code>&nbsp;&ndash; 当前字符的留白，能够用于格式化<br><br></div>
+
+<p></p></td><p></p>
+<td><span class="emmet-preferences__value">&lt;!– /&lt;%= attr(“id”, “#”) %&gt;&lt;%= attr(“class”, “.”) %&gt; –&gt;</span></td>
+
+<p></p></tr><p></p>
+<tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">filter.commentBefore</span></span><br><div class="emmet-preferences__desc">当应用&nbsp;<code>comment</code>&nbsp;过滤器时，将被放在对应的元素前的注释内容的定义。更多信息，请参阅&nbsp;<code>filter.commentAfter 属性的描述。</code></div><br><br></td><br><td>&nbsp;</td><br><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">filter.commentTrigger</span></span><br><div class="emmet-preferences__desc">一个属性列表，如果其中的项在缩写中存在，该缩写将被添加注释。如果希望为每个元素添加注释，可以将其设置为&nbsp;<code>*</code></div><br><br></td><br><td><span class="emmet-preferences__value">id, class</span></td><br><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">filter.trimRegexp</span></span><br><div class="emmet-preferences__desc">用于在&nbsp;<code>t</code>(trim) 过滤器中检索要删除行标记&nbsp;(numbers, dashes, bullets, 等)的正则表达式。这个裁切示波器用于包围缩写中从其它文档（如 Microsoft Word）中粘贴过来的列表。</div><br><br></td><br><td><span class="emmet-preferences__value">[\s|\u00a0]<em>[\d|#|-|</em>|\u2022]+.?\s*</span></td><br><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">format.forceIndentationForTags</span></span><br><div class="emmet-preferences__desc">定义强制其内部缩进的标签列表，用逗号间隔。</div><br><br></td><br><td><span class="emmet-preferences__value">body</span></td><br><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">format.noIndentTags</span></span><br><div class="emmet-preferences__desc">定义不其内缩进行的标签列表，用逗号间隔。</div><br><br></td><br><td><span class="emmet-preferences__value">html</span></td><br><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">sass.propertyEnd</span></span><br><div class="emmet-preferences__desc">定义展开 SASS 风格的 CSS 缩写时在每个 CSS 属性后面放置的符号。</div><br><br></td><br><td>&nbsp;</td><br><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">stylus.propertyEnd</span></span><br><div class="emmet-preferences__desc">定义展开 Stylus 风格的 CSS 缩写时在每个 CSS 属性后面放置的符号。</div><br><br></td><br><td>&nbsp;</td><br><br></tr><br><tr><br><td><span class="emmet-preferences__name"><span class="emmet-preferences__name">stylus.valueSeparator</span></span><br><div class="emmet-preferences__desc">定义展开&nbsp;Stylus 风格的 CSS 缩写时在两个属性和值之前放置的符号。</div><br><br></td><br><td>&nbsp;</td><br><br></tr>
+
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p></p></dd><dt></dt><dt><a href="http://docs.emmet.io/customization/syntax-profiles/" target="_blank" rel="external">syntaxProfiles.json</a></dt><dd></dd><dd>定义如何生成 HTML/XML 。</dd><dd><p></p>
+<h1 id="syntaxProfiles-json"><a href="#syntaxProfiles-json" class="headerlink" title="syntaxProfiles.json"></a>syntaxProfiles.json</h1><p>输出配置用于定义如何生成 HTML 内容。例如，当展开&nbsp;<code>br</code>&nbsp;属性时，Emmet 可能会生成如下标签中的一种：</p>
+<ul>
+<li><code>&amp;lt;br&amp;gt;</code>&nbsp;&mdash; HTML 记号</li>
+<li><code>&amp;lt;br /&amp;gt;</code>&nbsp;&mdash; XHTML 记号</li>
+<li><code>&amp;lt;br/&amp;gt;</code>&nbsp;&mdash; XML 记号</li>
+</ul>
+<p>Emmet 尝试自动探测当前文档的输出配置。例如，如果文档定义成 XHTML 类型，将使用&nbsp;<code>xhtml</code>&nbsp;配置，否则使用&nbsp;<code>html</code>&nbsp;。</p>
+<p>但有时，可能想要强制 Emmet 使用另一个特定语法的配置，或者使用带有特殊规则的自定义配置。</p>
+<p>在这种情况下，可以在扩展文件夹创建&nbsp;<code>syntaxProfiles.json</code>&nbsp;文件并且为必备的语法指定配置。</p>
+<p>这个文件的内容就是简单的键/值对字典，键是定义在&nbsp;<code>snippets.json</code>&nbsp;文件中的语法名，值是预定义配置（字符串）的名字或者带有配置选项（object）的字典：</p>
+<div class="cnblogs_code"><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div><br><pre>{<br>    // force XHTML profile for HTML syntax<br>    “html”: “xhtml”,<br><br>    // create our own profile for XML<br>    “xml”: {<br>        “tag_case”: “upper”,<br>        “attr_quotes”: “single”<br>    }<br>}</pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div><br></div>
+
+<p>预定义配置</p>
+<ul>
+<li><code>html</code>&nbsp;&mdash; 默认输出配置。</li>
+<li><code>xhtml</code>&nbsp;&mdash; 与&nbsp;<code>html 相同，但当输出空元素时，带有关闭斜杠</code>：<code>&amp;lt;br /&amp;gt;。</code></li>
+<li><code>xml</code>&nbsp;&mdash; XML 和 XSL 语法的默认定义，在带有缩进的新行输出每个标签，输出空标签时带有关闭斜杠：&nbsp;<code>&amp;lt;br/&amp;gt;</code>。</li>
+<li><code>line</code>&nbsp;&mdash; 用于输出不带有任何缩进和换行的展开缩写。在某些编辑器中，默认应用于类似 JavaScript 或 Python 等编程语言上，以便生成有效的字符串。</li>
+</ul>
+<h3 id="u521B_u5EFA_u81EA_u5DF1_u7684_u914D_u7F6E"><a href="#u521B_u5EFA_u81EA_u5DF1_u7684_u914D_u7F6E" class="headerlink" title="创建自己的配置"></a><a href="http://docs.emmet.io/customization/syntax-profiles/#create-your-own-profile" target="_blank" rel="external"></a>创建自己的配置</h3><p>可以指定一个带有如下键的字典来定义自己的输出配置：</p>
+<ul>
+<li><code>tag_case：生成标签名的大小写，字符串类型。可取的值有：``upper（大写）、``lower（小写）</code>&nbsp;和&nbsp;<code>asis（原样输出）</code>。</li>
+<li><code>attr_case：生成标签的属性名的大小写，字符串类型。&lt;code&gt;可取的值有：&lt;code&gt;upper（大写）、``lower（小写）</code>&nbsp;和&nbsp;<code>asis（原样输出）</code>。</li>
+<li><code>attr_quotes</code>: 围住属性值的括号，字符串，可取的值有：&nbsp;<code>single（单引号）</code>&nbsp;和&nbsp;<code>double（双引号）。</code></li>
+<li><code>tag_nl</code>: 在带有缩进的新行上输出每个标签。可取的值有<code>true</code>&nbsp;(每个标签占一行),<code>false</code>&nbsp;(不格式化) 和&nbsp;<code>&#39;decide&#39;</code>&nbsp;(字符串；仅块级元素生成新行）。</li>
+<li><code>tag_nl_leaf：当</code>&nbsp;<code>tag_nl</code>&nbsp;设置成&nbsp;<code>true，定义叶块节点（即没有子节点的节点）里面是否格式化换行符。</code></li>
+<li><code>indent：在新行上缩进标签，布尔值。</code></li>
+<li><code>inline_break：达到多少行内元素需要强制换行，数值类型。默认值为&amp;nbsp;``3。例如</code>&nbsp;<code>span*2</code>&nbsp;将展开成&nbsp;<code>&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;，但</code>&nbsp;<code>span*3</code>&nbsp;将生成三个&nbsp;<code>&amp;lt;span&amp;gt;</code>&nbsp;元素，每个占有一行。如果设置为&nbsp;<code>0 将不再为行内元素换行。</code></li>
+<li><code>self_closing_tag：空元素是否还有关闭斜杠，如</code>&nbsp;<code>br</code>&nbsp;和&nbsp;<code>img</code>，布尔值。可取的值有&nbsp;<code>true</code>、&nbsp;<code>false</code>&nbsp;和&nbsp;<code>&#39;xhtml&#39;</code>&nbsp;(字符串；按 XHTML 风格输出关闭斜杠，例如：&nbsp;<code>&amp;lt;br /&amp;gt;</code>)。</li>
+<li><code>filters</code>: 自动应用的&nbsp;<a href="http://www.cnblogs.com/matchless/archive/2013/04/13/3018573.html" target="_blank" rel="external">过滤器</a>&nbsp;列表。</li>
+</ul>
+<p>&nbsp;</p>
+<p><a href="http://www.cnblogs.com/matchless/archive/2013/04/15/3021671.html" target="_blank" rel="external">原文链接</a></p>
+<p></p></dd></dl></div><p></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/03/12/【翻译】Emmet-Zen-Coding-官方文档-之六-自定义-Emmet/" data-title="【翻译】Emmet(Zen Coding)官方文档 之六 自定义 Emmet | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/03/14/Git-的-gitignore-配置/" title="Git 的 .gitignore 配置">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  Git 的 .gitignore 配置</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/12/Notepad-插件Emmet和Python-Script的安装/"  title="Notepad++插件Emmet和Python Script的安装">
+ <strong>NEXT:</strong><br/> 
+ <span>Notepad++插件Emmet和Python Script的安装
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u9884_u5B9A_u4E49_u53D8_u91CF"><span class="toc-number">1.</span> <span class="toc-text">预定义变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u8F6C_u7801_26nbsp_3B_7C_26nbsp_3B_u548C_26nbsp_3B_24_26nbsp_3B_u5B57_u7B26"><span class="toc-number">2.</span> <span class="toc-text">转码 | 和 $ 字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5171_u4EAB_u7247_u6BB5"><span class="toc-number">3.</span> <span class="toc-text">共享片段</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#preferences-json"><span class="toc-number"></span> <span class="toc-text">preferences.json</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#syntaxProfiles-json"><span class="toc-number"></span> <span class="toc-text">syntaxProfiles.json</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u521B_u5EFA_u81EA_u5DF1_u7684_u914D_u7F6E"><span class="toc-number">1.</span> <span class="toc-text">创建自己的配置</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

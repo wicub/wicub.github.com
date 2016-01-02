@@ -1,0 +1,353 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Sublime Text 3 常用插件以及安装方法(转) | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="http://www.cnsecer.com/460.html#### 安装Sublime Text 3插件的方法：朋友们，小站活着不容易，全靠广告费养着了，如果本文对你有帮助。麻烦动下手点下页面的广告吧，谢谢！##### 直接安装安装Sublime text 2插件很方便，可以直接下载安装包解压缩">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/10/25/Sublime-Text-3-常用插件以及安装方法-转/" title="Sublime Text 3 常用插件以及安装方法(转)" itemprop="url">Sublime Text 3 常用插件以及安装方法(转)</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-10-25T14:52:00.000Z" itemprop="datePublished">2015-10-25</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#u7528Package_Control_u5B89_u88C5_u63D2_u4EF6_u7684_u65B9_u6CD5_uFF1A"><span class="toc-number">1.</span> <span class="toc-text">用Package Control安装插件的方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#GBK_Encoding_Support"><span class="toc-number">1.1.</span> <span class="toc-text">GBK Encoding Support</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Zen_Coding"><span class="toc-number">1.2.</span> <span class="toc-text">Zen Coding</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#jQuery_Package_for_sublime_Text"><span class="toc-number">1.3.</span> <span class="toc-text">jQuery Package for sublime Text</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Sublime_Prefixr"><span class="toc-number">1.4.</span> <span class="toc-text">Sublime Prefixr</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JS_Format"><span class="toc-number">1.5.</span> <span class="toc-text">JS Format</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SublimeLinter"><span class="toc-number">1.6.</span> <span class="toc-text">SublimeLinter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Placeholders"><span class="toc-number">1.7.</span> <span class="toc-text">Placeholders</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Sublime_Alignment"><span class="toc-number">1.8.</span> <span class="toc-text">Sublime Alignment</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Clipboard_History"><span class="toc-number">1.9.</span> <span class="toc-text">Clipboard History</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#DetectSyntax"><span class="toc-number">1.10.</span> <span class="toc-text">DetectSyntax</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Nettuts_Fetch"><span class="toc-number">1.11.</span> <span class="toc-text">Nettuts Fetch</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JsMinifier"><span class="toc-number">1.12.</span> <span class="toc-text">JsMinifier</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Sublime_CodeIntel"><span class="toc-number">1.13.</span> <span class="toc-text">Sublime CodeIntel</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Bracket_Highlighter"><span class="toc-number">1.14.</span> <span class="toc-text">Bracket Highlighter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Hex_to_HSL"><span class="toc-number">1.15.</span> <span class="toc-text">Hex to HSL</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#26nbsp_3BConvertToUTF8__26nbsp_3B_u6216_u8005__26nbsp_3BGBK_Encoding_Support"><span class="toc-number">1.16.</span> <span class="toc-text"> ConvertToUTF8  或者  GBK Encoding Support</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Git"><span class="toc-number">1.17.</span> <span class="toc-text">Git</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">1.18.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+		</div>
+		
+		<div id="cnblogs_post_body"><br><br><a href="http://www.cnsecer.com/460.html" target="_blank" rel="external">http://www.cnsecer.com/460.html</a><br><br>#### 安装Sublime Text 3插件的方法：<br><br>朋友们，小站活着不容易，全靠广告费养着了，如果本文对你有帮助。麻烦动下手点下页面的广告吧，谢谢！<br><br>##### <strong>直接安装</strong><br><br>安装Sublime text 2插件很方便，可以直接下载安装包解压缩到Packages目录（菜单-&gt;preferences-&gt;packages）。<br><br>##### <strong>使用Package Control组件安装</strong><br><br>也可以安装package control组件，然后直接在线安装：<br><br><div><br><div id="highlighter_496871" class="syntaxhighlighter  python"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>import</code> <code>urllib.request,os; pf&amp;nbsp;``=</code> <code>&#39;Package Control.sublime-package&#39;``; ipp&amp;nbsp;``=</code> <code>sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) );&amp;nbsp;``open``(os.path.join(ipp, pf),&amp;nbsp;``&#39;wb&#39;``).write(urllib.request.urlopen(&amp;nbsp;``&#39;[http://sublime.wbond.net/](http://sublime.wbond.net/)&#39;</code> <code>+</code> <code>pf.replace(``&#39; &#39;``,``&#39;%20&#39;``)).read())</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div>
+
+<ol>
+<li>重启Sublime Text 3。</li>
+<li>如果在Perferences-&gt;package settings中看到package control这一项，则安装成功。</li>
+</ol>
+<p>顺便贴下Sublime Text2 的代码</p>
+<div><br><div id="highlighter_152264" class="syntaxhighlighter  python"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code>import</code> <code>urllib2,os; pf``=``&#39;Package Control.sublime-package&#39;``; ipp&amp;nbsp;``=</code> <code>sublime.installed_packages_path(); os.makedirs( ipp )&amp;nbsp;``if</code> <code>not</code> <code>os.path.exists(ipp)&amp;nbsp;``else</code> <code>None``; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( )));&amp;nbsp;``open``( os.path.join( ipp, pf),&amp;nbsp;``&#39;wb&#39;</code> <code>).write( urllib2.urlopen(&amp;nbsp;``&#39;[http://sublime.wbond.net/](http://sublime.wbond.net/)&#39;</code> <code>+``pf.replace(&amp;nbsp;``&#39; &#39;``,``&#39;%20&#39;</code> <code>)).read());&amp;nbsp;``print``(&amp;nbsp;``&#39;Please restart Sublime Text to finish installation&#39;``)</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div>
+
+<p>如果这种方法不能安装成功，可以<a href="http://wbond.net/sublime_packages/package_control/installation" title="手动安装 Package Control" target="_blank" rel="external">到这里下载文件手动安装</a>。</p>
+<h4 id="u7528Package_Control_u5B89_u88C5_u63D2_u4EF6_u7684_u65B9_u6CD5_uFF1A"><a href="#u7528Package_Control_u5B89_u88C5_u63D2_u4EF6_u7684_u65B9_u6CD5_uFF1A" class="headerlink" title="用Package Control安装插件的方法："></a>用Package Control安装插件的方法：</h4><ol>
+<li>按下Ctrl+Shift+P调出命令面板</li>
+<li>输入install 调出 Install Package 选项并回车，然后在列表中选中要安装的插件。</li>
+</ol>
+<p>不爽的是，有的网络环境可能会不允许访问陌生的网络环境从而设置一道防火墙，而Sublime Text 2貌似无法设置代理，可能就获取不到安装包列表了。<br>好，方法介绍完了，下面是本文正题，一些有用的Sublime Text 2插件：</p>
+<h5 id="GBK_Encoding_Support"><a href="#GBK_Encoding_Support" class="headerlink" title="GBK Encoding Support"></a><strong>GBK Encoding Support</strong></h5><p>对应gb2312来说，Sublime Text 2<br>本生不支持的，我们可以通过Ctrl+Shift+P调出命令面板或Perferences-&gt;Package Contro,输入install<br> 调出 Install Package 选项并回车，在输入&ldquo;GBK Encoding<br>Support&rdquo;选择开始安装，左下角状态栏有提示安装成功。这时打开gbk编码的文件就不会出现乱码了，如果有需要转成utf-8的可以在File-<br>GBK to UTF8-选择Save with UTF8就偶看了。</p>
+<h5 id="Zen_Coding"><a href="#Zen_Coding" class="headerlink" title="Zen Coding"></a><strong>Zen Coding</strong></h5><p>这个，不解释了，还不知道ZenCoding的同学强烈推荐去看一下：《Zen Coding: 一种快速编写HTML/CSS代码的方法》。</p>
+<div class="wp-caption alignnone"><img src="http://www.cnsecer.com/wp-content/uploads/2013/07/aad5f36c472cbee9427b2e6204bab0ba.png" alt="Sublime Text 3 常用插件以及安装方法 --PHP 第1张" title="Sublime Text 3 常用插件以及安装方法 --PHP 第1张"><br><br>emmet<br><br></div>
+
+<p>PS:Zen Coding for Sublime Text 2插件的开发者已经停止了在Github上共享了，现在只有通过Package Control来安装。</p>
+<h5 id="jQuery_Package_for_sublime_Text"><a href="#jQuery_Package_for_sublime_Text" class="headerlink" title="jQuery Package for sublime Text"></a>jQuery Package for sublime Text</h5><p>如果你离不开jQuery的话，这个必备～～</p>
+<h5 id="Sublime_Prefixr"><a href="#Sublime_Prefixr" class="headerlink" title="Sublime Prefixr"></a>Sublime Prefixr</h5><p>Prefixr，CSS3 私有前缀自动补全插件，显然也很有用哇</p>
+<div class="wp-caption alignnone"><img src="http://www.cnsecer.com/wp-content/uploads/2013/07/b32ee22ba222e8ab566f3cb7f9269eb8.png" alt="Sublime Text 3 常用插件以及安装方法 --PHP 第2张" title="Sublime Text 3 常用插件以及安装方法 --PHP 第2张"><br><br>Sublime Prefixr<br><br></div>
+
+<h5 id="JS_Format"><a href="#JS_Format" class="headerlink" title="JS Format"></a>JS Format</h5><p>一个JS代码格式化插件。</p>
+<h5 id="SublimeLinter"><a href="#SublimeLinter" class="headerlink" title="SublimeLinter"></a>SublimeLinter</h5><p>一个支持lint语法的插件，可以高亮linter认为有错误的代码行，也支持高亮一些特别的注释，比如&ldquo;TODO&rdquo;，这样就可以被快速定位。（IntelliJ IDEA的TODO功能很赞，这个插件虽然比不上，但是也够用了吧）</p>
+<div class="wp-caption alignnone"><img src="http://www.cnsecer.com/wp-content/uploads/2013/07/492a5e6f1c0a343d04184db9041e1208.png" alt="Sublime Text 3 常用插件以及安装方法 --PHP 第3张" title="Sublime Text 3 常用插件以及安装方法 --PHP 第3张"><br><br>SublimeLinter<br><br></div>
+
+<h5 id="Placeholders"><a href="#Placeholders" class="headerlink" title="Placeholders"></a>Placeholders</h5><p>故名思意，占位用，包括一些占位文字和HTML代码片段，实用。</p>
+<h5 id="Sublime_Alignment"><a href="#Sublime_Alignment" class="headerlink" title="Sublime Alignment"></a>Sublime Alignment</h5><p>用于代码格式的自动对齐。传说最新版Sublime 已经集成。</p>
+<p><img src="http://www.cnsecer.com/wp-content/uploads/2013/07/0969cd1f6655094904594246c2826e71.png" alt="Sublime Text 3 常用插件以及安装方法 --PHP 第4张" title="Sublime Text 3 常用插件以及安装方法 --PHP 第4张"></p>
+<h5 id="Clipboard_History"><a href="#Clipboard_History" class="headerlink" title="Clipboard History"></a>Clipboard History</h5><p>粘贴板历史记录，方便使用复制/剪切的内容。</p>
+<h5 id="DetectSyntax"><a href="#DetectSyntax" class="headerlink" title="DetectSyntax"></a>DetectSyntax</h5><p>这是一个代码检测插件。</p>
+<h5 id="Nettuts_Fetch"><a href="#Nettuts_Fetch" class="headerlink" title="Nettuts Fetch"></a>Nettuts Fetch</h5><p>如果你在用一些公用的或者开源的框架，比如&nbsp;<a href="http://necolas.github.com/normalize.css/" target="_blank" rel="external">Normalize.css</a>或者<a href="http://www.modernizr.com/" target="_blank" rel="external">modernizr.js</a>，但是，过了一段时间后，可能该开源库已经更新了，而你没有发现，这个时候可能已经不太适合你的项目了，那么你就要重新折腾一遍或者继续用陈旧的文件。Nettuts Fetch可以让你设置一些需要同步的文件列表，然后保存更新。</p>
+<p><img src="http://www.cnsecer.com/wp-content/uploads/2013/07/279052d5f2433dd4e60293b8d6262635.jpg" alt="Sublime Text 3 常用插件以及安装方法 --PHP 第5张" title="Sublime Text 3 常用插件以及安装方法 --PHP 第5张"></p>
+<h5 id="JsMinifier"><a href="#JsMinifier" class="headerlink" title="JsMinifier"></a>JsMinifier</h5><p>该插件基于Google Closure compiler，自动压缩js文件。</p>
+<h5 id="Sublime_CodeIntel"><a href="#Sublime_CodeIntel" class="headerlink" title="Sublime CodeIntel"></a>Sublime CodeIntel</h5><p>代码自动提示</p>
+<h5 id="Bracket_Highlighter"><a href="#Bracket_Highlighter" class="headerlink" title="Bracket Highlighter"></a>Bracket Highlighter</h5><p>类似于代码匹配，可以匹配括号，引号等符号内的范围。</p>
+<p><img src="http://www.cnsecer.com/wp-content/uploads/2013/07/085cf8d4ff3c0fde7200737fbf4480e1.png" alt="Sublime Text 3 常用插件以及安装方法 --PHP 第6张" title="Sublime Text 3 常用插件以及安装方法 --PHP 第6张"></p>
+<h5 id="Hex_to_HSL"><a href="#Hex_to_HSL" class="headerlink" title="Hex to HSL"></a>Hex to HSL</h5><p>自动转换颜色值，从16进制到HSL格式，快捷键 Ctrl+Shift+U</p>
+<p><img src="http://www.cnsecer.com/wp-content/uploads/2013/07/bd00cb4a7cd02ba80f54f1574b5cb807.png" alt="Sublime Text 3 常用插件以及安装方法 --PHP 第7张" title="Sublime Text 3 常用插件以及安装方法 --PHP 第7张"></p>
+<h5 id="26nbsp_3BConvertToUTF8__26nbsp_3B_u6216_u8005__26nbsp_3BGBK_Encoding_Support"><a href="#26nbsp_3BConvertToUTF8__26nbsp_3B_u6216_u8005__26nbsp_3BGBK_Encoding_Support" class="headerlink" title="&nbsp;ConvertToUTF8 &nbsp;或者 &nbsp;GBK Encoding Support"></a>&nbsp;ConvertToUTF8 &nbsp;或者 &nbsp;GBK Encoding Support</h5><p>从此带有中文的文件打开就不会有乱码了。</p>
+<p>将文件编码从GBK转黄成UTF8，快捷键Ctrl+Shift+C</p>
+<h5 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h5><p><img src="http://www.cnsecer.com/wp-content/uploads/2013/07/42e61e14e67638fb2d2b1a9473ad1a30.png" alt="Sublime Text 3 常用插件以及安装方法 --PHP 第8张" title="Sublime Text 3 常用插件以及安装方法 --PHP 第8张"></p>
+<p>该插件基本上实现了git的所有功能。</p>
+<h5 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h5><p>好吧，大概就这些，如果你有常用的插件或者扩展，欢迎推荐。Sublime Text 3真是一款一见钟情的编辑器，每次和别人聊到编辑器时必荐的。。。</p>
+<p></p></div><p></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/10/25/Sublime-Text-3-常用插件以及安装方法-转/" data-title="Sublime Text 3 常用插件以及安装方法(转) | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/10/25/Sublime必备插件/" title="Sublime必备插件">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  Sublime必备插件</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/10/23/input按钮选择功能/"  title="input按钮选择功能">
+ <strong>NEXT:</strong><br/> 
+ <span>input按钮选择功能
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#u7528Package_Control_u5B89_u88C5_u63D2_u4EF6_u7684_u65B9_u6CD5_uFF1A"><span class="toc-number">1.</span> <span class="toc-text">用Package Control安装插件的方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#GBK_Encoding_Support"><span class="toc-number">1.1.</span> <span class="toc-text">GBK Encoding Support</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Zen_Coding"><span class="toc-number">1.2.</span> <span class="toc-text">Zen Coding</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#jQuery_Package_for_sublime_Text"><span class="toc-number">1.3.</span> <span class="toc-text">jQuery Package for sublime Text</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Sublime_Prefixr"><span class="toc-number">1.4.</span> <span class="toc-text">Sublime Prefixr</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JS_Format"><span class="toc-number">1.5.</span> <span class="toc-text">JS Format</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SublimeLinter"><span class="toc-number">1.6.</span> <span class="toc-text">SublimeLinter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Placeholders"><span class="toc-number">1.7.</span> <span class="toc-text">Placeholders</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Sublime_Alignment"><span class="toc-number">1.8.</span> <span class="toc-text">Sublime Alignment</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Clipboard_History"><span class="toc-number">1.9.</span> <span class="toc-text">Clipboard History</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#DetectSyntax"><span class="toc-number">1.10.</span> <span class="toc-text">DetectSyntax</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Nettuts_Fetch"><span class="toc-number">1.11.</span> <span class="toc-text">Nettuts Fetch</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JsMinifier"><span class="toc-number">1.12.</span> <span class="toc-text">JsMinifier</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Sublime_CodeIntel"><span class="toc-number">1.13.</span> <span class="toc-text">Sublime CodeIntel</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Bracket_Highlighter"><span class="toc-number">1.14.</span> <span class="toc-text">Bracket Highlighter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Hex_to_HSL"><span class="toc-number">1.15.</span> <span class="toc-text">Hex to HSL</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#26nbsp_3BConvertToUTF8__26nbsp_3B_u6216_u8005__26nbsp_3BGBK_Encoding_Support"><span class="toc-number">1.16.</span> <span class="toc-text"> ConvertToUTF8  或者  GBK Encoding Support</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Git"><span class="toc-number">1.17.</span> <span class="toc-text">Git</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">1.18.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

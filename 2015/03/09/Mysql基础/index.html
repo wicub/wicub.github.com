@@ -1,0 +1,496 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Mysql基础 | Charles Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Charles">
+    
+    <meta name="description" content="MySQL1.什么是数据库2.什么是MySQL3.为什么要用数据库4.什么是实体 entity    客观存在的，可以被描述的事或物(一件商品、一次交易记录…)    如何描述实体：——&amp;gt;特征(属性)    一个实体，就是一条记录，也叫一行(row)   record    特征(属性)—-&amp;">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/pacman.png" alt="Charles Blog" title="Charles Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Charles Blog">Charles Blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/09/Mysql基础/" title="Mysql基础" itemprop="url">Mysql基础</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Charles">Charles</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-03-09T02:27:00.000Z" itemprop="datePublished">2015-03-09</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-number">1.</span> <span class="toc-text"> MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4EE5_u4E0A15_u6761_u8868_u7ED3_u6784_u76F8_u5173_u6307_u4EE4_uFF0C_u5168_u80CC_uFF0C_u9ED8_u5199"><span class="toc-number">1.1.</span> <span class="toc-text">以上15条表结构相关指令，全背，默写</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a> MySQL</h1><p>1.什么是数据库<br>2.什么是MySQL<br>3.为什么要用数据库<br>4.什么是实体 entity<br>    客观存在的，可以被描述的事或物(一件商品、一次交易记录…)<br>    如何描述实体：——&gt;特征(属性)<br>    一个实体，就是一条记录，也叫一行(row)   record<br>    特征(属性)—-&gt;列(字段)<br>    表—&gt;一条一条的记录组成<br>    数据库—&gt;由多张表组成，表之间有关系</p>
+<p>5.数据库系统<br>    Database System 、 DBS</p>
+<pre><code>数据库Database    、db
+数据库管理系统Database Manager System   、DBMS
+</code></pre><p>6.数据库管理员<br>    Database Administrator     、DBA</p>
+<p>7.主流数据库<br>    Oracle   MySQL   MSSQLServer  DB2   Access  SQLite</p>
+<p>8.数据冗余<br>    根据需求决定</p>
+<p>9.数据的完整性<br>    如何保证数据的完整性</p>
+<p>10.主键<br>    最小、最稳定、不重复、不改变<br>    如果实体中选不出合适的，加一列，用自增的整数作为主键</p>
+<p>11.唯一约束<br>    <em>*</em>主键与唯一约束的区别:主键不允许为null ，唯一约束可以为null</p>
+<p>12.外键<br>    用来和其它表发生关联</p>
+<p>&nbsp;</p>
+<p>=====================================================<br>1.服务运行中<br>    我的电脑-&gt;右键-&gt;管理-&gt;服务-&gt;mysql<br>    cmd命令行：<br>    net stop mysql<br>    net start mysql<br>2.进入MySQL<br>    运行cmd<br>        程序-&gt;附件-&gt;命令提示符<br>    显示C:\Users\User&gt;    这是Windows命令得示符，表示当前是在Windows中，并未进入到MySQL</p>
+<pre><code>    -h主机名   -u用户名 -p密码
+mysql -hlocalhost -uroot -p123456    #注意-p和密码之间没有空格
+mysql -uroot -p                常用这种
+
+显示mysql&amp;gt;    说明进入到MySQL中了，就可以在这里执行MySQL相关指令
+</code></pre><p>3.MySQL常用指令<br>    指令结束：     ;   \g<br>    命令输错了：     \c        清除缓冲区<br>    帮助：        help;   \h<br>    退出： exit     quit    ctrl+c</p>
+<pre><code>提示符：
+ -&amp;gt;        等分号或\g 或\c
+&apos;&amp;gt;        等单引号
+&quot;&amp;gt;        等输入双引号
+
+上下箭头能调出历史记录
+
+如何复制到记事本中
+</code></pre><p>=================================================================<br>1.查看当前有哪些数据库?<br>     show databases;</p>
+<p>2.如何创建一个数据库?<br>    创建一个名称叫s01的数据库<br>    create database s01;<br>3.删除数据库<br>    drop database s01;<br>4.进入一个数据库<br>    use 数据库名;<br>    use s01;<br>5.如果查看当前在哪个数据库中?<br>     select database();<br>6.查看当前数据库有哪些表<br>    show tables;</p>
+<p>数据类型<br>    4种:数值、字符串  日期时间  null</p>
+<pre><code>*tinyint        1个字节        -128到127    无符号的 0-255
+smallint    2个字节        无符号的0-65535
+mediumint    3个字节
+*int        4个字节        正负21亿多    无符号的:0到40多亿
+bigint        8个字节        负的2的63次方到正的2的63次方减1    无符号的：&amp;hellip;&amp;hellip;
+
+float(m,d)     m总位数   d有多少位是小数
+    float(3,2)  -9.99到9.99
+    m和d都不填，表示最大范围
+
+float(p)
+
+double(m,d)
+
+decimal(m,d)    以字符串表示浮点数    缩写 dec
+
+char(0-255)
+    是定长的，不足长度，会在后面加空格，如果太长，会删除后面一部份
+varchar(0-65535)
+    变长的，占位空间取决于真正存放的数据 
+text 长文本 不需要指定长度   也没有默认值
+blob 二进制
+enum(&apos;男&apos;,&apos;女&apos;)  只能选一个
+set(&apos;a&apos;,&apos;b&apos;,&apos;c&apos;)      &apos;ab&apos;   &apos;abc&apos;  &apos;bc&apos;   &apos;ca&apos;  &apos;a&apos;
+
+datetime 日期时间
+    datetime    yyyy-mm-dd hh:ii:ss
+    date        yyyy-mm-dd
+    time        hh:ii:ss
+    year        yyyy
+</code></pre><p>7.创建表<br>create table stu(<br>     id int auto_increment primary key,<br>     name varchar(50) unique not null,<br>     sex tinyint not null default 0,<br>    email varchar(255) not null default ‘’<br> )engine=MyISAM default charset=utf8;</p>
+<p>8.删除表<br>    drop table stu;    </p>
+<p>9.如果查看建表语句(已经创建好的表，想知道是怎么创建的)<br>    show create table 表名\G</p>
+<p>10.如何查看表结构<br>    desc 表名;<br>11.concat</p>
+<pre><code>下拉菜单
+</code></pre><p>sql=”select * from category order by concat(path,id)”</p>
+<pre><code>连接的作用
+</code></pre><hr>
+<p>运算符</p>
+<pre><code>+   -   *  /  %
+=   &amp;gt;   &amp;lt;   &amp;gt;=   &amp;lt;=   &amp;lt;&amp;gt;   !=
+
+select 2+3;
+
+比较是否相等，是用一个等号，不是两个等号
+null不等于null
+
+is null
+is not null
+*in
+not in
+*between  and
+*like
+regexp
+not regexp
+
+&amp;amp;&amp;amp; and  ||  or  ! not
+not的优先级很高
+
+&amp;amp;  |   &amp;gt;&amp;gt;   &amp;lt;&amp;lt;
+
+select 3 in (3,4,5);
+select 3 between 2 and 5;
+select (3&amp;gt;=2 and 3&amp;lt;=5);        与上一行一样的
+select &apos;admininistrator&apos; like &apos;admin%&apos;;
+select * from t1 where name regexp &apos;a.*$&apos;;
+</code></pre><p>=============================<br>安装MysQL<br>    mysql-5.9-win32.msi<br>    mysql-5.9-win32.zip 推荐</p>
+<pre><code>mysqld -install mysql
+mysqld -remove mysql
+
+my.ini
+[msyqld]
+character-set-server = utf8
+[client]
+default-character-set = utf8
+</code></pre><p>命令行的中文编码<br>    *简体中文版Windows系统中</p>
+<pre><code>set names gbk;
+</code></pre><p>=============================</p>
+<p>约束<br>    unsigned   无符号  没有负数了  只能放在数值类型的后面<br>    zerofill   零填充  例如int(6) zerofill<br>        mysql&gt; select * from t2;<br>        +——–+<br>        | num    |<br>        +——–+<br>        | 000025 |<br>        +——–+<br>        1 row in set (0.00 sec)<br>    not null 非空<br>    auto_increment 自增，某一个自增id被删除，将不会再使用<br>    primary key 主键<br>    unique    唯一<br>    default 默认值</p>
+<p>==========================<br>11.添加列<br>    alter table 表名 add 列名 类型 约束;   (add 后面的部份，与建表语句一样)</p>
+<p>12.删除列<br>    alter table 表名 drop 列名;</p>
+<p>13.修改列信息<br>     alter table 表名 change 原列名 新列名 类型 约束  （后面部份与建表语句一样）<br>14.设整列顺序<br>    alter table 表名 change 原列名 新列名 类型  约束 after 列名;<br>    alter table stu change address address varchar(255) not null after name;<br>        after  first<br>15.如何改表名称<br>    alter table 表名 rename as 新表名;</p>
+<p>16.如何改表引擎<br>    常用引擎：MyISAM  InnoDB(支持事务)<br>    alter table 表名 engine 新的引擎;</p>
+<hr>
+<h2 id="u4EE5_u4E0A15_u6761_u8868_u7ED3_u6784_u76F8_u5173_u6307_u4EE4_uFF0C_u5168_u80CC_uFF0C_u9ED8_u5199"><a href="#u4EE5_u4E0A15_u6761_u8868_u7ED3_u6784_u76F8_u5173_u6307_u4EE4_uFF0C_u5168_u80CC_uFF0C_u9ED8_u5199" class="headerlink" title="以上15条表结构相关指令，全背，默写"></a>以上15条表结构相关指令，全背，默写</h2><p>如果存在stu表，则删除<br>DROP TABLE IF EXISTS stu;</p>
+<p>注释:<br>    – 注释内容<br>    /<em>多行</em>/</p>
+<pre><code>#脚本风格注释
+</code></pre><p>没有stu表，则创建<br>CREATE TABLE IF NOT EXISTS stu(<br>    id INT AUTO_INCREMENT PRIMARY KEY,        – 编号<br>    name VARCHAR(50) NOT NULL UNIQUE,        – 姓名<br>    sex INT NOT NULL DEFAULT 0,                – 性别<br>    age INT NOT NULL DEFAULT 0,                – 年龄<br>    email VARCHAR(255) NOT NULL DEFAULT ‘’,    – 邮箱<br>    grade_id INT NOT NULL                    – 班级编号<br>)ENGINE=MyISAM DEFAULT CHARSET=UTF8;</p>
+<p>/<em>测试数据</em>/<br>INSERT INTO stu (name,sex,age,email,grade_id)<br>    VALUES<br>    (‘张三’,1,18,’aaa@bb.com’,1),<br>    (‘李四’,0,20,’bbb@bb.com’,1),<br>    (‘王五’,1,16,’ccc@bb.com’,1),<br>    (‘赵六’,1,22,’ddd@bb.com’,1),<br>    (‘田七’,0,20,’ddd@bb.com’,1),<br>    (‘王八’,1,21,’ddd@bb.com’,1);</p>
+<hr>
+<p>插入数据<br>    insert into 表名 (字段1,字段2,…) values (‘值1’,’值2’,…);<br>    如何一次插入多条记录?<br>    insert into 表名 (字段1,字段2,…) values (‘值1’,’值2’,…),(‘值3’,’值4’,…);</p>
+<pre><code>不写列名时，按顺序对应，数量样一样多
+insert into 表名 values (&apos;值1&apos;,&apos;值2&apos;);
+</code></pre><p>查询数据<br>    select 列名  from 表名  where 条件 排序 限制返回数量</p>
+<pre><code>查所有信息
+select * from stu;     *号表示所有的列(字段)
+只想显示id和name
+select id,name from stu;
+条件
+select * from stu where id&amp;gt;3;
+select * from stu where age=20;
+select * from stu where age between 18 and 21;
+select * from stu where age&amp;gt;=18 and age&amp;lt;=21;
+select * from stu where name like &apos;王%&apos;;
+select * from stu where age=18 or age=21;
+排序
+select * from stu order by age;
+默认是 asc 升序 
+倒序排
+select * from stu order by age desc;
+所有男生从大到小排
+select * from stu where sex=1 order by age desc;
+限制返回数量
+select * from stu limit 3;  
+通常要结合排序使用:
+select * from stu order by id limit 3;    -- 前3条数据
+        等同于 limit 0,3
+跳过2条，返回3条：
+select * from stu order by id limit 2,3;
+
+编号大于1，大于16岁，男生排前面，只返回3条数据，只显示姓名、性别、年龄
+select name,sex,age from stu where id&amp;gt;1 and age&amp;gt;16 order by sex desc limit 0,3;
+</code></pre><p>删除<br>    delete from 表名 where 条件;<br>    注意不要成为王八蛋</p>
+<p>更新<br>    update 表名 set 列名=值  where  条件;<br>    也要写上条件<br>    creat</p>
+<p>========================================<br>数据的备份 全部在操作系统命令行中<br>    C:\Users\User&gt;mysqldump -uroot -p s01&gt;c:\stu_201304016.sql</p>
+<p>导入<br>    C:\Users\User&gt;mysqladmin -uroot -p create s01    创建数据库<br>    C:\Users\User&gt;mysql -uroot -p s01&lt;c:\stu_201304016.sql</p>
+<p>&nbsp;</p>
+<hr>
+<p>如何复制数据到另一个表<br>    insert into stu2 select * from stu;    新表stu2必须存在</p>
+<pre><code>create table stu3 select * from stu;    新表不存在时，创建(没有约束)
+
+create table stu3 select * from stu where 1&amp;lt;&amp;gt;1; 只在表结构
+
+create table stu3 select id,name from stu ; 只要id和name列
+
+create table  stu6 select id,name,&apos;20130407&apos;  time from stu;  添加一个time 列
+</code></pre><p>&nbsp;</p>
+<p>更新数据</p>
+<pre><code>update stu set age=age+1;        没有php的$i++;
+在更新用记积分、余额时，通常这么使用
+</code></pre><p>快速删除<br>    truncate table stu;<br>        自增id 会重置</p>
+<hr>
+<p>PHP操作MySQL</p>
+<p>1.PHP操作数据常用的3种方式<br>    mysql函数  纯过程化<br>    mysqli<br>    PDO 纯面向对象</p>
+<p>2.mysql函数</p>
+<pre><code>mysql_connect(主机，用户名，密码)
+mysql_select_db(数据库名称 [，连接 ])
+mysql_set_charset(&apos;utf8&apos; [，连接 ])
+mysql_query(SQL语句 [，连接 ])
+mysql_affected_rows(连接)    受影响行数
+mysql_error(连接)        
+mysql_errno(连接)    
+mysql_close(连接)
+
+两种排错方式 action_bak.php
+
+mysql_insert_id(连接)
+
+//在增删改的情况下，函数需要传入资源的情况下，都是传入连接($link)
+</code></pre><p>&nbsp;</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/03/09/Mysql基础/" data-title="Mysql基础 | Charles Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/03/09/更改git-bash默认的路径/" title="更改git bash默认的路径">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  更改git bash默认的路径</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/09/Mysql基础2/"  title="Mysql基础2">
+ <strong>NEXT:</strong><br/> 
+ <span>Mysql基础2
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-number">1.</span> <span class="toc-text"> MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4EE5_u4E0A15_u6761_u8868_u7ED3_u6784_u76F8_u5173_u6307_u4EE4_uFF0C_u5168_u80CC_uFF0C_u9ED8_u5199"><span class="toc-number">1.1.</span> <span class="toc-text">以上15条表结构相关指令，全背，默写</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Charles Blog
+		<!--	
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
+		 -->
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>

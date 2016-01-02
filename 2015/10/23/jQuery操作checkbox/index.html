@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | Charles Blog</title>
+    <title>jQuery操作checkbox | Charles Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
-    <meta name="author" content="John Doe">
+    <meta name="author" content="Charles">
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+    <meta name="description" content="全选和全部选
+&amp;nbsp;
+&amp;lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&amp;quot;&amp;amp;gt;">
     
     
     
@@ -41,9 +43,13 @@
 			<nav class="animated">
 				<ul>
 					
-						<li><a href="/">Home</a></li>
+						<li><a href="/">首页</a></li>
 					
-						<li><a href="/archives">Archives</a></li>
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+						<li><a href="/about">关于</a></li>
 					
 					<li>
 					
@@ -65,15 +71,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/12/30/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2015/10/23/jQuery操作checkbox/" title="jQuery操作checkbox" itemprop="url">jQuery操作checkbox</a>
   </h1>
   <p class="article-author">By
     
-      <a href="http://yoursite.com" title="John Doe">John Doe</a>
+      <a href="http://yoursite.com" title="Charles">Charles</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-12-30T12:47:24.000Z" itemprop="datePublished">2015-12-30</time>
-    更新日期:<time datetime="2015-12-30T12:47:24.000Z" itemprop="dateModified">2015-12-30</time>
+    <time datetime="2015-10-23T06:43:00.000Z" itemprop="datePublished">2015-10-23</time>
+    更新日期:<time datetime="2016-01-02T02:18:26.000Z" itemprop="dateModified">2016-01-02</time>
     
   </p>
 </header>
@@ -82,18 +88,14 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		
 		</div>
 		
-		<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+		<p>全选和全部选</p>
+<p>&nbsp;</p>
+<div class="cnblogs_Highlighter"><br><pre class="brush:html;gutter:true;">&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&amp;gt" target="_blank" rel="external">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&amp;gt</a>;<br>&lt;html xmlns=”<a href="http://www.w3.org/1999/xhtml&quot;&amp;gt" target="_blank" rel="external">http://www.w3.org/1999/xhtml&quot;&amp;gt</a>;<br>&lt;head runat=”server”&gt;<br>    &lt;title&gt;&lt;/title&gt;<br>    &lt;script src=”Scripts/jquery-1.7.min.js” type=”text/javascript”&gt;&lt;/script&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        $(function () {<br>            // 全选<br>            $(“#btnCheckAll”).bind(“click”, function () {<br>                $(“[name = chkItem]:checkbox”).attr(“checked”, true);<br>            });<br><br>            // 全不选<br>            $(“#btnCheckNone”).bind(“click”, function () {<br>                $(“[name = chkItem]:checkbox”).attr(“checked”, false);<br>            });<br><br>            // 反选<br>            $(“#btnCheckReverse”).bind(“click”, function () {<br>                $(“[name = chkItem]:checkbox”).each(function () {<br>                    $(this).attr(“checked”, !$(this).attr(“checked”));<br>                });<br>            });<br><br>            // 全不选<br>            $(“#btnSubmit”).bind(“click”, function () {<br>                var result = new Array();<br>                $(“[name = chkItem]:checkbox”).each(function () {<br>                    if ($(this).is(“:checked”)) {<br>                        result.push($(this).attr(“value”));<br>                    }<br>                });<br><br>                alert(result.join(“,”));<br>            });<br>        });<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div&gt;<br>        &lt;input name=”chkItem” type=”checkbox” value=”今日话题” /&gt;今日话题<br>        &lt;input name=”chkItem” type=”checkbox” value=”视觉焦点” /&gt;视觉焦点<br>        &lt;input name=”chkItem” type=”checkbox” value=”财经” /&gt;财经<br>        &lt;input name=”chkItem” type=”checkbox” value=”汽车” /&gt;汽车<br>        &lt;input name=”chkItem” type=”checkbox” value=”科技” /&gt;科技<br>        &lt;input name=”chkItem” type=”checkbox” value=”房产” /&gt;房产<br>        &lt;input name=”chkItem” type=”checkbox” value=”旅游” /&gt;旅游<br>    &lt;/div&gt;<br>    &lt;div&gt;<br>        &lt;input id=”btnCheckAll” type=”button” value=”全选” /&gt;<br>        &lt;input id=”btnCheckNone” type=”button” value=”全不选” /&gt;<br>        &lt;input id=”btnCheckReverse” type=”button” value=”反选” /&gt;<br>        &lt;input id=”btnSubmit” type=”button” value=”提交” /&gt;<br>    &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br></div>
+
+<p>　　</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -103,7 +105,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/12/30/hello-world/" data-title="Hello World | Charles Blog" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/10/23/jQuery操作checkbox/" data-title="jQuery操作checkbox | Charles Blog" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -113,23 +115,35 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/12/30/Charles-blog/" title="Charles blog">
+ <a href="/2015/10/23/js-url参数的获取和设置以及删除/" title="js url参数的获取和设置以及删除">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  Charles blog</span>
+  js url参数的获取和设置以及删除</span>
 </a>
 </div>
 
 
+<div class="next">
+<a href="/2015/10/23/jquery-跨域获取网页数据-午时的海/"  title="jquery 跨域获取网页数据 - 午时的海">
+ <strong>NEXT:</strong><br/> 
+ <span>jquery 跨域获取网页数据 - 午时的海
+</span>
+</a>
+</div>
+
 </nav>
 
 	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  
   </div>
 
 <div id="asidepart">
@@ -164,7 +178,7 @@
 	</div>
 		<p class="copyright">Charles Blog
 		<!--	
-		<a href="http://yoursite.com" target="_blank" title="John Doe">John Doe</a>
+		<a href="http://yoursite.com" target="_blank" title="Charles">Charles</a>
 		 -->
 		</p>
 </div>
@@ -278,6 +292,18 @@ $(document).ready(function(){
 });     
 </script>
 
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"wicub.duoshuo.com"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
 
 
 
